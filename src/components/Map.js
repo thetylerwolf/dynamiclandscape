@@ -8,7 +8,7 @@ import { feature } from "topojson-client"
 const width = 1500;
 const height = 900;
 
-class App extends Component {
+class SmallMap extends Component {
 
   constructor() {
     super()
@@ -65,4 +65,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default SmallMap;
