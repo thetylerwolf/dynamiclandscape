@@ -1,8 +1,7 @@
 import React, { Component } from "react"
-import { feature } from "topojson-client"
 import { ReactComponent as Map } from '../data_set/municipalities.svg'
 import mId from '../data_set/municipalityIdMapping.json'
-import { extent } from 'd3-array'
+import { extent, median } from 'd3-array'
 import { scaleLinear } from 'd3-scale'
 import { schemeRdBu } from 'd3-scale-chromatic'
 
@@ -26,13 +25,13 @@ class App extends Component {
         }
         response.json().then(data => {
 
-          data.values.forEach(v => v.value = v.values.find(d => d.gender == 'T'))
+          data.values.forEach(v => v.value = v.values.find(d => d.gender === 'T'))
 
           let r = extent(data.values, (d) => d.value.value),
+            med = median(data.values, (d) => d.value.value),
             scale = scaleLinear()
-              .domain(r)
-              .range([schemeRdBu[3][0], schemeRdBu[3][2]])
-
+              .domain([ r[0], med, r[1] ])
+              .range(schemeRdBu[3])
 
           data.values.forEach(v => {
             let id = mId[ v.municipality ]
@@ -44,8 +43,7 @@ class App extends Component {
             id = id.replace(/Å/g, '\\xC5')
             let path = map.getElementById(id)
             if(!path) console.log(id, path)
-            if(path)
-              path.style.fill = scale(v.value.value)
+            if(path && v.value.value) path.style.fill = scale(v.value.value)
           })
 
           this.setState({ extent: r })
