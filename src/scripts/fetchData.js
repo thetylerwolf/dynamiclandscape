@@ -1,4 +1,3 @@
-var result = require("./theResult.json");
 var stuff = require("../data_set/theStuff.json");
 var fs = require("fs");
 var axios = require("axios");
@@ -14,7 +13,7 @@ function getStuff(url) {
     .get(encodeURI(url))
     .then(function(response) {
       console.log(response.data);
-      /*fs.appendFile(result, JSON.stringify(asd), function(err) {
+      /*fs.appendFile(./resultFile.json, JSON.stringify(asd, null, 4), function(err) {
         if (err) throw err;
       });*/
     })
