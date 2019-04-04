@@ -1,34 +1,31 @@
-import React, { Component } from "react"
-import MapMultiples from './components/MapMultiples'
-import goalSections from './data_set/goalSections.json'
-import './App.css';
+import React, { Component } from 'react'
+import {
+  Router,
+} from 'react-router-dom'
 
-class App extends Component {
+import createHistory from 'history/createBrowserHistory'
 
-  constructor() {
-    super()
-    this.state = {
-      school: ''
-    }
-  }
+import { RoutesWithRouter as Routes } from './components/Routes'
 
-  componentDidMount() {
+const history = createHistory()
+history.listen((location, action) => {
+  window.gtag('config', 'UA-137717045-1', {
+    'page_title' : location.pathname,
+    'page_path': location.pathname
+  });
+})
 
-  }
-
-  handleClick(index) {
-    console.log("Clicked on: ", this.state)
-  }
+export default class App extends Component {
 
   render() {
-    let multiplesSections = goalSections.map((sec,i) => {
-      return (
-        <MapMultiples data={ sec } key={ i } />
-      )
-    })
+    return (
 
-    return multiplesSections
+      <Router history={ history }>
+        <Routes />
+      </Router>
+
+    )
+
   }
-}
 
-export default App;
+}
