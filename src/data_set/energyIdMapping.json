@@ -1,0 +1,19 @@
+{
+    "N45900": "Elpris inkl. moms för typfastighet enligt Nils Holgersson-modellen, kr/kvm",
+    "N45901": "Fjärrvärmepris inkl. moms för typfastighet enligt Nils Holgersson-modellen, kr/kvm",
+    "N45926": "Elproduktion totalt inom det geografiska området, MWh",
+    "N45928": "Fjärrvärmeproduktion totalt inom det geografiska området, MWh",
+    "N45927": "Elproduktion av vattenkraft inom det geografiska området, MWh",
+    "N45904": "Elproduktion av vindkraft inom det geografiska området, MWh",
+    "N45925": "Elproduktion av förnybara energikällor inom det geografiska området, andel (%)",
+    "N45929": "Fjärrvärmeproduktion av förnybara energikällor på värmeverk inom det geografiska området, andel (%)",
+    "N45905": "Slutanvändning av energi totalt inom det geografiska området, MWh/inv",
+    "N45920": "Slutanvändning energi inom hushåll inom det geografiska området, MWh/inv",
+    "N45911": "Slutanvändning energi inom industri och byggverksamhet inom det geografiska området, MWh/inv",
+    "N45910": "Slutanvändning energi inom jordbruk, skogsbruk och fiske inom det geografiska området, MWh/inv",
+    "N45912": "Slutanvändning energi inom offentlig verksamhet inom det geografiska området, MWh/inv",
+    "N45913": "Slutanvändning energi inom transporter inom det geografiska området, MWh/inv",
+    "N45914": "Slutanvändning energi inom övriga tjänster inom det geografiska området, MWh/inv",
+    "N45933": "Elavbrott,  genomsnittlig avbrottstid per kund (SAIDI), minuter/kund",
+    "N45934": "Elavbrott,  andel kunder som drabbats av 4 eller fler oaviserade långa avbrott under året (CEMI-4), andel (%)"
+}
