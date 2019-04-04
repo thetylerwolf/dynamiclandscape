@@ -1,0 +1,19 @@
+{   
+    "U07414": "Hushållsavfall som samlats in för materialåtervinning, inkl. biologisk behandling, andel (%)",
+    "U07480": "Insamlat matavfall som går till biologisk återvinning inkl. hemkompostering, andel (%)",
+    "U07481":"Insamlat matavfall som behandlas biologiskt så att både växtnäring och energi tas tillvara (endast rötning), andel (%)",
+    "U07801":"Insamlat hushållsavfall totalt, kg/person",
+    "U07486": "Största återvinningscentralens tillgänglighet kväll/helg, timmar/vecka",
+    "U07487": "Total tillgänglighet alla återvinningscentraler, minuter/person",
+    "U07489": "Nöjdhet avfallshantering en- och tvåfamiljshus, andel (%)",
+    "U07490": "Nöjdhet avfallshantering lägenhet, andel (%)",
+    "U07491": "Nöjdhet besök vid återvinningscentral, andel (%)",
+    "U07492": "Nöjdhet tillgänglighet till återvinningscentral, andel (%)",
+    "U07488": "Förnybara drivmedel för insamling av mat- och restavfall, andel (%)",
+    "N45029": "Kostnad avfallshantering, kr/inv",
+    "N45923": "Avgift för avfallshämtning inkl. moms för typfastighet enligt Nils Holgersson-modellen, kr/kvm",
+    "U07493": "Vanligaste avfallsavgift totalt inkl. moms för en- och tvåfamiljshus, kr",
+    "U07494": "Vanligaste avfallsavgift totalt inkl. moms för lägenhet i flerbostadshus, kr",
+    "U07495": "Vanligaste avfallsavgift totalt inkl. moms för fritidshus, kr",
+    "U07496": "Organisation av avfallshanteringen, (kodade svarsalternativ)"
+}
