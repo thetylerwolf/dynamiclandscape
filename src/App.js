@@ -3,11 +3,11 @@ import {
   Router,
 } from 'react-router-dom'
 
-import createHistory from 'history/createBrowserHistory'
+import { createBrowserHistory } from 'history'
 
 import { RoutesWithRouter as Routes } from './components/Routes'
 
-const history = createHistory()
+const history = createBrowserHistory()
 history.listen((location, action) => {
   window.gtag('config', 'UA-137717045-1', {
     'page_title' : location.pathname,

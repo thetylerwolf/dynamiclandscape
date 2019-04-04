@@ -1,5 +1,7 @@
 import React, { Component } from "react"
-import '../css/Home.css';
+import VizCanvas from '../components/VizCanvas'
+import TSne from '../js/TSne'
+import '../css/Home.css'
 
 class Home extends Component {
 
@@ -8,12 +10,18 @@ class Home extends Component {
   }
 
   componentDidMount() {
+    this.TSNE = new TSne({
+      onProgress: (msg) => { console.log(msg) },
+      readyStateChange: (msg) => { console.log(msg) },
+      onComplete: (msg) => { console.log(msg) },
+    })
 
+    this.TSNE.init()
   }
 
 
   render() {
-    return (<div>Home</div>)
+    return (<VizCanvas data={ [] }></VizCanvas>)
   }
 }
 
