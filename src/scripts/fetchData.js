@@ -2,12 +2,12 @@ var stuff = require("../data_set/theStuff.json");
 var fs = require("fs");
 var axios = require("axios");
 
-for (var value in stuff) {
-  if (stuff.hasOwnProperty(value)) {
-    console.log(getStuff(""));
-  }
-}
+// Loop through your shit
+Object.keys(stuff).forEach(theThing => {
+  console.log(theThing);
+});
 
+// Get request + write to file
 function getStuff(url) {
   axios
     .get(encodeURI(url))

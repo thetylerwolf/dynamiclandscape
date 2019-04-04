@@ -1,4 +1,5 @@
-var mappingFile = "wasteIdMapping"; // Change
+// Change these two and go
+var mappingFile = "wasteIdMapping"; // Change to your kpi mapping file
 var resultFolder = "waste"; // Change and create folder with this name
 
 var kpiFile = require("../data_set/" + mappingFile + ".json");
