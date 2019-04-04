@@ -20,8 +20,8 @@ class VizCanvas extends Component {
   rScale = d3.scaleSqrt()
     .range([ 0, maxRadius ])
 
-  colorScale = d3.scaleLinear()
-    .range([ '#3aa63a', '#8c50b9' ])
+  colorScale = d3.scaleOrdinal()
+    .range(d3.schemeSet2)
 
   constructor() {
     super()
@@ -60,11 +60,12 @@ class VizCanvas extends Component {
     if(!context) return
 
     context.clearRect(0, 0, width, height);
+const RADIUS = 10
+    this.props.data.forEach((d,i) => {
 
-    this.props.data.forEach(d => {
       context.beginPath()
-      context.arc(d.x, d.y, d.r, 0, 2 * Math.PI, true)
-      context.fillStyle = this.colorScale( 0 )
+      context.arc(width/2 * d[0] + width/2, height/2 * d[1] + height/2, RADIUS, 0, 2 * Math.PI, true)
+      context.fillStyle = this.colorScale( i )
       context.closePath()
       context.fill()
     })
@@ -76,6 +77,8 @@ class VizCanvas extends Component {
   }
 
   render() {
+    this.onTick()
+
     return (
       <canvas width={ width } height={ height } ref="vizCanvas" ></canvas>
     )
