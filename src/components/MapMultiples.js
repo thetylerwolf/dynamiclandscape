@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import goalIdLookup from '../data_set/goalIdMapping.json'
+import goalIdLookup from '../data_set/mapping/goalIdMapping.json'
 import SmallMap from './SmallMap'
 
 class MapMultiples extends Component {
