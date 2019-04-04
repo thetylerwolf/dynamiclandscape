@@ -1,8 +1,8 @@
 // Change these two and go
-var mappingFile = "wasteIdMapping"; // Change to your kpi mapping file
-var resultFolder = "waste"; // Change and create folder with this name
+var mappingFile = "integrationIdMapping"; // Change to your kpi mapping file
+var resultFolder = "integration"; // Change and create folder with this name
 
-var kpiFile = require("../data_set/" + mappingFile + ".json");
+var kpiFile = require("../data_set/mapping/" + mappingFile + ".json");
 var munisFile = require("../data_set/municipalityIdMapping.json");
 var fs = require("fs");
 var axios = require("axios");

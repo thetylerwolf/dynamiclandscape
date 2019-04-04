@@ -1,7 +1,7 @@
 // Change these three and go
-var kpiMappingFile = "wasteIdMapping.json"; // Change to your kpi mapping file
-var dataFolder = "waste"; // Should already exist
-var resultFileName = "all_waste_all_years.json"; // The result file, should not exist
+var kpiMappingFile = "integrationIdMapping.json"; // Change to your kpi mapping file
+var dataFolder = "integration"; // Should already exist
+var resultFileName = "all_integration_all_years.json"; // The result file, should not exist
 
 var ids = require("../data_set/mapping/" + kpiMappingFile);
 var muniFile = require("../data_set/municipalityIdMapping.json");
