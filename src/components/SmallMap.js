@@ -6,54 +6,56 @@ import { scaleLinear } from "d3-scale";
 import { schemeRdBu } from "d3-scale-chromatic";
 
 const mappings = require("../models/mappings.js");
+const allData = require("./nodeData.json");
 
 class App extends Component {
   constructor() {
     super();
-
     this.state = { extent: [] };
   }
 
   componentDidMount() {
-    let map = this.refs.swedenMap,
-      id = this.props.id;
+    let map = this.refs.swedenMap;
 
-    fetch(`/goals/${mappings.nodeData}.json`).then(response => {
-      console.log("asd: " + `/goals/${mappings.nodeData}.json`);
-      if (response.status == 200) {
-        console.log("****************");
-        console.log(response);
-        console.log("****************");
-        //console.log(`Error: ${response.status}`);
-        return;
-      }
-      response.json().then(data => {
-        data.values.forEach(
-          v => (v.value = v.values.find(d => d.gender === "T"))
-        );
+    Object.keys(mappings.kpiMapping).forEach(kpi => {
+      console.log(kpi);
+    });
 
-        let r = extent(data.values, d => d.value.value),
-          med = median(data.values, d => d.value.value),
-          scale = scaleLinear()
-            .domain([r[0], med, r[1]])
-            .range(schemeRdBu[3]);
+    /*for (var i = 0; i < allData.length; i++) {
+      let muni = allData[i];
 
-        data.values.forEach(v => {
-          let id = mId[v.municipality];
-          id = id.replace(/ä/g, "\\xE4");
-          id = id.replace(/Ä/g, "\\xC4");
-          id = id.replace(/ö/g, "\\xF6");
-          id = id.replace(/Ö/g, "\\xD6");
-          id = id.replace(/å/g, "\\xE5");
-          id = id.replace(/Å/g, "\\xC5");
-          let path = map.getElementById(id);
-          if (!path) console.log(id, path);
-          if (path && v.value.value) path.style.fill = scale(v.value.value);
-        });
+      let muniId = muni.id;
+      let muniName = muni.name;
+      let kpis = muni.kpis;
+      console.log("Fetching muni: " + muniName);
+      for (var j = 0; j < 1; j++) {
+        let kpiId = kpis[j].id;
+        console.log("Fetching kpi: " + kpiId);
+        let kpiValue = kpis[j].value;
+        console.log("kpi value: " + kpiValue);
+        let path = map.getElementById(muniId); //id = muniId
+        console.log("muni id: " + muniId);
+
+        //if (!path) console.log(id, path);
+
+        let tylerMapping = mappings.kpiMapping[kpiId];
+
+        let r = [tylerMapping.min, tylerMapping.max];
+        console.log("r: " + r);
+
+        let med = tylerMapping.median;
+        console.log("med: " + med);
+        let scale = scaleLinear()
+          .domain([r[0], med, r[1]])
+          .range(schemeRdBu[3]);
+
+        if (path && kpiValue) {
+          path.style.fill = scale(kpiValue); // v.value.value = value of the kpi for that muni
+        }
 
         this.setState({ extent: r });
-      });
-    });
+      }
+    }*/
   }
 
   render() {
