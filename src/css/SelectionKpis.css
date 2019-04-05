@@ -3,5 +3,7 @@
   height:100%;
   right:0;
   top:0;
-  overflow:scroll;
+  overflow-y:scroll;
+  overflow-x:wrap;
+  width:200px;
 }

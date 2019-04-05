@@ -2,9 +2,6 @@ import React, { Component } from "react"
 import { kpiMapping } from '../models/mappings'
 import '../css/SelectionKpis.css'
 
-const width = 1500;
-const height = 900;
-
 class SelectionKpis extends Component {
 
   constructor() {
@@ -21,13 +18,16 @@ class SelectionKpis extends Component {
 
     return (
       <div className="selection-kpis-container">
+
         <div className="municipality-name">{ this.props.node.name }</div>
+
         { this.props.node && this.props.node.kpis.map((kpi,i) => {
+
             if(kpi) {
               return (
                 <div key={ i }>
                   <div className="kpi-title">
-                  { kpi.id }
+                    { kpiMapping[ kpi.id ].name }
                   </div>
                   <div className="kpi-value-container">
                     <div className="kpi-min"></div>
@@ -39,6 +39,7 @@ class SelectionKpis extends Component {
             }
           })
         }
+
       </div>
     )
   }

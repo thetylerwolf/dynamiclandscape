@@ -1,16 +1,20 @@
-const goalsData = require("../data_set/goals/all_goals_latest_years.json");
-const wasteData = require("../data_set/waste/all_waste_latest_years.json");
-const integrationData = require("../data_set/integration/all_integration_latest_years.json");
-const energyData = require("../data_set/energy/all_energy_latest_years.json");
-const elderlyCareData = require("../data_set/elderlyCare/all_elderlyCare_latest_years.json");
-const municipalityIds = require("../data_set/municipalityIdMapping.json");
-const wasteIdMapping = require("../data_set/mapping/wasteIdMapping.json");
-const integrationIdMapping = require("../data_set/mapping/integrationIdMapping.json");
-const goalIdMapping = require("../data_set/mapping/goalIdMapping.json");
-const energyIdMapping = require("../data_set/mapping/energyIdMapping.json");
-const elderlyCareIdMapping = require("../data_set/mapping/elderlyCareIdMapping.json");
+import goalsData from "../data_set/goals/all_goals_latest_years.json";
+import wasteData from "../data_set/waste/all_waste_latest_years.json";
+import integrationData from "../data_set/integration/all_integration_latest_years.json";
+import energyData from "../data_set/energy/all_energy_latest_years.json";
+import elderlyCareData from "../data_set/elderlyCare/all_elderlyCare_latest_years.json";
+
+import wasteIdMapping from "../data_set/mapping/wasteIdMapping.json";
+import integrationIdMapping from "../data_set/mapping/integrationIdMapping.json";
+import goalIdMapping from "../data_set/mapping/goalIdMapping.json";
+import energyIdMapping from "../data_set/mapping/energyIdMapping.json";
+import elderlyCareIdMapping from "../data_set/mapping/elderlyCareIdMapping.json";
+
+import municipalityIds from "../data_set/municipalityIdMapping.json";
 
 const municipalities = Object.keys(municipalityIds).sort();
+
+const d3 = require("d3");
 
 const allData = [
   ...goalsData.kpis,
@@ -28,7 +32,25 @@ const kpiMapping = {
   ...elderlyCareIdMapping
 };
 
-console.log("ad", allData);
+allData.forEach(d => {
+  const vals = d.municipalities.map(d => d.value);
+  const extent = d3.extent(vals);
+  const mean = d3.mean(vals);
+
+  // Skip any duplicates (there are 5)
+  if (kpiMapping[d.id].name) return;
+
+  const name = kpiMapping[d.id];
+
+  kpiMapping[d.id] = {
+    name,
+    max: vals[0],
+    min: vals[1],
+    mean
+  };
+});
+
+console.log(kpiMapping);
 
 const nodeData = municipalities.map(muniId => {
   return {
@@ -44,9 +66,9 @@ const nodeData = municipalities.map(muniId => {
   };
 });
 
-let modelData = nodeData.map(muni => {
-  let kpiArr = muni.kpis.map(kpi => {
-    let v = kpi.value === undefined ? -1 : kpi.value;
+const modelData = nodeData.map(muni => {
+  const kpiArr = muni.kpis.map(kpi => {
+    const v = kpi.value === undefined ? -1 : kpi.value;
 
     return v;
   });
@@ -54,4 +76,4 @@ let modelData = nodeData.map(muni => {
   return kpiArr;
 });
 
-module.exports = { municipalityIds, nodeData, modelData, kpiMapping };
+export { municipalityIds, nodeData, modelData, kpiMapping };
