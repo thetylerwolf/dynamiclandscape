@@ -44,9 +44,9 @@ class Home extends Component {
           tsneComplete: true
         })
       },
-      perplexity: 50,
-      earlyExaggeration: 2.1,
-      learningRate: 50,
+      perplexity: 90,
+      earlyExaggeration: 2.5,
+      learningRate: 60,
       iterations: 2000,
       metric: 'euclidean',
       dim: 2,
