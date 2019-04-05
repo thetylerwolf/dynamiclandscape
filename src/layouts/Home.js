@@ -12,6 +12,8 @@ let kpis = goalsData.municipalities[0].kpis.reduce((acc,d) => {
 
 kpis = Object.keys(kpis)
 
+let nodeData = goalsData.municipalities
+
 let modelData = goalsData.municipalities.map(municipality => {
   // sort kpis in municipality by year
   municipality.kpis.sort((a,b) => a.year - b.year)
@@ -20,12 +22,17 @@ let modelData = goalsData.municipalities.map(municipality => {
   // for each kpi we have in our list
   let muniKpis = kpis.map(kpi => {
     // find the most recent occurrence in this municipality
-    let found = municipality.kpis.find(d => kpi === d.id)
-    let v = found && found.value
+    return municipality.kpis.find(d => kpi === d.id)
+  })
+
+  municipality.kpis = muniKpis
+
+  let kpiArr = muniKpis.map(kpi => {
+    let v = kpi && kpi.value
     return v || -1
   })
 
-  return muniKpis
+  return kpiArr
 
 })
 
@@ -36,9 +43,12 @@ class Home extends Component {
   constructor() {
     super()
 
+    this.nodeData = modelData
+
     this.state = {
       positionData: [],
       tsneComplete: false,
+      nodeData
     }
   }
 
@@ -74,9 +84,35 @@ class Home extends Component {
     this.TSNE.init()
   }
 
+  _selectNode(node) {
+
+    this.setState({ selectedNode: node })
+
+  }
 
   render() {
-    return (<VizCanvas positionData={ this.state.positionData }></VizCanvas>)
+
+
+    return (
+      <div className="home-wrap">
+        <div className="filter-container">
+          { this.state.selectedNode && this.state.selectedNode.kpis.map((kpi,i) => {
+              if(kpi) {
+                return (<div key={ i }>
+                  { kpi.id } - { kpi.value.toFixed(1) }
+                </div>)
+              }
+            })
+          }
+        </div>
+        <VizCanvas
+          positionData={ this.state.positionData }
+          nodeData={ this.state.nodeData }
+          onClick={ (node) => this._selectNode(node) }
+          >
+        </VizCanvas>
+      </div>
+    )
   }
 }
 

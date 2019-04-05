@@ -10,6 +10,8 @@ const padding = {
   left: 100
 }
 
+const RADIUS = 10
+
 let maxRadius = 35
 
 class VizCanvas extends Component {
@@ -45,6 +47,7 @@ class VizCanvas extends Component {
     d3.select( this.refs.vizCanvas )
       .style('width', width + 'px')
       .style('height', height + 'px')
+      .on('click', () => this.handleClick())
 
     let dpr = window.devicePixelRatio || 1,
       rect = this.refs.vizCanvas.getBoundingClientRect()
@@ -55,7 +58,6 @@ class VizCanvas extends Component {
     let context = this.refs.vizCanvas.getContext('2d')
     context.scale(dpr, dpr)
 
-
     this.setState({ context })
   }
 
@@ -65,7 +67,7 @@ class VizCanvas extends Component {
     if(!context) return
 
     context.clearRect(0, 0, width, height);
-const RADIUS = 10
+
     this.props.positionData.forEach((d,i) => {
 
       context.beginPath()
@@ -77,8 +79,40 @@ const RADIUS = 10
 
   }
 
-  handleClick(index) {
-    console.log("Clicked on: ")
+  handleClick() {
+    let x = d3.event.offsetX,
+      y = d3.event.offsetY
+
+    let hitNode
+
+    let hits = this.props.positionData.forEach((point,i) => {
+      let dx = x - this.xScale( point[0] )
+      let dy = y - this.yScale( point[1] )
+
+      let hit = dx*dx + dy*dy < RADIUS * RADIUS
+
+      if(hit) {
+        hitNode = {
+          point,
+          index: i
+        }
+      }
+
+    })
+
+    if(!hitNode) return
+
+    this.props.nodeData.forEach(node => {
+      node.active = false
+      node.selected = false
+    })
+    this.props.nodeData[ hitNode.index ].active = true
+    this.props.nodeData[ hitNode.index ].selected = true
+
+    this.onTick()
+
+    this.props.onClick(this.props.nodeData[ hitNode.index ])
+
   }
 
   render() {
