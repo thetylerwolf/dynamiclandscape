@@ -1,93 +1,92 @@
-import React, { Component } from "react"
-import VizCanvas from '../components/VizCanvas'
-import Dropdown from '../components/Dropdown'
-import AutoSuggest from '../components/AutoSuggest'
-import SelectionKpis from '../components/SelectionKpis'
-import TSne from '../js/TSne'
-import '../css/Home.css'
-import {
-  modelData,
-  nodeData,
-  allData
-} from '../models/mappings'
+import React, { Component } from "react";
+import VizCanvas from "../components/VizCanvas";
+import Dropdown from "../components/Dropdown";
+import AutoSuggest from "../components/AutoSuggest";
+import CheckBox from "../components/CheckBox";
+import SelectionKpis from "../components/SelectionKpis";
+import TSne from "../js/TSne";
+import "../css/Home.css";
+import { modelData, nodeData, allData } from "../models/mappings";
 
 import { kpiMapping } from "../models/mappings";
 
-console.log('node data', nodeData)
-console.log('model data', modelData)
+const headingMapping = require("../data_set/mapping/headingMapping.json");
+
+console.log("node data", nodeData);
+console.log("model data", modelData);
 
 class Home extends Component {
-
   constructor() {
-    super()
+    super();
+
+    let headings = [];
+    for (var i = 0; i < headingMapping.length; i++) {
+      headings.push(headingMapping[i].name);
+    }
 
     this.state = {
       positionData: [],
       tsneComplete: false,
       nodeData,
       modelData,
-      sizeKpi: kpiMapping[ Object.keys(kpiMapping)[0] ],
-      colorKpi: kpiMapping[ Object.keys(kpiMapping)[0] ]
-    }
+      sizeKpi: kpiMapping[Object.keys(kpiMapping)[0]],
+      colorKpi: kpiMapping[Object.keys(kpiMapping)[0]],
+      headings: headings
+    };
   }
 
   componentDidMount() {
     this.TSNE = new TSne({
-      onProgress: (msg) => {
+      onProgress: msg => {
         // console.log('progress', msg)
         this.setState({
           positionData: msg
-        })
+        });
       },
-      readyStateChange: (msg) => {
+      readyStateChange: msg => {
         // console.log('statechange', msg)
-        if(msg === 'READY' && !this.state.tsneComplete) {
-          setTimeout(() => this.TSNE.run(), 33)
+        if (msg === "READY" && !this.state.tsneComplete) {
+          setTimeout(() => this.TSNE.run(), 33);
         }
       },
-      onComplete: (msg) => {
+      onComplete: msg => {
         // console.log('complete', msg)
         this.setState({
           tsneComplete: true
-        })
+        });
       },
       perplexity: 90,
       earlyExaggeration: 2.5,
       learningRate: 60,
       iterations: 2000,
-      metric: 'euclidean',
+      metric: "euclidean",
       dim: 2,
       data: this.state.modelData
-    })
+    });
 
-    this.TSNE.init()
+    this.TSNE.init();
   }
 
   _selectNode(node) {
-
-    this.setState({ selectedNode: node })
-
+    this.setState({ selectedNode: node });
   }
 
   _selectColor({ selectedOption }) {
     //this.setState({ selectedColor: color })
-    console.log('color', selectedOption)
-    this.setState({ colorKpi: kpiMapping[selectedOption.value] })
+    console.log("color", selectedOption);
+    this.setState({ colorKpi: kpiMapping[selectedOption.value] });
   }
 
   _selectSize({ selectedOption }) {
     //this._selectSize({ selectedSize: size })
-    console.log('size', selectedOption)
-    this.setState({ sizeKpi: kpiMapping[selectedOption.value] })
+    console.log("size", selectedOption);
+    this.setState({ sizeKpi: kpiMapping[selectedOption.value] });
   }
 
-
   render() {
-
-
     return (
       <div className="home-wrap">
-        <SelectionKpis node={ this.state.selectedNode } />
+        <SelectionKpis node={this.state.selectedNode} />
 
         <Dropdown
           data={kpiMapping}
@@ -100,19 +99,21 @@ class Home extends Component {
           onChange={size => this._selectSize(size)}
         />
 
-      <AutoSuggest />
+        <AutoSuggest />
+
+        {this.state.headings.map(element => {
+          return [<CheckBox />];
+        })}
 
         <VizCanvas
-          positionData={ this.state.positionData }
-          nodeData={ this.state.nodeData }
-          radiusValue={ this.state.sizeKpi }
-          colorValue={ this.state.colorKpi }
-          onClick={ (node) => this._selectNode(node) }
-          >
-        </VizCanvas>
-
+          positionData={this.state.positionData}
+          nodeData={this.state.nodeData}
+          radiusValue={this.state.sizeKpi}
+          colorValue={this.state.colorKpi}
+          onClick={node => this._selectNode(node)}
+        />
       </div>
-    )
+    );
   }
 }
 
