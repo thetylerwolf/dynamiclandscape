@@ -1,0 +1,7 @@
+.selection-kpis-container {
+  position:fixed;
+  height:100%;
+  right:0;
+  top:0;
+  overflow:scroll;
+}
