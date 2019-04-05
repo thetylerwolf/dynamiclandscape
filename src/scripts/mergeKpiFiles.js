@@ -10,6 +10,7 @@ var result = new Object();
 var kpis = [];
 
 for (var kpi in kpiFile) {
+  console.log(kpi);
   var array = new Object();
   array.id = kpi;
   array.municipalities = [];
@@ -31,14 +32,12 @@ for (var kpi in kpiFile) {
     } else {
       v = v.value;
     }
-    if (v == null) break;
-
-    object.value = v;
-    object.year = fileArray[i].period;
-
-    array.municipalities.push(object);
+    if (v != null) {
+      object.value = v;
+      object.year = fileArray[i].period;
+      array.municipalities.push(object);
+    }
   }
-
   kpis.push(array);
 }
 
