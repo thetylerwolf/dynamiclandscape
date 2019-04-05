@@ -22,7 +22,7 @@ class Dropdown extends Component {
             {
               d3.range(0,1.2,0.2).map((d,i) => {
                 return(
-                  <div class="block"
+                  <div className="block"
                     key={ i }
                     style={{
                       backgroundColor: d3.interpolateViridis(d),
