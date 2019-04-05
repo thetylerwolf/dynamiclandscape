@@ -10,9 +10,7 @@ const padding = {
   left: 100
 }
 
-const RADIUS = 10
-
-let maxRadius = 35
+let maxRadius = 20
 
 class VizCanvas extends Component {
 
@@ -27,8 +25,8 @@ class VizCanvas extends Component {
   rScale = d3.scaleSqrt()
     .range([ 0, maxRadius ])
 
-  colorScale = d3.scaleOrdinal()
-    .range(d3.schemeSet2)
+  colorScale = d3.scaleLinear()
+    .range([0,0.5])
 
   constructor() {
     super()
@@ -71,23 +69,44 @@ class VizCanvas extends Component {
     this.props.positionData.forEach((d,i) => {
 
       let node = this.props.nodeData[i]
-      let radius = RADIUS
+      let colorValue = node.kpis[this.props.colorValue.index],
+        radiusValue = node.kpis[this.props.radiusValue.index]
 
-      if(!node.active) {
-        context.globalAlpha = 0.3
-      } else {
-        context.globalAlpha = 1
-      }
+      colorValue = (colorValue && colorValue.value !== undefined) ? colorValue.value : -1
+      radiusValue = (radiusValue && radiusValue.value !== undefined) ? radiusValue.value : -1
 
-      context.beginPath()
-      context.arc( this.xScale(d[0]), this.yScale(d[1]), radius, 0, 2 * Math.PI, true )
-      context.fillStyle = node.active ? this.colorScale( i ) : '#333'
-      context.closePath()
-      context.fill()
 
       context.font = '10px arial';
       context.textAlign = 'center'
-      context.fillText( node.name, this.xScale(d[0]), this.yScale(d[1]) - 1.5 * radius )
+
+      context.beginPath()
+      if(radiusValue > 0) {
+        context.arc( this.xScale(d[0]), this.yScale(d[1]), this.rScale(radiusValue), 0, 2 * Math.PI, true )
+      } else {
+        context.arc( this.xScale(d[0]), this.yScale(d[1]), 0.1, 0, 2 * Math.PI, true )
+      }
+      if(node.active) {
+        context.globalAlpha = 1
+        context.fillStyle = colorValue > -1 ? d3.interpolateViridis(this.colorScale( colorValue )) : '#fff'
+      } else {
+        context.globalAlpha = 0.3
+        context.fillStyle = '#333'
+      }
+
+      context.strokeStyle = '#333'
+      context.stroke()
+
+      context.closePath()
+      context.fill()
+
+      if(colorValue === -1) {
+        context.fillStyle = '#333'
+      }
+
+      if( this.rScale(radiusValue) > 2 || node.active ) {
+        context.fillText( node.name, this.xScale(d[0]), this.yScale(d[1]) - 1.5 * this.rScale(radiusValue) )
+      }
+
     })
 
   }
@@ -102,16 +121,18 @@ class VizCanvas extends Component {
     let hits = this.props.positionData.forEach((point,i) => {
       let dx = x - this.xScale( point[0] )
       let dy = y - this.yScale( point[1] )
+      let node = this.props.nodeData[i]
 
-      let hit = dx*dx + dy*dy < RADIUS * RADIUS
+      let radius = node.kpis[this.props.radiusValue.index].value || 0
+      radius = this.rScale( radius )
+      let hit = dx*dx + dy*dy < radius*radius
 
       if(hit) {
         hitNode = {
           point,
           index: i,
           x: point[0],
-          y: point[1],
-          color: this.colorScale(i)
+          y: point[1]
         }
       }
 
@@ -128,10 +149,18 @@ class VizCanvas extends Component {
         ...this.props.nodeData[ hitNode.index ],
         ...hitNode
       }
-      this.props.nodeData[ hitNode.index ].active = true
-      this.props.nodeData[ hitNode.index ].selected = true
 
-      let radius = RADIUS
+      let node = this.props.nodeData[ hitNode.index ]
+      node.active = true
+      node.selected = true
+
+      let colorValue = node.kpis[this.props.colorValue.index].value || 0
+
+      if(colorValue == -1) {
+        hitNode.color = '#333'
+      } else {
+        hitNode.color = d3.interpolateViridis(this.colorScale( colorValue ))
+      }
 
     } else {
 
@@ -149,6 +178,9 @@ class VizCanvas extends Component {
   }
 
   render() {
+    this.colorScale.domain([ this.props.colorValue.min, this.props.colorValue.median, this.props.colorValue.max ])
+    this.rScale.domain([ this.props.radiusValue.min, this.props.radiusValue.max ])
+
     this.onTick()
 
     return (

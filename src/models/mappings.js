@@ -32,7 +32,7 @@ const kpiMapping = {
   ...elderlyCareIdMapping
 };
 
-allData.forEach(d => {
+allData.forEach((d, i) => {
   const vals = d.municipalities.map(d => d.value);
   const extent = d3.extent(vals);
   const mean = d3.mean(vals);
@@ -48,7 +48,8 @@ allData.forEach(d => {
     max: extent[1],
     min: extent[0],
     mean,
-    median
+    median,
+    index: i
   };
 });
 

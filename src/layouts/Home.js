@@ -7,7 +7,8 @@ import TSne from '../js/TSne'
 import '../css/Home.css'
 import {
   modelData,
-  nodeData
+  nodeData,
+  allData
 } from '../models/mappings'
 
 import { kpiMapping } from "../models/mappings";
@@ -24,7 +25,9 @@ class Home extends Component {
       positionData: [],
       tsneComplete: false,
       nodeData,
-      modelData
+      modelData,
+      sizeKpi: kpiMapping[ Object.keys(kpiMapping)[0] ],
+      colorKpi: kpiMapping[ Object.keys(kpiMapping)[0] ]
     }
   }
 
@@ -66,16 +69,18 @@ class Home extends Component {
 
   }
 
-  _selectColor(color) {
+  _selectColor({ selectedOption }) {
     //this.setState({ selectedColor: color })
-    console.log(color)
+    console.log('color', selectedOption)
+    this.setState({ colorKpi: kpiMapping[selectedOption.value] })
   }
 
-  _selectSize(size) {    
-      //this._selectSize({ selectedSize: size })
-      console.log(size)
-    }
-  
+  _selectSize({ selectedOption }) {
+    //this._selectSize({ selectedSize: size })
+    console.log('size', selectedOption)
+    this.setState({ sizeKpi: kpiMapping[selectedOption.value] })
+  }
+
 
   render() {
 
@@ -84,15 +89,15 @@ class Home extends Component {
       <div className="home-wrap">
         <SelectionKpis node={ this.state.selectedNode } />
 
-        <Dropdown 
-          data={kpiMapping} 
+        <Dropdown
+          data={kpiMapping}
           placeholder="Select color"
           onChange={color => this._selectColor(color)}
         />
-        <Dropdown 
-          data={kpiMapping} 
+        <Dropdown
+          data={kpiMapping}
           placeholder="Select size"
-          onChange={size => this._selectColor(size)}
+          onChange={size => this._selectSize(size)}
         />
 
       <AutoSuggest />
@@ -100,10 +105,12 @@ class Home extends Component {
         <VizCanvas
           positionData={ this.state.positionData }
           nodeData={ this.state.nodeData }
+          radiusValue={ this.state.sizeKpi }
+          colorValue={ this.state.colorKpi }
           onClick={ (node) => this._selectNode(node) }
           >
         </VizCanvas>
-        
+
       </div>
     )
   }
