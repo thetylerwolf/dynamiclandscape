@@ -4,9 +4,10 @@ import SelectionKpis from '../components/SelectionKpis'
 import TSne from '../js/TSne'
 import '../css/Home.css'
 import {
-  nodeData,
-  modelData
+  modelData,
+  nodeData
 } from '../models/mappings'
+
 
 console.log('node data', nodeData)
 console.log('model data', modelData)
