@@ -1,66 +1,68 @@
-import React, { Component } from "react"
-import { ReactComponent as Map } from '../data_set/municipalities.svg'
-import mId from '../data_set/municipalityIdMapping.json'
-import { extent, median } from 'd3-array'
-import { scaleLinear } from 'd3-scale'
-import { schemeRdBu } from 'd3-scale-chromatic'
+import React, { Component } from "react";
+import { ReactComponent as Map } from "../data_set/municipalities.svg";
+import { scaleLinear } from "d3-scale";
+import { schemeRdBu } from "d3-scale-chromatic";
+
+import * as mappings from "../models/mappings.js";
 
 class App extends Component {
-
   constructor() {
-    super()
-
-    this.state = { extent: [] }
+    super();
+    this.state = { extent: [] };
   }
 
   componentDidMount() {
-    let map = this.refs.swedenMap,
-      id = this.props.id
+    let map = this.refs.swedenMap;
+    let kpi = mappings.allData.find(d => d.id == this.props.id);
+    let munis = kpi.municipalities;
 
-    fetch(`/goals/${ id }.json`)
-      .then(response => {
-        if (response.status !== 200) {
-          console.log(`Error: ${response.status}`)
-          return
-        }
-        response.json().then(data => {
+    munis.forEach((muni, j) => {
+      let muniId = muni.id;
+      let muniName = mappings.municipalityIds[muniId];
 
-          data.values.forEach(v => v.value = v.values.find(d => d.gender === 'T'))
+      let kpiValue = muni.value;
 
-          let r = extent(data.values, (d) => d.value.value),
-            med = median(data.values, (d) => d.value.value),
-            scale = scaleLinear()
-              .domain([ r[0], med, r[1] ])
-              .range(schemeRdBu[3])
+      muniName = cleanString(muniName);
 
-          data.values.forEach(v => {
-            let id = mId[ v.municipality ]
-            id = id.replace(/ä/g, '\\xE4')
-            id = id.replace(/Ä/g, '\\xC4')
-            id = id.replace(/ö/g, '\\xF6')
-            id = id.replace(/Ö/g, '\\xD6')
-            id = id.replace(/å/g, '\\xE5')
-            id = id.replace(/Å/g, '\\xC5')
-            let path = map.getElementById(id)
-            if(!path) console.log(id, path)
-            if(path && v.value.value) path.style.fill = scale(v.value.value)
-          })
+      let path = map.getElementById(muniName);
+      if (!path) console.log(muniId, path);
+      let tylerMapping = mappings.kpiMapping[kpi.id];
+      let r = [tylerMapping.min, tylerMapping.max];
+      let med = tylerMapping.median;
+      let scale = scaleLinear()
+        .domain([r[0], med, r[1]])
+        .range(schemeRdBu[3]);
+      if (path && kpiValue) {
+        path.style.fill = scale(kpiValue);
+      }
 
-          this.setState({ extent: r })
-        })
-      })
-
+      this.setState({ extent: r });
+    });
   }
 
   render() {
     return (
       <div className="map-wrap">
         <Map ref="swedenMap" />
-        <div style={{ color: schemeRdBu[3][2] }}>Max { this.state.extent[1] && this.state.extent[1].toFixed(2) }</div>
-        <div style={{ color: schemeRdBu[3][0] }}>Min { this.state.extent[0] && this.state.extent[0].toFixed(2) }</div>
+        <div style={{ color: schemeRdBu[3][2] }}>
+          Max {this.state.extent[1] && this.state.extent[1].toFixed(2)}
+        </div>
+        <div style={{ color: schemeRdBu[3][0] }}>
+          Min {this.state.extent[0] && this.state.extent[0].toFixed(2)}
+        </div>
       </div>
-    )
+    );
   }
+}
+
+function cleanString(string) {
+  string = string.replace(/ä/g, "\\xE4");
+  string = string.replace(/Ä/g, "\\xC4");
+  string = string.replace(/ö/g, "\\xF6");
+  string = string.replace(/Ö/g, "\\xD6");
+  string = string.replace(/å/g, "\\xE5");
+  string = string.replace(/Å/g, "\\xC5");
+  return string;
 }
 
 export default App;
