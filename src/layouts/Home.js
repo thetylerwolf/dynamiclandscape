@@ -81,6 +81,16 @@ class Home extends Component {
     this.setState({ sizeKpi: kpiMapping[selectedOption.value] })
   }
 
+  _selectSize(size) {    
+      //this._selectSize({ selectedSize: size })
+      console.log(size)
+    }
+
+  _selectedMunicipalityId(id) {
+    this.setState({ selectedMunicipalityId: id})
+    console.log(id)
+  }
+  
 
   render() {
 
@@ -100,7 +110,9 @@ class Home extends Component {
           onChange={size => this._selectSize(size)}
         />
 
-      <AutoSuggest />
+      <AutoSuggest 
+          selectedMunicipalityId = { selectedMunicipalityId => this._selectedMunicipalityId(selectedMunicipalityId) }
+      />
 
         <VizCanvas
           positionData={ this.state.positionData }
