@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import VizCanvas from '../components/VizCanvas'
 import Dropdown from '../components/Dropdown'
+import AutoSuggest from '../components/AutoSuggest'
 import SelectionKpis from '../components/SelectionKpis'
 import TSne from '../js/TSne'
 import '../css/Home.css'
@@ -93,6 +94,8 @@ class Home extends Component {
           placeholder="Select size"
           onChange={size => this._selectColor(size)}
         />
+
+      <AutoSuggest />
 
         <VizCanvas
           positionData={ this.state.positionData }
