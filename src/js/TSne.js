@@ -11,6 +11,7 @@ export default class TSne {
       readyStateChange: () => {},
       onComplete: () => {},
       data: [],
+      dim: 2,
       ...props
     }
   }
@@ -63,6 +64,7 @@ export default class TSne {
         learningRate: this.props.learningRate,
         nIter: this.props.iterations,
         metric: this.props.metric,
+        dim: this.props.dim
       }
     })
   }
