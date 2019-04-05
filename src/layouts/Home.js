@@ -3,49 +3,12 @@ import VizCanvas from '../components/VizCanvas'
 import SelectionKpis from '../components/SelectionKpis'
 import TSne from '../js/TSne'
 import '../css/Home.css'
-import goalsData from '../data_set/goals/all_goals_latest_years.json'
-import municipalityIds from '../data_set/municipalityIdMapping.json'
-
-// Get all kpi ids from first municipality (arbitrary choice)
-let kpis = goalsData.kpis.map(kpi => {
-    return kpi.id
-  })
-
-kpis = Object.keys(kpis).sort()
-
-const municipalities = Object.keys(municipalityIds).sort()
-
-const nodeData = municipalities.map(muniId => {
-
-  return {
-    kpis: goalsData.kpis.map(kpi => {
-      return {
-        ...(kpi.municipalities.find(m => m.id == muniId) || {}),
-        id: kpi.id
-      }
-    }),
-    id: muniId,
-    active: true,
-    name: municipalityIds[ muniId ]
-  }
-
-})
+import {
+  nodeData,
+  modelData
+} from '../models/mappings'
 
 console.log('node data', nodeData)
-
-let modelData = nodeData.map(muni => {
-
-  let kpiArr = muni.kpis.map(kpi => {
-
-    let v = kpi.value === undefined ? -1 : kpi.value
-
-    return v
-  })
-
-  return kpiArr
-
-})
-
 console.log('model data', modelData)
 
 class Home extends Component {
@@ -53,12 +16,11 @@ class Home extends Component {
   constructor() {
     super()
 
-    this.nodeData = modelData
-
     this.state = {
       positionData: [],
       tsneComplete: false,
-      nodeData
+      nodeData,
+      modelData
     }
   }
 
@@ -82,13 +44,13 @@ class Home extends Component {
           tsneComplete: true
         })
       },
-      perplexity: 50,
-      earlyExaggeration: 2.1,
-      learningRate: 50,
+      perplexity: 90,
+      earlyExaggeration: 2.5,
+      learningRate: 60,
       iterations: 2000,
       metric: 'euclidean',
       dim: 2,
-      data: modelData
+      data: this.state.modelData
     })
 
     this.TSNE.init()

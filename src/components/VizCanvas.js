@@ -100,18 +100,24 @@ class VizCanvas extends Component {
 
     })
 
-    if(!hitNode) return
-
     this.props.nodeData.forEach(node => {
-      node.active = false
-      node.selected = false
-    })
-    this.props.nodeData[ hitNode.index ].active = true
-    this.props.nodeData[ hitNode.index ].selected = true
+        node.active = false
+        node.selected = false
+      })
+
+    if(hitNode) {
+
+      hitNode = this.props.nodeData[ hitNode.index ]
+      hitNode.active = true
+      hitNode.selected = true
+
+    } else {
+
+      hitNode = null
+    }
 
     this.onTick()
-
-    this.props.onClick(this.props.nodeData[ hitNode.index ])
+    this.props.onClick( hitNode )
 
   }
 
