@@ -1,6 +1,6 @@
-var folderName = "goals";
-var allYearsFileName = "all_goals_all_years";
-var resultFileName = "all_goals_latest_years.json";
+var folderName = "elderlyCare";
+var allYearsFileName = "all_elderlyCare_all_years";
+var resultFileName = "all_elderlyCare_latest_years.json";
 
 var goalsData = require("../data_set/" +
   folderName +
