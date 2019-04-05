@@ -3,49 +3,50 @@ var kpiMappingFile = "elderlyCareIdMapping.json"; // Change to your kpi mapping 
 var dataFolder = "elderlyCare"; // Should already exist
 var resultFileName = "all_elderlyCare_all_years.json"; // The result file, should not exist
 
-var ids = require("../data_set/mapping/" + kpiMappingFile);
-var muniFile = require("../data_set/municipalityIdMapping.json");
+var kpiFile = require("../data_set/mapping/" + kpiMappingFile);
 var fs = require("fs");
 
 var result = new Object();
-var munis = (result.municipalities = []);
-for (var muniId in muniFile) {
-  var muni = new Object();
-  muni.id = muniId;
-  muni.kpis = [];
-  munis.push(muni);
-}
+var kpis = [];
 
-for (var kpi in ids) {
-  console.log("Merging kpi: " + kpi);
-
+for (var kpi in kpiFile) {
+  var array = new Object();
+  array.id = kpi;
+  array.municipalities = [];
   var file = require("../data_set/" + dataFolder + "/" + kpi + ".json");
-  var array = file.values;
 
-  for (i = 0; i < array.length; i++) {
-    var value = array[i].values[0].value;
-    if (value != null) {
-      var mun = array[i].municipality;
-      var year = array[i].period;
-      var kpi = array[i].kpi;
-      var list = result.municipalities;
+  var fileArray = file.values;
 
-      for (j = 0; j < list.length; j++) {
-        if (list[j].id == mun) {
-          var kpiObj = new Object();
-          kpiObj.id = kpi;
-          kpiObj.value = value;
-          kpiObj.year = year;
-          list[j].kpis.push(kpiObj);
-        }
-      }
+  for (i = 0; i < fileArray.length; i++) {
+    var object = new Object();
+    object.id = fileArray[i].municipality;
+
+    let v = fileArray[i].values.find(j => j.gender == "T");
+
+    if (!v) {
+      v = fileArray[i].values.reduce((acc, b) => {
+        if (b.value == null) return acc;
+        return (acc += b.value);
+      }, 0);
+    } else {
+      v = v.value;
     }
+    if (v == null) break;
+
+    object.value = v;
+    object.year = fileArray[i].period;
+
+    array.municipalities.push(object);
   }
+
+  kpis.push(array);
 }
-fs.appendFile(
+
+result = {
+  kpis
+};
+
+fs.writeFileSync(
   "../data_set/" + dataFolder + "/" + resultFileName,
-  JSON.stringify(result, null, 4),
-  function(err) {
-    if (err) throw err;
-  }
+  JSON.stringify(result, null, 4)
 );
