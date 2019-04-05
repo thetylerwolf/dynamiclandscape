@@ -54,4 +54,4 @@ let modelData = nodeData.map(muni => {
   return kpiArr;
 });
 
-export { municipalityIds, nodeData, modelData, kpiMapping };
+module.exports = { municipalityIds, nodeData, modelData, kpiMapping };
