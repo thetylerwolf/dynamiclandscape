@@ -1,0 +1,159 @@
+[
+  {
+    "name": "Mål 1 Ingen fattigdom",
+    "ids": ["N02904", "N31816"]
+  },
+  {
+    "name": "Mål 2 Ingen hunger",
+    "ids": ["U01411", "N00403"]
+  },
+  {
+    "name": "Mål 3 Hälsa och välbefinnande",
+    "ids": ["N00925", "N00923", "N74811", "U20462", "N00404"]
+  },
+  {
+    "name": "Mål 4 God utbildning för alla",
+    "ids": ["N15428", "N15533", "N17461", "N18409"]
+  },
+  {
+    "name": "Mål 5 Jämställdhet",
+    "ids": ["N00209", "N00943", "N00952", "N00953"]
+  },
+  {
+    "name": "Mål 6 Rent vatten och sanitet",
+    "ids": ["N85069", "N85051", "N85052", "N85053"]
+  },
+  {
+    "name": "Mål 7 Hållbar energi för alla",
+    "ids": ["N45933", "N45929", "N45905"]
+  },
+  {
+    "name": "Mål 8 Anständiga arbetsvillkor och ekonomisk tillväxt",
+    "ids": ["N03700", "N00955", "N02906"]
+  },
+  {
+    "name": "Mål 9 Hållbar industri, innovationer och infrastruktur",
+    "ids": ["N07900", "U07451", "N07418"]
+  },
+  {
+    "name": "Mål 10 Minskad ojämlikhet",
+    "ids": ["N00956", "U01413", "N00973", "U28532"]
+  },
+  {
+    "name": "Mål 11 Hållbara städer och samhällen",
+    "ids": ["N00927", "N07907", "N85047", "N85048"]
+  },
+  {
+    "name": "Mål 12 Hållbar konsumtion och produktion",
+    "ids": ["U07801", "U07414", "U07514"]
+  },
+  {
+    "name": "Mål 13 Bekämpa klimatförändringarna",
+    "ids": ["N00401", "U00437", "N07400", "U07917"]
+  },
+  {
+    "name": "Mål 14 Hav och marina resurser",
+    "ids": []
+  },
+  {
+    "name": "Mål 15 Ekosystem och biologisk mångfald",
+    "ids": ["N85054"]
+  },
+  {
+    "name": "Mål 16 Fredliga och inkluderande samhällen",
+    "ids": ["N05831", "U01420", "N07403", "N03102"]
+  },
+  {
+    "name": "Mål 17 Genomförande och globalt partnerskap",
+    "ids": []
+  },
+  {
+    "name": "Elderly care",
+    "ids": [
+      "U21468",
+      "U21422",
+      "U21474",
+      "U21420",
+      "U21401",
+      "U21426",
+      "U21425",
+      "U21449",
+      "U01421",
+      "N21009",
+      "N21024",
+      "N21819",
+      "U21200",
+      "N01960",
+      "N01813",
+      "N00980",
+      "N21822",
+      "N21821",
+      "N21816",
+      "N21826",
+      "U20464",
+      "N21814",
+      "N21804",
+      "N02957",
+      "N02958",
+      "U21482"
+    ]
+  },
+  {
+    "name": "Energy consumption, production and prices",
+    "ids": [
+      "N45900",
+      "N45901",
+      "N45926",
+      "N45928",
+      "N45927",
+      "N45904",
+      "N45925",
+      "N45929",
+      "N45905",
+      "N45920",
+      "N45911",
+      "N45910",
+      "N45912",
+      "N45913",
+      "N45914",
+      "N45933",
+      "N45934"
+    ]
+  },
+  {
+    "name": "Migration statistics",
+    "ids": [
+      "N01990",
+      "N01991",
+      "N01992",
+      "N01995",
+      "N01993",
+      "N02002",
+      "N01987",
+      "N01986",
+      "N02006"
+    ]
+  },
+  {
+    "name": "Household waste",
+    "ids": [
+      "U07414",
+      "U07480",
+      "U07481",
+      "U07801",
+      "U07486",
+      "U07487",
+      "U07489",
+      "U07490",
+      "U07491",
+      "U07492",
+      "U07488",
+      "N45029",
+      "N45923",
+      "U07493",
+      "U07494",
+      "U07495",
+      "U07496"
+    ]
+  }
+]
