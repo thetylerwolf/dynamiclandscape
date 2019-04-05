@@ -36,6 +36,7 @@ allData.forEach(d => {
   const vals = d.municipalities.map(d => d.value)
   const extent = d3.extent(vals)
   const mean = d3.mean(vals)
+  const median = d3.median(vals)
 
   // Skip any duplicates (there are 5)
   if(kpiMapping[d.id].name) return
@@ -44,9 +45,10 @@ allData.forEach(d => {
 
   kpiMapping[d.id] = {
     name,
-    max: vals[0],
-    min: vals[1],
-    mean
+    max: extent[1],
+    min: extent[0],
+    mean,
+    median
   }
 })
 
