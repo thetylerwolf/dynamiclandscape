@@ -1,52 +1,44 @@
-var stuff = require("../data_set/elderlyCare/test.json");        // Change to the filename you want to filter
-var filteredFileName = '../data_set/elderlyCare/test_new.json';    // Change to the filename you want to create 
+var folderName = "goals";
+var allYearsFileName = "all_goals_all_years";
+var resultFileName = "all_goals_latest_years.json";
+
+var goalsData = require("../data_set/" +
+  folderName +
+  "/" +
+  allYearsFileName +
+  ".json");
 var fs = require("fs");
+var result = new Object();
+result.kpis = [];
+goalsData.kpis.map(kpi => {
+  // sort kpis in municipality by year
+  kpi.municipalities.sort((a, b) => a.year - b.year);
+  // reverse to put most recent first
+  kpi.municipalities.reverse();
 
-var kpis = stuff.kpis;
-var done = false;
+  // for each kpi we have in our list
+  const allMunis = kpi.municipalities.reduce((acc, b) => {
+    acc[b.id] = b.id;
+    return acc;
+  }, {});
 
-var muni = new Object();
-muni.municipality = [];
-
-Object.entries(kpis).forEach(([key, value]) => {
-  // value.municipalities is a list with all municipalities for a KPI
-  var municipalities = value.municipalities;
-
-  for (var i = 0; i < municipalities.length; i++) {
-    var latestYear = 0;
-    var id = municipalities[i].id;
-    var deleteArray = [];
-
-    if (municipalities.length == i + 1) {
-      writeNewData(value);
-    } else {
-      if (id === municipalities[i + 1].id) {
-        if (latestYear < municipalities[i + 1].year) {
-          latestYear = municipalities[i + 1].year;
-          municipalities[i].id = "DELETE";
-        }
-      }
-    }
-  }
-
-});
-
-
-function writeNewData(value) {
-
-  value.municipalities = value.municipalities.filter(function(value, index, arr) {
-    return value.id !== "DELETE";
+  const mostRecentKpis = Object.keys(allMunis).map(muniId => {
+    return kpi.municipalities.find(muni => muni.id == muniId);
   });
 
-  muni.municipality.push(value);
+  kpi.municipalities = mostRecentKpis;
 
-  
-}
+  var obj = new Object();
+  obj.id = kpi.id;
+  obj.municipalities = kpi.municipalities;
 
-fs.appendFile( 
-  filteredFileName, JSON.stringify(muni, null, 4),
-  
+  result.kpis.push(obj);
+});
+
+fs.appendFile(
+  "../data_set/" + folderName + "/" + resultFileName,
+  JSON.stringify(result, null, 4),
   function(err) {
-  if (err) throw err;
-}
+    if (err) throw err;
+  }
 );
