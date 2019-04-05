@@ -10,6 +10,7 @@ import {
   nodeData,
   allData
 } from '../models/mappings'
+import Legends from '../components/Legends'
 
 import { kpiMapping } from "../models/mappings";
 
@@ -87,20 +88,37 @@ class Home extends Component {
 
     return (
       <div className="home-wrap">
+
+        <Legends
+          colorData={ this.state.colorKpi }
+          sizeData={ this.state.sizeKpi }
+        />
+
         <SelectionKpis node={ this.state.selectedNode } />
 
-        <Dropdown
-          data={kpiMapping}
-          placeholder="Select color"
-          onChange={color => this._selectColor(color)}
-        />
-        <Dropdown
-          data={kpiMapping}
-          placeholder="Select size"
-          onChange={size => this._selectSize(size)}
-        />
+        <div className="controls-container">
 
-      <AutoSuggest />
+          <div className="control">
+            <Dropdown
+              data={kpiMapping}
+              placeholder="Select color"
+              onChange={color => this._selectColor(color)}
+            />
+          </div>
+
+          <div className="control">
+            <Dropdown
+              data={kpiMapping}
+              placeholder="Select size"
+              onChange={size => this._selectSize(size)}
+            />
+          </div>
+
+          <div className="control">
+            <AutoSuggest />
+          </div>
+
+        </div>
 
         <VizCanvas
           positionData={ this.state.positionData }
