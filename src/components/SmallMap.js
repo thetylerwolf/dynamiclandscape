@@ -5,7 +5,7 @@ import { extent, median } from "d3-array";
 import { scaleLinear } from "d3-scale";
 import { schemeRdBu } from "d3-scale-chromatic";
 
-import { municipalityIds, nodeData, modelData } from "../models/mappings.js";
+const mappings = require("../models/mappings.js");
 
 class App extends Component {
   constructor() {
@@ -17,18 +17,9 @@ class App extends Component {
   componentDidMount() {
     let map = this.refs.swedenMap,
       id = this.props.id;
-    let files = [
-      "all_elderlyCare_latest_years",
-      "all_energy_latest_years",
-      "all_goals_latest_years",
-      "all_integration_latest_years",
-      "all_waste_latest_years"
-    ];
-    console.log(municipalityIds);
-    console.log(nodeData);
-    console.log(modelData);
 
-    fetch(`/goals/${id}.json`).then(response => {
+    fetch(`/goals/${mappings.nodeData}.json`).then(response => {
+      console.log("asd: " + `/goals/${mappings.nodeData}.json`);
       if (response.status == 200) {
         console.log("****************");
         console.log(response);
