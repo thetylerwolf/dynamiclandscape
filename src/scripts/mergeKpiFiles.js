@@ -1,7 +1,7 @@
 // Change these three and go
-var kpiMappingFile = "elderlyCareIdMapping.json"; // Change to your kpi mapping file
-var dataFolder = "elderlyCare"; // Should already exist
-var resultFileName = "all_elderlyCare_all_years.json"; // The result file, should not exist
+var kpiMappingFile = "wasteIdMapping.json"; // Change to your kpi mapping file
+var dataFolder = "waste"; // Should already exist
+var resultFileName = "all_waste_all_years.json"; // The result file
 
 var kpiFile = require("../data_set/mapping/" + kpiMappingFile);
 var fs = require("fs");
@@ -10,7 +10,7 @@ var result = new Object();
 var kpis = [];
 
 for (var kpi in kpiFile) {
-  console.log(kpi);
+  console.log("Merging file: " + kpi);
   var array = new Object();
   array.id = kpi;
   array.municipalities = [];
