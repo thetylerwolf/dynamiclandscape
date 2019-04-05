@@ -27,7 +27,7 @@ class SelectionKpis extends Component {
         { this.props.node && this.props.node.kpis.map((kpi,i) => {
             if(kpi) {
               return (<div key={ i }>
-                { kpi.id } - { kpi.value.toFixed(1) }
+                { kpi.id } - { kpi.value ? kpi.value.toFixed(1) : 'No data' }
               </div>)
             }
           })
