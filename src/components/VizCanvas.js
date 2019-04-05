@@ -15,7 +15,12 @@ let maxRadius = 35
 class VizCanvas extends Component {
 
   xScale = d3.scaleLinear()
+    .domain([-1,1])
     .range([ padding.left, width - padding.left - padding.right ])
+
+  yScale = d3.scaleLinear()
+    .domain([-1,1])
+    .range([ padding.top, height - padding.top - padding.bottom ])
 
   rScale = d3.scaleSqrt()
     .range([ 0, maxRadius ])
@@ -61,10 +66,10 @@ class VizCanvas extends Component {
 
     context.clearRect(0, 0, width, height);
 const RADIUS = 10
-    this.props.data.forEach((d,i) => {
+    this.props.positionData.forEach((d,i) => {
 
       context.beginPath()
-      context.arc(width/2 * d[0] + width/2, height/2 * d[1] + height/2, RADIUS, 0, 2 * Math.PI, true)
+      context.arc(this.xScale(d[0]), this.yScale(d[1]), RADIUS, 0, 2 * Math.PI, true)
       context.fillStyle = this.colorScale( i )
       context.closePath()
       context.fill()

@@ -62,11 +62,12 @@ class Home extends Component {
           tsneComplete: true
         })
       },
-      perplexity: 55,
+      perplexity: 50,
       earlyExaggeration: 2.1,
-      learningRate: 180,
-      iterations: 150,
+      learningRate: 50,
+      iterations: 2000,
       metric: 'euclidean',
+      dim: 2,
       data: modelData
     })
 
@@ -75,7 +76,7 @@ class Home extends Component {
 
 
   render() {
-    return (<VizCanvas data={ this.state.positionData }></VizCanvas>)
+    return (<VizCanvas positionData={ this.state.positionData }></VizCanvas>)
   }
 }
 

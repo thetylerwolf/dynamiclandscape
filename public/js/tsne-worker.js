@@ -50,6 +50,7 @@ self.onmessage = function (e) {
       model.learningRate = msg.data.learningRate;
       model.nIter = msg.data.nIter;
       model.metric = msg.data.metric;
+      model.dim = msg.data.dim;
 
       if (firstRun) {
         model.run();
