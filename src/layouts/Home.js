@@ -93,10 +93,15 @@ class Home extends Component {
   _changeGoalIds(changedGoalsIds) {
     if (changedGoalsIds.checkValue) {
       for (var i = 0; i < changedGoalsIds.ids.length; i++) {
+        console.log(changedGoalsIds.ids[i]);
         displayKpiIds.push(changedGoalsIds.ids[i]);
       }
     } else {
-      displayKpiIds.filter(id => id === changedGoalsIds.ids[i]);
+      for (var i = 0; i < changedGoalsIds.ids.length; i++) {
+        console.log(changedGoalsIds.ids[i]);
+        displayKpiIds = displayKpiIds.filter(id => id !== changedGoalsIds.ids[i]);
+      }
+      
     }
     console.log(displayKpiIds);
   }
