@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from "react";
 
 class Checkbox extends Component {
   state = {
-    isChecked: false
+    isChecked: true
   };
 
   toggleCheckboxChange = () => {
@@ -13,6 +13,9 @@ class Checkbox extends Component {
     }));
 
     console.log("label", label);
+
+    this.props.onIdChange({ids: this.props.id, checkValue: !this.state.isChecked });
+
   };
 
   render() {

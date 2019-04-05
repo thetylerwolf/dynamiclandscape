@@ -14,6 +14,7 @@ const headingMapping = require("../data_set/mapping/headingMapping.json");
 
 console.log("node data", nodeData);
 console.log("model data", modelData);
+var displayKpiIds = [];
 
 class Home extends Component {
   constructor() {
@@ -21,7 +22,11 @@ class Home extends Component {
 
     let headings = [];
     for (var i = 0; i < headingMapping.length; i++) {
-      headings.push(headingMapping[i].name);
+      headings.push(headingMapping[i]);
+      
+      for(var j =0; j < headingMapping[i].ids.length; j++) {
+        displayKpiIds.push(headingMapping[i].ids[j]);
+      }
     }
 
     this.state = {
@@ -83,6 +88,17 @@ class Home extends Component {
     this.setState({ sizeKpi: kpiMapping[selectedOption.value] });
   }
 
+  _changeGoalIds( changedGoalsIds ) {
+    if(changedGoalsIds.checkValue) {
+      for(var i = 0; i < changedGoalsIds.ids.length; i++) {
+        displayKpiIds.push(changedGoalsIds.ids[i]);
+      }
+    } else {
+      displayKpiIds.filter(id => id === changedGoalsIds.ids[i]);
+    }
+    console.log(displayKpiIds);
+  }
+
   render() {
     return (
       <div className="home-wrap">
@@ -102,7 +118,9 @@ class Home extends Component {
         <AutoSuggest />
 
         {this.state.headings.map(element => {
-          return [<CheckBox />];
+          return [<CheckBox   label={element.name} 
+                              id={element.ids} 
+                              onIdChange={ids => this._changeGoalIds(ids)}/>];
         })}
 
         <VizCanvas
