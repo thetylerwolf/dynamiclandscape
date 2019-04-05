@@ -82,6 +82,16 @@ class Home extends Component {
     this.setState({ sizeKpi: kpiMapping[selectedOption.value] })
   }
 
+  _selectSize(size) {
+      //this._selectSize({ selectedSize: size })
+      console.log(size)
+    }
+
+  _selectedMunicipalityId(id) {
+    this.setState({ selectedMunicipalityId: id})
+    console.log(id)
+  }
+
 
   render() {
 
@@ -115,7 +125,9 @@ class Home extends Component {
           </div>
 
           <div className="control">
-            <AutoSuggest />
+            <AutoSuggest
+              selectedMunicipalityId = { selectedMunicipalityId => this._selectedMunicipalityId(selectedMunicipalityId) }
+            />
           </div>
 
         </div>

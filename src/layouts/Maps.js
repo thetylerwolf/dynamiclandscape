@@ -1,33 +1,28 @@
-import React, { Component } from "react"
-import MapMultiples from '../components/MapMultiples'
-import goalSections from '../data_set/goalSections.json'
-import '../css/Maps.css';
+import React, { Component } from "react";
+import MapMultiples from "../components/MapMultiples";
+import headingMapping from "../data_set/mapping/headingMapping.json";
+import "../css/Maps.css";
 
 class Maps extends Component {
-
   constructor() {
-    super()
+    super();
     this.state = {
-      school: ''
-    }
+      school: ""
+    };
   }
 
-  componentDidMount() {
-
-  }
+  componentDidMount() {}
 
   handleClick(index) {
-    console.log("Clicked on: ", this.state)
+    console.log("Clicked on: ", this.state);
   }
 
   render() {
-    let multiplesSections = goalSections.map((sec,i) => {
-      return (
-        <MapMultiples data={ sec } key={ i } />
-      )
-    })
+    let multiplesSections = headingMapping.map((sec, i) => {
+      return <MapMultiples data={sec} key={i} />;
+    });
 
-    return multiplesSections
+    return multiplesSections;
   }
 }
 
