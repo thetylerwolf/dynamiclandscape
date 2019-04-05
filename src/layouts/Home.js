@@ -1,42 +1,52 @@
 import React, { Component } from "react"
 import VizCanvas from '../components/VizCanvas'
+import SelectionKpis from '../components/SelectionKpis'
 import TSne from '../js/TSne'
 import '../css/Home.css'
-import goalsData from '../data_set/goals/all_goals_all_years.json'
+import goalsData from '../data_set/goals/all_goals_latest_years.json'
+import municipalityIds from '../data_set/municipalityIdMapping.json'
 
 // Get all kpi ids from first municipality (arbitrary choice)
-let kpis = goalsData.municipalities[0].kpis.reduce((acc,d) => {
-    acc[d.id] = d.id
-    return acc
-  },{})
-
-kpis = Object.keys(kpis)
-
-let nodeData = goalsData.municipalities
-
-let modelData = goalsData.municipalities.map(municipality => {
-  // sort kpis in municipality by year
-  municipality.kpis.sort((a,b) => a.year - b.year)
-  // reverse to put most recent first
-  municipality.kpis.reverse()
-  // for each kpi we have in our list
-  let muniKpis = kpis.map(kpi => {
-    // find the most recent occurrence in this municipality
-    return municipality.kpis.find(d => kpi === d.id)
+let kpis = goalsData.kpis.map(kpi => {
+    return kpi.id
   })
 
-  municipality.kpis = muniKpis
+kpis = Object.keys(kpis).sort()
 
-  let kpiArr = muniKpis.map(kpi => {
-    let v = kpi && kpi.value
-    return v || -1
+const municipalities = Object.keys(municipalityIds).sort()
+
+const nodeData = municipalities.map(muniId => {
+
+  return {
+    kpis: goalsData.kpis.map(kpi => {
+      return {
+        ...(kpi.municipalities.find(m => m.id == muniId) || {}),
+        id: kpi.id
+      }
+    }),
+    id: muniId,
+    active: true,
+    name: municipalityIds[ muniId ]
+  }
+
+})
+
+console.log('node data', nodeData)
+
+let modelData = nodeData.map(muni => {
+
+  let kpiArr = muni.kpis.map(kpi => {
+
+    let v = kpi.value === undefined ? -1 : kpi.value
+
+    return v
   })
 
   return kpiArr
 
 })
 
-console.log(modelData)
+console.log('model data', modelData)
 
 class Home extends Component {
 
@@ -95,16 +105,7 @@ class Home extends Component {
 
     return (
       <div className="home-wrap">
-        <div className="filter-container">
-          { this.state.selectedNode && this.state.selectedNode.kpis.map((kpi,i) => {
-              if(kpi) {
-                return (<div key={ i }>
-                  { kpi.id } - { kpi.value.toFixed(1) }
-                </div>)
-              }
-            })
-          }
-        </div>
+        <SelectionKpis node={ this.state.selectedNode } />
         <VizCanvas
           positionData={ this.state.positionData }
           nodeData={ this.state.nodeData }
