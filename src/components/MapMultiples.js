@@ -19,10 +19,13 @@ class MapMultiples extends Component {
     let maps = this.maps();
 
     return (
-      <div className="multiples-wrap">
+      <div className="multiples-wrap" style={{ width: "100%" }}>
         <div>
           <h3>{this.props.data.name}</h3>
-          <div className="maps-wrap" style={{ display: "flex" }}>
+          <div
+            className="maps-wrap"
+            style={{ display: "flex", flexWrap: "wrap" }}
+          >
             {maps}
           </div>
         </div>

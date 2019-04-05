@@ -45,8 +45,8 @@ allData.forEach(d => {
 
   kpiMapping[d.id] = {
     name,
-    min: vals[0],
-    max: vals[1],
+    max: extent[1],
+    min: extent[0],
     mean,
     median
   };
@@ -78,4 +78,4 @@ const modelData = nodeData.map(muni => {
   return kpiArr;
 });
 
-export { municipalityIds, nodeData, modelData, kpiMapping };
+export { municipalityIds, nodeData, modelData, kpiMapping, allData };
