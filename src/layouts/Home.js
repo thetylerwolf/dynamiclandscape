@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import VizCanvas from '../components/VizCanvas'
+import Dropdown from '../components/Dropdown'
 import SelectionKpis from '../components/SelectionKpis'
 import TSne from '../js/TSne'
 import '../css/Home.css'
@@ -8,6 +9,7 @@ import {
   nodeData
 } from '../models/mappings'
 
+import { kpiMapping } from "../models/mappings";
 
 console.log('node data', nodeData)
 console.log('model data', modelData)
@@ -63,18 +65,42 @@ class Home extends Component {
 
   }
 
+  _selectColor(color) {
+    //this.setState({ selectedColor: color })
+    console.log(color)
+  }
+
+  _selectSize(size) {    
+      //this._selectSize({ selectedSize: size })
+      console.log(size)
+    }
+  
+
   render() {
 
 
     return (
       <div className="home-wrap">
         <SelectionKpis node={ this.state.selectedNode } />
+
+        <Dropdown 
+          data={kpiMapping} 
+          placeholder="Select color"
+          onChange={color => this._selectColor(color)}
+        />
+        <Dropdown 
+          data={kpiMapping} 
+          placeholder="Select size"
+          onChange={size => this._selectColor(size)}
+        />
+
         <VizCanvas
           positionData={ this.state.positionData }
           nodeData={ this.state.nodeData }
           onClick={ (node) => this._selectNode(node) }
           >
         </VizCanvas>
+        
       </div>
     )
   }
