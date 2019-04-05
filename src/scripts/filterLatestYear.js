@@ -1,29 +1,29 @@
-var stuff = require("../data_set/elderlyCare/all_elderlyCare_all_years.json");        // Change to the filename you want to filter
-var filteredFileName = '../data_set/elderlyCare/all_elderlyCare_latest_years.json';    // Change to the filename you want to create 
+var stuff = require("../data_set/elderlyCare/test.json");        // Change to the filename you want to filter
+var filteredFileName = '../data_set/elderlyCare/test_new.json';    // Change to the filename you want to create 
 var fs = require("fs");
 
-var municipalities = stuff.municipalities;
+var kpis = stuff.kpis;
 var done = false;
 
 var muni = new Object();
 muni.municipality = [];
 
-Object.entries(municipalities).forEach(([key, value]) => {
-  // value.kpis is a list with all KPIs for a muncipality
-  var kpi = value.kpis;
+Object.entries(kpis).forEach(([key, value]) => {
+  // value.municipalities is a list with all municipalities for a KPI
+  var municipalities = value.municipalities;
 
-  for (var i = 0; i < kpi.length; i++) {
+  for (var i = 0; i < municipalities.length; i++) {
     var latestYear = 0;
-    var id = kpi[i].id;
+    var id = municipalities[i].id;
     var deleteArray = [];
 
-    if (kpi.length == i + 1) {
-      writeNewData(value)
+    if (municipalities.length == i + 1) {
+      writeNewData(value);
     } else {
-      if (id === kpi[i + 1].id) {
-        if (latestYear < kpi[i + 1].year) {
-          latestYear = kpi[i + 1].year;
-          kpi[i].id = "DELETE";
+      if (id === municipalities[i + 1].id) {
+        if (latestYear < municipalities[i + 1].year) {
+          latestYear = municipalities[i + 1].year;
+          municipalities[i].id = "DELETE";
         }
       }
     }
@@ -34,7 +34,7 @@ Object.entries(municipalities).forEach(([key, value]) => {
 
 function writeNewData(value) {
 
-  value.kpis = value.kpis.filter(function(value, index, arr) {
+  value.municipalities = value.municipalities.filter(function(value, index, arr) {
     return value.id !== "DELETE";
   });
 
