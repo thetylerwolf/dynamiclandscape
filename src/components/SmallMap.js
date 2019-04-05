@@ -5,6 +5,8 @@ import { extent, median } from "d3-array";
 import { scaleLinear } from "d3-scale";
 import { schemeRdBu } from "d3-scale-chromatic";
 
+import { municipalityIds, nodeData, modelData } from "../models/mappings.js";
+
 class App extends Component {
   constructor() {
     super();
@@ -22,8 +24,11 @@ class App extends Component {
       "all_integration_latest_years",
       "all_waste_latest_years"
     ];
+    console.log(municipalityIds);
+    console.log(nodeData);
+    console.log(modelData);
 
-    fetch(`/goals/${files}.json`).then(response => {
+    fetch(`/goals/${id}.json`).then(response => {
       if (response.status == 200) {
         console.log("****************");
         console.log(response);
