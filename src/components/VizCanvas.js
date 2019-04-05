@@ -70,18 +70,32 @@ class VizCanvas extends Component {
 
     this.props.positionData.forEach((d,i) => {
 
+      let node = this.props.nodeData[i]
+      let radius = RADIUS
+
+      if(!node.active) {
+        context.globalAlpha = 0.3
+      } else {
+        context.globalAlpha = 1
+      }
+
       context.beginPath()
-      context.arc(this.xScale(d[0]), this.yScale(d[1]), RADIUS, 0, 2 * Math.PI, true)
-      context.fillStyle = this.colorScale( i )
+      context.arc( this.xScale(d[0]), this.yScale(d[1]), radius, 0, 2 * Math.PI, true )
+      context.fillStyle = node.active ? this.colorScale( i ) : '#333'
       context.closePath()
       context.fill()
+
+      context.font = '10px arial';
+      context.textAlign = 'center'
+      context.fillText( node.name, this.xScale(d[0]), this.yScale(d[1]) - 1.5 * radius )
     })
 
   }
 
   handleClick() {
     let x = d3.event.offsetX,
-      y = d3.event.offsetY
+      y = d3.event.offsetY,
+      context = this.state.context
 
     let hitNode
 
@@ -94,24 +108,37 @@ class VizCanvas extends Component {
       if(hit) {
         hitNode = {
           point,
-          index: i
+          index: i,
+          x: point[0],
+          y: point[1],
+          color: this.colorScale(i)
         }
       }
 
     })
 
-    this.props.nodeData.forEach(node => {
+    if(hitNode) {
+
+      this.props.nodeData.forEach(node => {
         node.active = false
         node.selected = false
       })
 
-    if(hitNode) {
+      hitNode = {
+        ...this.props.nodeData[ hitNode.index ],
+        ...hitNode
+      }
+      this.props.nodeData[ hitNode.index ].active = true
+      this.props.nodeData[ hitNode.index ].selected = true
 
-      hitNode = this.props.nodeData[ hitNode.index ]
-      hitNode.active = true
-      hitNode.selected = true
+      let radius = RADIUS
 
     } else {
+
+      this.props.nodeData.forEach(node => {
+        node.active = true
+        node.selected = false
+      })
 
       hitNode = null
     }
