@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import VizCanvas from "../components/VizCanvas";
 import Dropdown from "../components/Dropdown";
 import AutoSuggest from "../components/AutoSuggest";
-import CheckBox from "../components/CheckBox";
 import SelectionKpis from "../components/SelectionKpis";
+import CheckBox from "../components/CheckBox";
 import TSne from "../js/TSne";
 import "../css/Home.css";
 import { modelData, nodeData, allData } from "../models/mappings";
+import Legends from "../components/Legends";
 
 import { kpiMapping } from "../models/mappings";
 
@@ -23,8 +24,8 @@ class Home extends Component {
     let headings = [];
     for (var i = 0; i < headingMapping.length; i++) {
       headings.push(headingMapping[i]);
-      
-      for(var j =0; j < headingMapping[i].ids.length; j++) {
+
+      for (var j = 0; j < headingMapping[i].ids.length; j++) {
         displayKpiIds.push(headingMapping[i].ids[j]);
       }
     }
@@ -36,7 +37,8 @@ class Home extends Component {
       modelData,
       sizeKpi: kpiMapping[Object.keys(kpiMapping)[0]],
       colorKpi: kpiMapping[Object.keys(kpiMapping)[0]],
-      headings: headings
+      headings: headings,
+      selectedMunicipalityId: null
     };
   }
 
@@ -88,9 +90,9 @@ class Home extends Component {
     this.setState({ sizeKpi: kpiMapping[selectedOption.value] });
   }
 
-  _changeGoalIds( changedGoalsIds ) {
-    if(changedGoalsIds.checkValue) {
-      for(var i = 0; i < changedGoalsIds.ids.length; i++) {
+  _changeGoalIds(changedGoalsIds) {
+    if (changedGoalsIds.checkValue) {
+      for (var i = 0; i < changedGoalsIds.ids.length; i++) {
         displayKpiIds.push(changedGoalsIds.ids[i]);
       }
     } else {
@@ -99,28 +101,61 @@ class Home extends Component {
     console.log(displayKpiIds);
   }
 
+  _selectedMunicipalityId(id) {
+    nodeData.forEach(node => {
+      node.active = node.id == id;
+      node.selected = node.id == id;
+    });
+
+    // let node = this.props.nodeData[ hitNode.index ]
+
+    this.setState({ selectedMunicipalityId: id });
+  }
+
   render() {
     return (
       <div className="home-wrap">
+        <Legends
+          colorData={this.state.colorKpi}
+          sizeData={this.state.sizeKpi}
+        />
+
         <SelectionKpis node={this.state.selectedNode} />
 
-        <Dropdown
-          data={kpiMapping}
-          placeholder="Select color"
-          onChange={color => this._selectColor(color)}
-        />
-        <Dropdown
-          data={kpiMapping}
-          placeholder="Select size"
-          onChange={size => this._selectSize(size)}
-        />
+        <div className="controls-container">
+          <div className="control">
+            <Dropdown
+              data={kpiMapping}
+              placeholder="Select color"
+              onChange={color => this._selectColor(color)}
+            />
+          </div>
 
-        <AutoSuggest />
+          <div className="control">
+            <Dropdown
+              data={kpiMapping}
+              placeholder="Select size"
+              onChange={size => this._selectSize(size)}
+            />
+          </div>
+
+          <div className="control">
+            <AutoSuggest
+              selectedMunicipalityId={selectedMunicipalityId =>
+                this._selectedMunicipalityId(selectedMunicipalityId)
+              }
+            />
+          </div>
+        </div>
 
         {this.state.headings.map(element => {
-          return [<CheckBox   label={element.name} 
-                              id={element.ids} 
-                              onIdChange={ids => this._changeGoalIds(ids)}/>];
+          return [
+            <CheckBox
+              label={element.name}
+              id={element.ids}
+              onIdChange={ids => this._changeGoalIds(ids)}
+            />
+          ];
         })}
 
         <VizCanvas

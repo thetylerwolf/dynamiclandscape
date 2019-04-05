@@ -4,10 +4,10 @@ import * as d3 from "d3"
 const width = window.innerWidth;
 const height = window.innerHeight;
 const padding = {
-  top: 50,
-  right: 100,
-  bottom: 100,
-  left: 100
+  top: 20,
+  right: 220,
+  bottom: 20,
+  left: 20
 }
 
 let maxRadius = 20
@@ -85,6 +85,7 @@ class VizCanvas extends Component {
       } else {
         context.arc( this.xScale(d[0]), this.yScale(d[1]), 0.1, 0, 2 * Math.PI, true )
       }
+
       if(node.active) {
         context.globalAlpha = 1
         context.fillStyle = colorValue > -1 ? d3.interpolateViridis(this.colorScale( colorValue )) : '#fff'

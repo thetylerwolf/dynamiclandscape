@@ -1,0 +1,122 @@
+.legends-container {
+  position:fixed;
+  top:0;
+  left:230px;
+  padding:1em;
+  background-color:rgba(249,249,249,0.8);
+  display:flex;
+  pointer-events:none;
+}
+
+.legends-container .legend-title {
+  font-size:12px;
+}
+
+.legends-container .legend-color {
+  height:50px;
+}
+
+.legends-container .colors-blocks {
+  position:relative;
+  /*top: 2.1em;*/
+  margin-top:0.5em;
+  width:200px;
+}
+
+.legends-container .colors-blocks .block {
+  position:absolute;
+  top:0;
+  height:10px;
+}
+
+.legends-container .colors-values {
+  position:relative;
+  width:200px;
+}
+
+.legends-container .colors-value {
+  top:1em;
+  position:absolute;
+  font-size:12px;
+}
+
+.legends-container .colors-min {
+  left:0;
+}
+
+.legends-container .colors-max {
+  right:0;
+  text-align:right;
+}
+
+.legends-container .legend-size {
+  position:relative;
+  margin-left:1em;
+}
+
+.legends-container .sizes-values {
+  position:absolute;
+  font-size:12px;
+  left:0;
+  height:40px;
+  width:40px;
+}
+
+.legends-container .sizes-min {
+  position:absolute;
+  left:50%;
+  width:40px;
+  margin-left:-20px;
+  bottom:3px;
+  text-align:center;
+}
+
+.legends-container .sizes-max {
+  position:absolute;
+  text-align:center;
+  left:50%;
+  width:40px;
+  margin-left:-19px;
+  top:0;
+}
+
+.legends-container .sizes-circles {
+  position:absolute;
+  font-size:12px;
+  margin-top:2px;
+  left:0;
+  height:40px;
+  width:40px;
+}
+
+
+.legends-container .big-circle,
+.legends-container .small-circle,
+.legends-container .medium-circle {
+  position:absolute;
+  bottom:0;
+  left:0;
+  border:1px solid #333;
+  background-color:#fff;
+}
+
+.legends-container .big-circle {
+  left:0;
+  height:40px;
+  width:40px;
+  border-radius:40px;
+}
+
+.legends-container .medium-circle {
+  left:7px;
+  height:25px;
+  width:25px;
+  border-radius:25px;
+}
+
+.legends-container .small-circle {
+  left:17px;
+  height:5px;
+  width:5px;
+  border-radius:5px;
+}

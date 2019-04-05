@@ -9,6 +9,7 @@
   padding:20px;
   background-color:rgba(249,249,249,0.5);
   font-size:12px;
+  /*pointer-events:none;*/
 }
 
 .selection-kpis-container .municipality-name {
