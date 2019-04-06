@@ -1,22 +1,46 @@
 .home-wrap .controls-container {
-  position:fixed;
-  top:0;
-  left:0;
-  opacity:0.8;
-  width:200px;
-  padding:1em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0.8;
+  width: 200px;
+  padding: 1em;
 }
 
 .home-wrap .control {
-  margin:0 0 1em;
+  margin: 0 0 1em;
+}
+
+.home-wrap .control a {
+  font-size: 14px;
+  text-decoration: none;
+  color: #3399ff;
 }
 
 .react-autosuggest__input {
-  width:100%;
-  box-sizing:border-box;
+  width: 100%;
+  box-sizing: border-box;
   height: 37px;
 }
 
 .home-wrap .viz-canvas {
-  margin-top:50px;
+  margin-top: 50px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0.25em;
+  width: 100%;
+  text-align: center;
+  z-index: 10000;
+  color: #000000;
+  font-weight: 200;
+  font-family: "Roboto", sans-serif;
+  font-size: 10pt;
+}
+
+.footer a {
+  color: #000000;
+  text-decoration: underline;
+  font-size: 10pt;
 }

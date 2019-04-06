@@ -22,7 +22,7 @@ class Maps extends Component {
       return <MapMultiples data={sec} key={i} />;
     });
 
-    return multiplesSections;
+    return <div className="maps">{multiplesSections}</div>;
   }
 }
 
