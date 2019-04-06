@@ -1,14 +1,14 @@
 {
-  "main.css": "/hackforsweden/static/css/main.80116c5f.chunk.css",
-  "main.js": "/hackforsweden/static/js/main.818308a5.chunk.js",
-  "main.js.map": "/hackforsweden/static/js/main.818308a5.chunk.js.map",
+  "main.css": "/hackforsweden/static/css/main.c3f157b5.chunk.css",
+  "main.js": "/hackforsweden/static/js/main.8c2835ae.chunk.js",
+  "main.js.map": "/hackforsweden/static/js/main.8c2835ae.chunk.js.map",
   "runtime~main.js": "/hackforsweden/static/js/runtime~main.12c195e8.js",
   "runtime~main.js.map": "/hackforsweden/static/js/runtime~main.12c195e8.js.map",
   "static/js/2.fbcad81e.chunk.js": "/hackforsweden/static/js/2.fbcad81e.chunk.js",
   "static/js/2.fbcad81e.chunk.js.map": "/hackforsweden/static/js/2.fbcad81e.chunk.js.map",
   "index.html": "/hackforsweden/index.html",
-  "precache-manifest.888be0b7fed5ee1bc0245353a3d0f9e7.js": "/hackforsweden/precache-manifest.888be0b7fed5ee1bc0245353a3d0f9e7.js",
+  "precache-manifest.35f6d66204d9caabb5b7bc192fde2bb4.js": "/hackforsweden/precache-manifest.35f6d66204d9caabb5b7bc192fde2bb4.js",
   "service-worker.js": "/hackforsweden/service-worker.js",
-  "static/css/main.80116c5f.chunk.css.map": "/hackforsweden/static/css/main.80116c5f.chunk.css.map",
+  "static/css/main.c3f157b5.chunk.css.map": "/hackforsweden/static/css/main.c3f157b5.chunk.css.map",
   "static/media/municipalities.79a091d6.svg": "/hackforsweden/static/media/municipalities.79a091d6.svg"
 }
