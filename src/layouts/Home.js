@@ -29,7 +29,7 @@ class Home extends Component {
       modelData,
       sizeKpi: kpiMapping[ Object.keys(kpiMapping)[0] ],
       colorKpi: kpiMapping[ Object.keys(kpiMapping)[0] ],
-      selectedMunicipalityId: null
+      selectedNode: null
     }
   }
 
@@ -84,15 +84,21 @@ class Home extends Component {
   }
 
   _selectedMunicipalityId(id) {
+    let selectedNode = null
+
     nodeData.forEach(node => {
-      node.active = node.id == id
-      node.selected = node.id == id
+      let isNode = node.id == id
+
+      node.active = isNode
+      node.selected = isNode
+
+      if(isNode) selectedNode = node
     })
 
     // let node = this.props.nodeData[ hitNode.index ]
 
 
-    this.setState({ selectedMunicipalityId: id})
+    this.setState({ selectedNode })
   }
 
 

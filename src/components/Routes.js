@@ -35,6 +35,7 @@ export class Routes extends Component {
                 <Switch location={ this.props.location }>
                   <Route path="/" exact component={ Home }/>
                   <Route path="/maps" exact component={ Maps }/>
+                  <Route path="*" component={ Home }/>
                 </Switch>
               </CSSTransition>
             </TransitionGroup>
