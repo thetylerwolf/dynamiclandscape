@@ -7,6 +7,7 @@ import TSne from "../js/TSne";
 import "../css/Home.css";
 import { modelData, nodeData, allData } from "../models/mappings";
 import Legends from "../components/Legends";
+import { Link } from 'react-router-dom'
 
 import { kpiMapping } from "../models/mappings";
 
@@ -128,9 +129,9 @@ class Home extends Component {
             />
           </div>
           <div className="control">
-            <a href="/maps" target="_blank">
+            <Link to="/maps" target="_blank">
               Overview maps
-            </a>
+            </Link>
           </div>
         </div>
 

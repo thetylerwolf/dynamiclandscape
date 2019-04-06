@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {
   Route,
   Switch,
+  HashRouter
 } from 'react-router-dom'
 import { withRouter } from 'react-router'
 import {
@@ -32,11 +33,13 @@ export class Routes extends Component {
                 timeout={ 300 }
                 classNames="page-level"
               >
-                <Switch location={ this.props.location }>
-                  <Route path="/" exact component={ Home }/>
-                  <Route path="/maps" exact component={ Maps }/>
-                  <Route path="*" component={ Home }/>
-                </Switch>
+                <HashRouter location={ this.props.location }>
+                  <Switch>
+                    <Route path="/" exact component={ Home }/>
+                    <Route path="/maps" exact component={ Maps }/>
+                    <Route path="*" component={ Home }/>
+                  </Switch>
+                </HashRouter>
               </CSSTransition>
             </TransitionGroup>
           </main>
