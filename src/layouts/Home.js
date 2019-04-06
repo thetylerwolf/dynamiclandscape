@@ -22,10 +22,17 @@ class Home extends Component {
       tsneComplete: false,
       nodeData,
       modelData,
+<<<<<<< HEAD
       sizeKpi: kpiMapping[Object.keys(kpiMapping)[0]],
       colorKpi: kpiMapping[Object.keys(kpiMapping)[0]],
       selectedMunicipalityId: null
     };
+=======
+      sizeKpi: kpiMapping[ Object.keys(kpiMapping)[0] ],
+      colorKpi: kpiMapping[ Object.keys(kpiMapping)[0] ],
+      selectedNode: null
+    }
+>>>>>>> 86e701e13636b8c74fb22a2028f4e607e327bb4f
   }
 
   componentDidMount() {
@@ -50,7 +57,7 @@ class Home extends Component {
       },
       perplexity: 90,
       earlyExaggeration: 2.5,
-      learningRate: 60,
+      learningRate: 50,
       iterations: 2000,
       metric: "euclidean",
       dim: 2,
@@ -77,14 +84,21 @@ class Home extends Component {
   }
 
   _selectedMunicipalityId(id) {
+    let selectedNode = null
+
     nodeData.forEach(node => {
-      node.active = node.id == id;
-      node.selected = node.id == id;
-    });
+      let isNode = node.id == id
+
+      node.active = isNode
+      node.selected = isNode
+
+      if(isNode) selectedNode = node
+    })
 
     // let node = this.props.nodeData[ hitNode.index ]
 
-    this.setState({ selectedMunicipalityId: id });
+
+    this.setState({ selectedNode })
   }
 
   render() {

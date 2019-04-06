@@ -87,8 +87,9 @@ class VizCanvas extends Component {
       }
 
       if(node.active) {
+        node.color = d3.interpolateViridis(this.colorScale( colorValue ))
         context.globalAlpha = 1
-        context.fillStyle = colorValue > -1 ? d3.interpolateViridis(this.colorScale( colorValue )) : '#fff'
+        context.fillStyle = colorValue > -1 ? node.color : '#fff'
       } else {
         context.globalAlpha = 0.3
         context.fillStyle = '#333'
