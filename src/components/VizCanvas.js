@@ -2,11 +2,11 @@ import React, { Component } from "react"
 import * as d3 from "d3"
 
 const width = window.innerWidth;
-const height = window.innerHeight;
+const height = window.innerHeight - 50;
 const padding = {
-  top: 20,
+  top: 50,
   right: 220,
-  bottom: 20,
+  bottom: 0,
   left: 20
 }
 
@@ -185,7 +185,7 @@ class VizCanvas extends Component {
     this.onTick()
 
     return (
-      <canvas width={ width } height={ height } ref="vizCanvas" ></canvas>
+      <canvas width={ width } height={ height } ref="vizCanvas" className='viz-canvas' ></canvas>
     )
   }
 }

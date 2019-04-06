@@ -16,3 +16,7 @@
   box-sizing:border-box;
   height: 37px;
 }
+
+.home-wrap .viz-canvas {
+  margin-top:50px;
+}
