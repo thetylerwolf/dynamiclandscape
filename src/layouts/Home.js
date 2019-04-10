@@ -3,20 +3,32 @@ import VizCanvas from "../components/VizCanvas";
 import Dropdown from "../components/Dropdown";
 import AutoSuggest from "../components/AutoSuggest";
 import SelectionKpis from "../components/SelectionKpis";
+import CheckBox from "../components/CheckBox";
 import TSne from "../js/TSne";
 import "../css/Home.css";
 import { modelData, nodeData, allData } from "../models/mappings";
 import Legends from "../components/Legends";
 import { Link } from 'react-router-dom'
-
 import { kpiMapping } from "../models/mappings";
+
+const headingMapping = require("../data_set/mapping/headingMapping.json");
 
 console.log("node data", nodeData);
 console.log("model data", modelData);
+var displayKpiIds = [];
 
 class Home extends Component {
   constructor() {
     super();
+
+    let headings = [];
+    for (var i = 0; i < headingMapping.length; i++) {
+      headings.push(headingMapping[i]);
+
+      for (var j = 0; j < headingMapping[i].ids.length; j++) {
+        displayKpiIds.push(headingMapping[i].ids[j]);
+      }
+    }
 
     this.state = {
       positionData: [],
@@ -25,7 +37,9 @@ class Home extends Component {
       modelData,
       sizeKpi: kpiMapping[Object.keys(kpiMapping)[0]],
       colorKpi: kpiMapping[Object.keys(kpiMapping)[0]],
-      selectedNode: null
+      selectedNode: null,
+      headings: headings,
+      selectedMunicipalityId: null
     };
   }
 
@@ -77,10 +91,27 @@ class Home extends Component {
     this.setState({ sizeKpi: kpiMapping[selectedOption.value] });
   }
 
+  _changeGoalIds(changedGoalsIds) {
+    if (changedGoalsIds.checkValue) {
+      for (var i = 0; i < changedGoalsIds.ids.length; i++) {
+        console.log(changedGoalsIds.ids[i]);
+        displayKpiIds.push(changedGoalsIds.ids[i]);
+      }
+    } else {
+      for (var i = 0; i < changedGoalsIds.ids.length; i++) {
+        console.log(changedGoalsIds.ids[i]);
+        displayKpiIds = displayKpiIds.filter(id => id !== changedGoalsIds.ids[i]);
+      }
+
+    }
+    console.log(displayKpiIds);
+  }
+
   _selectedMunicipalityId(id) {
     let selectedNode = null;
 
     nodeData.forEach(node => {
+
       let isNode = node.id == id;
 
       node.active = isNode;
@@ -128,10 +159,23 @@ class Home extends Component {
               }
             />
           </div>
+
           <div className="control">
             <Link to="/maps" target="_blank">
               Overview maps
             </Link>
+          </div>
+
+          <div className="control">
+            {this.state.headings.map(element => {
+              return [
+                <CheckBox
+                  label={element.name}
+                  id={element.ids}
+                  onIdChange={ids => this._changeGoalIds(ids)}
+                />
+              ];
+            })}
           </div>
         </div>
 
@@ -153,6 +197,7 @@ class Home extends Component {
             https://www.kolada.se
           </a>
         </div>
+
       </div>
     );
   }
