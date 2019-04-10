@@ -28,6 +28,8 @@ class VizCanvas extends Component {
   colorScale = d3.scaleLinear()
     .range([0,0.5])
 
+  transform = d3.zoomIdentity
+
   constructor() {
     super()
 
@@ -46,6 +48,11 @@ class VizCanvas extends Component {
       .style('width', width + 'px')
       .style('height', height + 'px')
       .on('click', () => this.handleClick())
+      // .call(d3.drag().subject(dragsubject).on("start", dragstarted).on("drag", dragged).on("end",dragended))
+      .call(d3.zoom()
+        .scaleExtent([ 1, 8 ])
+        .translateExtent([ [ -padding.right, -padding.top ], [ width + padding.left, height ] ])
+        .on("zoom", () => this.zoom()))
 
     let dpr = window.devicePixelRatio || 1,
       rect = this.refs.vizCanvas.getBoundingClientRect()
@@ -64,7 +71,11 @@ class VizCanvas extends Component {
     let context = this.state.context
     if(!context) return
 
-    context.clearRect(0, 0, width, height);
+    context.save()
+
+    context.clearRect(0, 0, width, height)
+    context.translate(this.transform.x, this.transform.y)
+    context.scale(this.transform.k, this.transform.k)
 
     this.props.positionData.forEach((d,i) => {
 
@@ -111,11 +122,13 @@ class VizCanvas extends Component {
 
     })
 
+    context.restore()
+
   }
 
   handleClick() {
-    let x = d3.event.offsetX,
-      y = d3.event.offsetY,
+    let x = this.transform.invertX(d3.event.offsetX),
+      y = this.transform.invertY(d3.event.offsetY),
       context = this.state.context
 
     let hitNode
@@ -126,6 +139,7 @@ class VizCanvas extends Component {
       let node = this.props.nodeData[i]
 
       let radius = node.kpis[this.props.radiusValue.index].value || 0
+      radius = Math.max(0, radius)
       radius = this.rScale( radius )
       let hit = dx*dx + dy*dy < radius*radius
 
@@ -177,6 +191,11 @@ class VizCanvas extends Component {
     this.onTick()
     this.props.onClick( hitNode )
 
+  }
+
+  zoom() {
+    this.transform = d3.event.transform
+    this.onTick()
   }
 
   render() {
