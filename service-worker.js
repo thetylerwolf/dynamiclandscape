@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/hackforsweden/precache-manifest.fcf4ef06587f430ca9a045f0771d2ea7.js"
+  "/hackforsweden/precache-manifest.cd8f50016f2f89a4e7122970be889545.js"
 );
 
 workbox.clientsClaim();
