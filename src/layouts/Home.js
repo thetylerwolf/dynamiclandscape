@@ -8,13 +8,13 @@ import TSne from "../js/TSne";
 import "../css/Home.css";
 import { modelData, nodeData, allData } from "../models/mappings";
 import Legends from "../components/Legends";
-import { Link } from 'react-router-dom'
+
 import { kpiMapping } from "../models/mappings";
+
+var _ = require("lodash");
 
 const headingMapping = require("../data_set/mapping/headingMapping.json");
 
-console.log("node data", nodeData);
-console.log("model data", modelData);
 var displayKpiIds = [];
 
 class Home extends Component {
@@ -35,9 +35,8 @@ class Home extends Component {
       tsneComplete: false,
       nodeData,
       modelData,
-      sizeKpi: kpiMapping[Object.keys(kpiMapping)[0]],
-      colorKpi: kpiMapping[Object.keys(kpiMapping)[0]],
-      selectedNode: null,
+      sizeKpi: kpiMapping[Object.keys(kpiMapping)[0]], // update this as well?
+      colorKpi: kpiMapping[Object.keys(kpiMapping)[0]], // update this as well?
       headings: headings,
       selectedMunicipalityId: null
     };
@@ -65,7 +64,7 @@ class Home extends Component {
       },
       perplexity: 90,
       earlyExaggeration: 2.5,
-      learningRate: 50,
+      learningRate: 60,
       iterations: 2000,
       metric: "euclidean",
       dim: 2,
@@ -92,37 +91,31 @@ class Home extends Component {
   }
 
   _changeGoalIds(changedGoalsIds) {
+    console.log("number of kpis pre", displayKpiIds.length);
     if (changedGoalsIds.checkValue) {
       for (var i = 0; i < changedGoalsIds.ids.length; i++) {
-        console.log(changedGoalsIds.ids[i]);
         displayKpiIds.push(changedGoalsIds.ids[i]);
       }
     } else {
       for (var i = 0; i < changedGoalsIds.ids.length; i++) {
-        console.log(changedGoalsIds.ids[i]);
-        displayKpiIds = displayKpiIds.filter(id => id !== changedGoalsIds.ids[i]);
+        displayKpiIds = displayKpiIds.filter(
+          id => id !== changedGoalsIds.ids[i]
+        );
       }
-
     }
-    console.log(displayKpiIds);
+    console.log("number of kpis post", displayKpiIds.length);
+    this.setState({ nodeData: filterNodeData(), modelData: filterModelData() });
   }
 
   _selectedMunicipalityId(id) {
-    let selectedNode = null;
-
     nodeData.forEach(node => {
-
-      let isNode = node.id == id;
-
-      node.active = isNode;
-      node.selected = isNode;
-
-      if (isNode) selectedNode = node;
+      node.active = node.id == id;
+      node.selected = node.id == id;
     });
 
     // let node = this.props.nodeData[ hitNode.index ]
 
-    this.setState({ selectedNode });
+    this.setState({ selectedMunicipalityId: id });
   }
 
   render() {
@@ -159,25 +152,17 @@ class Home extends Component {
               }
             />
           </div>
-
-          <div className="control">
-            <Link to="/maps" target="_blank">
-              Overview maps
-            </Link>
-          </div>
-
-          <div className="control">
-            {this.state.headings.map(element => {
-              return [
-                <CheckBox
-                  label={element.name}
-                  id={element.ids}
-                  onIdChange={ids => this._changeGoalIds(ids)}
-                />
-              ];
-            })}
-          </div>
         </div>
+
+        {this.state.headings.map(element => {
+          return [
+            <CheckBox
+              label={element.name}
+              id={element.ids}
+              onIdChange={ids => this._changeGoalIds(ids)}
+            />
+          ];
+        })}
 
         <VizCanvas
           positionData={this.state.positionData}
@@ -186,21 +171,38 @@ class Home extends Component {
           colorValue={this.state.colorKpi}
           onClick={node => this._selectNode(node)}
         />
-
-        <div className="footer">
-          2019 -{" "}
-          <a href="http://tylernwolf.com?ref=mobilityObserver" target="_blank">
-            Tyler Wolf,
-          </a>{" "}
-          Karl-Anton Brötmark and Adam Ekberg - Data Source:{" "}
-          <a href="https://www.kolada.se" target="_blank">
-            https://www.kolada.se
-          </a>
-        </div>
-
       </div>
     );
   }
+}
+
+function filterNodeData() {
+  var result = JSON.parse(JSON.stringify(nodeData));
+  // Loop through all munis
+  for (var i = 0; i < nodeData.length; i++) {
+    var kpis = result[i].kpis;
+    // Filter on kpis in args
+    kpis = _.filter(kpis, kpi => {
+      return displayKpiIds.includes(kpi.id);
+    });
+    // Replace the old kpi array with the filtered one
+    result[i].kpis = kpis;
+  }
+  return result;
+}
+
+function filterModelData() {
+  var result = [];
+  for (var i = 0; i < nodeData.length; i++) {
+    var kpiValues = nodeData[i].kpis;
+    var kpisForThisMuni = [];
+    for (var j = 0; j < kpiValues.length; j++) {
+      var value = kpiValues[j].value;
+      kpisForThisMuni.push(value === null ? -1 : value);
+    }
+    result.push(kpisForThisMuni);
+  }
+  return result;
 }
 
 export default Home;
