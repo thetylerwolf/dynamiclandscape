@@ -30,6 +30,13 @@ class Home extends Component {
       }
     }
 
+    // console.log("kpiMapping", JSON.stringify(kpiMapping, null, 4));
+    // console.log("Object.keys(kpiMapping)[0]", Object.keys(kpiMapping)[0]);
+    // console.log(
+    //   "kpiMapping[Object.keys(kpiMapping)[0]]",
+    //   JSON.stringify(kpiMapping[Object.keys(kpiMapping)[0]], null, 4)
+    // );
+
     this.state = {
       positionData: [],
       tsneComplete: false,
@@ -91,7 +98,6 @@ class Home extends Component {
   }
 
   _changeGoalIds(changedGoalsIds) {
-    console.log("number of kpis pre", displayKpiIds.length);
     if (changedGoalsIds.checkValue) {
       for (var i = 0; i < changedGoalsIds.ids.length; i++) {
         displayKpiIds.push(changedGoalsIds.ids[i]);
@@ -103,8 +109,10 @@ class Home extends Component {
         );
       }
     }
-    console.log("number of kpis post", displayKpiIds.length);
-    this.setState({ nodeData: filterNodeData(), modelData: filterModelData() });
+    var updatedNodeData = filterNodeData(this.state.nodeData);
+    var updatedModelData = filterModelData(this.state.nodeData);
+    this.setState({ nodeData: updatedNodeData, modelData: updatedModelData });
+    this.TSNE._dataChange(updatedModelData);
   }
 
   _selectedMunicipalityId(id) {
@@ -176,10 +184,10 @@ class Home extends Component {
   }
 }
 
-function filterNodeData() {
-  var result = JSON.parse(JSON.stringify(nodeData));
+function filterNodeData(theNodeData) {
+  var result = JSON.parse(JSON.stringify(theNodeData));
   // Loop through all munis
-  for (var i = 0; i < nodeData.length; i++) {
+  for (var i = 0; i < theNodeData.length; i++) {
     var kpis = result[i].kpis;
     // Filter on kpis in args
     kpis = _.filter(kpis, kpi => {
@@ -191,14 +199,14 @@ function filterNodeData() {
   return result;
 }
 
-function filterModelData() {
+function filterModelData(theNodeData) {
   var result = [];
-  for (var i = 0; i < nodeData.length; i++) {
-    var kpiValues = nodeData[i].kpis;
+  for (var i = 0; i < theNodeData.length; i++) {
+    var kpiValues = theNodeData[i].kpis;
     var kpisForThisMuni = [];
     for (var j = 0; j < kpiValues.length; j++) {
       var value = kpiValues[j].value;
-      kpisForThisMuni.push(value === null ? -1 : value);
+      kpisForThisMuni.push(value === undefined ? -1 : value);
     }
     result.push(kpisForThisMuni);
   }

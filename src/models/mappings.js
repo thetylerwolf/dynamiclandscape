@@ -53,8 +53,6 @@ allData.forEach((d, i) => {
   };
 });
 
-console.log(kpiMapping);
-
 const nodeData = municipalities.map(muniId => {
   return {
     kpis: allData.map(kpi => {
