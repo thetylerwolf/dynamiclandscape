@@ -5,10 +5,21 @@
   opacity: 0.8;
   width: 200px;
   padding: 1em;
+  height:100%;
+  overflow:scroll;
+  background-color:#fff;
 }
 
 .home-wrap .control {
   margin: 0 0 1em;
+}
+
+.home-wrap .control .dimension-picker {
+  font-size:12px;
+}
+
+.home-wrap .control .dimension-picker .checkbox {
+  margin:0.5em 0;
 }
 
 .home-wrap .control a {
@@ -24,7 +35,6 @@
 }
 
 .home-wrap .viz-canvas {
-  margin-top: 50px;
 }
 
 .footer {

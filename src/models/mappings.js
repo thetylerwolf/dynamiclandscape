@@ -1,3 +1,5 @@
+import * as d3 from 'd3';
+
 import goalsData from "../data_set/goals/all_goals_latest_years.json";
 import wasteData from "../data_set/waste/all_waste_latest_years.json";
 import integrationData from "../data_set/integration/all_integration_latest_years.json";
@@ -13,8 +15,6 @@ import elderlyCareIdMapping from "../data_set/mapping/elderlyCareIdMapping.json"
 import municipalityIds from "../data_set/municipalityIdMapping.json";
 
 const municipalities = Object.keys(municipalityIds).sort();
-
-const d3 = require("d3");
 
 const allData = [
   ...goalsData.kpis,
@@ -76,5 +76,7 @@ const modelData = nodeData.map(muni => {
 
   return kpiArr;
 });
+
+console.log(nodeData)
 
 export { municipalityIds, nodeData, modelData, kpiMapping, allData };

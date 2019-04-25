@@ -39,6 +39,7 @@ self.onmessage = function (e) {
         data: msg.data,
         type: 'dense'
       });
+      console.log('dc', msg.data)
 
       isReady();
       break;

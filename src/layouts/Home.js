@@ -3,32 +3,18 @@ import VizCanvas from "../components/VizCanvas";
 import Dropdown from "../components/Dropdown";
 import AutoSuggest from "../components/AutoSuggest";
 import SelectionKpis from "../components/SelectionKpis";
-import CheckBox from "../components/CheckBox";
+import DimensionPicker from "../components/DimensionPicker";
 import TSne from "../js/TSne";
 import "../css/Home.css";
 import { modelData, nodeData, allData } from "../models/mappings";
 import Legends from "../components/Legends";
+import tsnejs from '../js/tsnejs'
 
 import { kpiMapping } from "../models/mappings";
-
-var _ = require("lodash");
-
-const headingMapping = require("../data_set/mapping/headingMapping.json");
-
-var displayKpiIds = [];
 
 class Home extends Component {
   constructor() {
     super();
-
-    let headings = [];
-    for (var i = 0; i < headingMapping.length; i++) {
-      headings.push(headingMapping[i]);
-
-      for (var j = 0; j < headingMapping[i].ids.length; j++) {
-        displayKpiIds.push(headingMapping[i].ids[j]);
-      }
-    }
 
     // console.log("kpiMapping", JSON.stringify(kpiMapping, null, 4));
     // console.log("Object.keys(kpiMapping)[0]", Object.keys(kpiMapping)[0]);
@@ -44,41 +30,60 @@ class Home extends Component {
       modelData,
       sizeKpi: kpiMapping[Object.keys(kpiMapping)[0]], // update this as well?
       colorKpi: kpiMapping[Object.keys(kpiMapping)[0]], // update this as well?
-      headings: headings,
-      selectedMunicipalityId: null
+      selectedMunicipalityId: null,
+      dataUpdate: false,
+      visibleKpis: Object.entries(kpiMapping).map(([key,value]) => ({ key, value: value.name }))
     };
   }
 
   componentDidMount() {
-    this.TSNE = new TSne({
-      onProgress: msg => {
-        // console.log('progress', msg)
-        this.setState({
-          positionData: msg
-        });
-      },
-      readyStateChange: msg => {
-        // console.log('statechange', msg)
-        if (msg === "READY" && !this.state.tsneComplete) {
-          setTimeout(() => this.TSNE.run(), 33);
-        }
-      },
-      onComplete: msg => {
-        // console.log('complete', msg)
-        this.setState({
-          tsneComplete: true
-        });
-      },
-      perplexity: 90,
-      earlyExaggeration: 2.5,
-      learningRate: 60,
-      iterations: 2000,
-      metric: "euclidean",
-      dim: 2,
-      data: this.state.modelData
-    });
+    this._createTSNE();
+    // this.TSNE.init();
+  }
 
-    this.TSNE.init();
+  componentDidUpdate() {
+
+  }
+
+  _createTSNE() {
+
+    let opt = {
+      epsilon: 10,
+      perplexity: 90,
+      dim: 2
+    }
+
+    this.TSNE = new tsnejs.tSNE(opt);
+    this.TSNE.initDataRaw( this.state.modelData );
+
+    this._runTSNE()
+  }
+
+  _runTSNE() {
+    let steps = 0
+
+    this.animateTSNE = () => {
+      steps++
+      if(steps > 2000) {
+        return
+      }
+
+      this.TSNE.step();
+
+      const positionData = this.TSNE.getSolution();
+
+      this.setState({
+        positionData
+      })
+
+      requestAnimationFrame(this.animateTSNE)
+    }
+
+    requestAnimationFrame(this.animateTSNE)
+  }
+
+  _stopTSNE() {
+
   }
 
   _selectNode(node) {
@@ -97,26 +102,8 @@ class Home extends Component {
     this.setState({ sizeKpi: kpiMapping[selectedOption.value] });
   }
 
-  _changeGoalIds(changedGoalsIds) {
-    if (changedGoalsIds.checkValue) {
-      for (var i = 0; i < changedGoalsIds.ids.length; i++) {
-        displayKpiIds.push(changedGoalsIds.ids[i]);
-      }
-    } else {
-      for (var i = 0; i < changedGoalsIds.ids.length; i++) {
-        displayKpiIds = displayKpiIds.filter(
-          id => id !== changedGoalsIds.ids[i]
-        );
-      }
-    }
-    var updatedNodeData = filterNodeData(this.state.nodeData);
-    var updatedModelData = filterModelData(this.state.nodeData);
-    this.setState({ nodeData: updatedNodeData, modelData: updatedModelData });
-    this.TSNE._dataChange(updatedModelData);
-  }
-
   _selectedMunicipalityId(id) {
-    nodeData.forEach(node => {
+    this.state.nodeData.forEach(node => {
       node.active = node.id == id;
       node.selected = node.id == id;
     });
@@ -124,6 +111,39 @@ class Home extends Component {
     // let node = this.props.nodeData[ hitNode.index ]
 
     this.setState({ selectedMunicipalityId: id });
+  }
+
+  _changeDimensions(dims) {
+
+    const updatedNodeData = nodeData.map((node,i) => {
+      let kpis = node.kpis.filter(kpi => dims.includes(kpi.id))
+
+      return {
+        ...node,
+        kpis
+      }
+
+    })
+
+    const updatedModelData = updatedNodeData.map(muni => {
+      const kpiArr = muni.kpis.map(kpi => {
+        const v = kpi.value === undefined ? -1 : kpi.value;
+
+        return v;
+      });
+
+      return kpiArr;
+    });
+
+    const visibleKpis = dims.map(dim => ({ key: dim, value: kpiMapping[dim].name }))
+
+    this.setState({
+      nodeData: updatedNodeData,
+      modelData: updatedModelData,
+      dataUpdate: true,
+      visibleKpis
+    });
+
   }
 
   render() {
@@ -139,7 +159,7 @@ class Home extends Component {
         <div className="controls-container">
           <div className="control">
             <Dropdown
-              data={kpiMapping}
+              data={this.state.visibleKpis}
               placeholder="Select color"
               onChange={color => this._selectColor(color)}
             />
@@ -147,7 +167,7 @@ class Home extends Component {
 
           <div className="control">
             <Dropdown
-              data={kpiMapping}
+              data={this.state.visibleKpis}
               placeholder="Select size"
               onChange={size => this._selectSize(size)}
             />
@@ -160,17 +180,14 @@ class Home extends Component {
               }
             />
           </div>
-        </div>
 
-        {this.state.headings.map(element => {
-          return [
-            <CheckBox
-              label={element.name}
-              id={element.ids}
-              onIdChange={ids => this._changeGoalIds(ids)}
+          <div className="control">
+            <DimensionPicker
+              dimensions={ [] }
+              onChange={ (dims) => this._changeDimensions(dims) }
             />
-          ];
-        })}
+          </div>
+        </div>
 
         <VizCanvas
           positionData={this.state.positionData}
@@ -182,35 +199,6 @@ class Home extends Component {
       </div>
     );
   }
-}
-
-function filterNodeData(theNodeData) {
-  var result = JSON.parse(JSON.stringify(theNodeData));
-  // Loop through all munis
-  for (var i = 0; i < theNodeData.length; i++) {
-    var kpis = result[i].kpis;
-    // Filter on kpis in args
-    kpis = _.filter(kpis, kpi => {
-      return displayKpiIds.includes(kpi.id);
-    });
-    // Replace the old kpi array with the filtered one
-    result[i].kpis = kpis;
-  }
-  return result;
-}
-
-function filterModelData(theNodeData) {
-  var result = [];
-  for (var i = 0; i < theNodeData.length; i++) {
-    var kpiValues = theNodeData[i].kpis;
-    var kpisForThisMuni = [];
-    for (var j = 0; j < kpiValues.length; j++) {
-      var value = kpiValues[j].value;
-      kpisForThisMuni.push(value === undefined ? -1 : value);
-    }
-    result.push(kpisForThisMuni);
-  }
-  return result;
 }
 
 export default Home;

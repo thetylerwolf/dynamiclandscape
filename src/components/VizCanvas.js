@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import * as d3 from "d3"
 
 const width = window.innerWidth;
-const height = window.innerHeight - 50;
+const height = window.innerHeight;
 const padding = {
   top: 50,
   right: 220,
@@ -15,15 +15,16 @@ let maxRadius = 20
 class VizCanvas extends Component {
 
   xScale = d3.scaleLinear()
-    .domain([-1,1])
+    .domain([-8,6])
     .range([ padding.left, width - padding.left - padding.right ])
 
   yScale = d3.scaleLinear()
-    .domain([-1,1])
+    .domain([-8,6])
     .range([ padding.top, height - padding.top - padding.bottom ])
 
   rScale = d3.scaleSqrt()
     .range([ 0, maxRadius ])
+    .clamp(true)
 
   colorScale = d3.scaleLinear()
     .range([0,0.5])

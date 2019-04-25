@@ -49,10 +49,14 @@ export default class TSne {
     this.props.readyStateChange(data);
   }
 
-  _dataChange(data) {
-    console.log("this.props.data pre", this.props.data);
+  dataChange(data) {
     this.props.data = data;
-    console.log("this.props.data post", this.props.data);
+
+    this.worker.postMessage({
+      type: "INPUT_DATA",
+      data: this.props.data
+    });
+
   }
 
   _complete(data) {
