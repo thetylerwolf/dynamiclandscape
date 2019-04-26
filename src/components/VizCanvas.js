@@ -51,8 +51,8 @@ class VizCanvas extends Component {
       .on('click', () => this.handleClick())
       // .call(d3.drag().subject(dragsubject).on("start", dragstarted).on("drag", dragged).on("end",dragended))
       .call(d3.zoom()
-        .scaleExtent([ 1, 8 ])
-        .translateExtent([ [ -padding.right, -padding.top ], [ width + padding.left, height ] ])
+        .scaleExtent([ 0.7, 8 ])
+        .translateExtent([ [ -width/2, -height/2 ], [ width * 3/2, height*3/2 ] ])
         .on("zoom", () => this.zoom()))
 
     let dpr = window.devicePixelRatio || 1,
@@ -81,6 +81,7 @@ class VizCanvas extends Component {
     this.props.positionData.forEach((d,i) => {
 
       let node = this.props.nodeData[i]
+
       let colorValue = node.kpis[this.props.colorValue.index],
         radiusValue = node.kpis[this.props.radiusValue.index]
 

@@ -12,8 +12,8 @@ class Dropdown extends Component {
 
     this.options = [];
 
-    props.data.forEach(({key, value}) => {
-        this.options.push( {value: key, label: value} );
+    Object.entries(props.data).forEach(([key, value]) => {
+        this.options.push( {value: key, label: value.name} );
     });
 
     this.state = {
@@ -21,25 +21,9 @@ class Dropdown extends Component {
     }
   }
 
-  componentWillUpdate(nextProps, nextState) {
-
-    let previousOption = this.state.selectedOption,
-      prevOptionExists = false
-
-    this.options = []
-
-    nextProps.data.forEach(({key, value}) => {
-        if(key == previousOption.value) prevOptionExists = true
-        this.options.push( {value: key, label: value} );
-    });
-
-    // nextState.selectedOption = prevOptionExists ? previousOption : this.options[0]
-
-  }
-
   onChange(selectedOption){
     this.setState({ selectedOption });
-    this.props.onChange({ selectedOption })
+    this.props.onChange({selectedOption})
   }
 
   render() {

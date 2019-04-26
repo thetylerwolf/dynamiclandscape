@@ -4,7 +4,6 @@ import Dropdown from "../components/Dropdown";
 import AutoSuggest from "../components/AutoSuggest";
 import SelectionKpis from "../components/SelectionKpis";
 import DimensionPicker from "../components/DimensionPicker";
-import TSne from "../js/TSne";
 import "../css/Home.css";
 import { modelData, nodeData, allData } from "../models/mappings";
 import Legends from "../components/Legends";
@@ -31,8 +30,7 @@ class Home extends Component {
       sizeKpi: kpiMapping[Object.keys(kpiMapping)[0]], // update this as well?
       colorKpi: kpiMapping[Object.keys(kpiMapping)[0]], // update this as well?
       selectedMunicipalityId: null,
-      dataUpdate: false,
-      visibleKpis: Object.entries(kpiMapping).map(([key,value]) => ({ key, value: value.name }))
+      dataUpdate: false
     };
   }
 
@@ -135,13 +133,12 @@ class Home extends Component {
       return kpiArr;
     });
 
-    const visibleKpis = dims.map(dim => ({ key: dim, value: kpiMapping[dim].name }))
+    // const visibleKpis = dims.map(dim => ({ key: dim, value: kpiMappings[dim].name }))
 
     this.setState({
-      nodeData: updatedNodeData,
+      // nodeData: updatedNodeData,
       modelData: updatedModelData,
       dataUpdate: true,
-      visibleKpis
     });
 
   }
@@ -159,7 +156,7 @@ class Home extends Component {
         <div className="controls-container">
           <div className="control">
             <Dropdown
-              data={this.state.visibleKpis}
+              data={kpiMapping}
               placeholder="Select color"
               onChange={color => this._selectColor(color)}
             />
@@ -167,7 +164,7 @@ class Home extends Component {
 
           <div className="control">
             <Dropdown
-              data={this.state.visibleKpis}
+              data={kpiMapping}
               placeholder="Select size"
               onChange={size => this._selectSize(size)}
             />
@@ -190,6 +187,7 @@ class Home extends Component {
         </div>
 
         <VizCanvas
+          fullNodeData={ nodeData }
           positionData={this.state.positionData}
           nodeData={this.state.nodeData}
           radiusValue={this.state.sizeKpi}
