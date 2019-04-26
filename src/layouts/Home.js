@@ -51,7 +51,10 @@ class Home extends Component {
       dim: 2
     }
 
-    this.TSNE = new tsnejs.tSNE(opt);
+    if(!this.TSNE) {
+      this.TSNE = new tsnejs.tSNE(opt);
+    }
+
     this.TSNE.initDataRaw( this.state.modelData );
 
     this._runTSNE()
@@ -61,7 +64,12 @@ class Home extends Component {
     let steps = 0
 
     this.animateTSNE = () => {
-      steps++
+      if(this.state.dataUpdate) {
+        this._createTSNE()
+        this.setState({ dataUpdate: false })
+        return steps = 0
+      }
+
       if(steps > 2000) {
         return
       }
@@ -74,6 +82,8 @@ class Home extends Component {
         positionData
       })
 
+      steps++
+
       requestAnimationFrame(this.animateTSNE)
     }
 
@@ -81,7 +91,7 @@ class Home extends Component {
   }
 
   _stopTSNE() {
-
+    this.animateTSNE = () => {}
   }
 
   _selectNode(node) {
@@ -101,14 +111,20 @@ class Home extends Component {
   }
 
   _selectedMunicipalityId(id) {
-    this.state.nodeData.forEach(node => {
-      node.active = node.id == id;
-      node.selected = node.id == id;
+    let selectedNode = null;
+
+    nodeData.forEach(node => {
+      let isNode = node.id == id;
+
+      node.active = isNode;
+      node.selected = isNode;
+
+      if (isNode) selectedNode = node;
     });
 
     // let node = this.props.nodeData[ hitNode.index ]
 
-    this.setState({ selectedMunicipalityId: id });
+    this.setState({ selectedNode });
   }
 
   _changeDimensions(dims) {
@@ -123,7 +139,7 @@ class Home extends Component {
 
     })
 
-    const updatedModelData = updatedNodeData.map(muni => {
+    let updatedModelData = updatedNodeData.map(muni => {
       const kpiArr = muni.kpis.map(kpi => {
         const v = kpi.value === undefined ? -1 : kpi.value;
 
@@ -132,6 +148,11 @@ class Home extends Component {
 
       return kpiArr;
     });
+
+    // If no data, return all zeroes for everything
+    if(!updatedModelData[0].length) {
+      updatedModelData = updatedModelData.map(() => [0])
+    }
 
     // const visibleKpis = dims.map(dim => ({ key: dim, value: kpiMappings[dim].name }))
 
