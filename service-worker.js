@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/hackforsweden/precache-manifest.9db788d4f3b1aa4693cec031ed107520.js"
+  "/dynamiclandscape/precache-manifest.99355d3ea7e609d73f65fb8d95a32765.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/hackforsweden/index.html", {
+workbox.routing.registerNavigationRoute("/dynamiclandscape/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });

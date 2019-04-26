@@ -1,14 +1,14 @@
 {
-  "main.css": "/hackforsweden/static/css/main.39e5b40e.chunk.css",
-  "main.js": "/hackforsweden/static/js/main.2e7c1090.chunk.js",
-  "main.js.map": "/hackforsweden/static/js/main.2e7c1090.chunk.js.map",
-  "runtime~main.js": "/hackforsweden/static/js/runtime~main.12c195e8.js",
-  "runtime~main.js.map": "/hackforsweden/static/js/runtime~main.12c195e8.js.map",
-  "static/js/2.c3553fdb.chunk.js": "/hackforsweden/static/js/2.c3553fdb.chunk.js",
-  "static/js/2.c3553fdb.chunk.js.map": "/hackforsweden/static/js/2.c3553fdb.chunk.js.map",
-  "index.html": "/hackforsweden/index.html",
-  "precache-manifest.9db788d4f3b1aa4693cec031ed107520.js": "/hackforsweden/precache-manifest.9db788d4f3b1aa4693cec031ed107520.js",
-  "service-worker.js": "/hackforsweden/service-worker.js",
-  "static/css/main.39e5b40e.chunk.css.map": "/hackforsweden/static/css/main.39e5b40e.chunk.css.map",
-  "static/media/municipalities.79a091d6.svg": "/hackforsweden/static/media/municipalities.79a091d6.svg"
+  "main.css": "/dynamiclandscape/static/css/main.39e5b40e.chunk.css",
+  "main.js": "/dynamiclandscape/static/js/main.ef798655.chunk.js",
+  "main.js.map": "/dynamiclandscape/static/js/main.ef798655.chunk.js.map",
+  "runtime~main.js": "/dynamiclandscape/static/js/runtime~main.b68f8c99.js",
+  "runtime~main.js.map": "/dynamiclandscape/static/js/runtime~main.b68f8c99.js.map",
+  "static/js/2.c3553fdb.chunk.js": "/dynamiclandscape/static/js/2.c3553fdb.chunk.js",
+  "static/js/2.c3553fdb.chunk.js.map": "/dynamiclandscape/static/js/2.c3553fdb.chunk.js.map",
+  "index.html": "/dynamiclandscape/index.html",
+  "precache-manifest.99355d3ea7e609d73f65fb8d95a32765.js": "/dynamiclandscape/precache-manifest.99355d3ea7e609d73f65fb8d95a32765.js",
+  "service-worker.js": "/dynamiclandscape/service-worker.js",
+  "static/css/main.39e5b40e.chunk.css.map": "/dynamiclandscape/static/css/main.39e5b40e.chunk.css.map",
+  "static/media/municipalities.79a091d6.svg": "/dynamiclandscape/static/media/municipalities.79a091d6.svg"
 }
