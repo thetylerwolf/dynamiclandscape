@@ -92,6 +92,7 @@ class VizCanvas extends Component {
       context.font = '10px arial';
       context.textAlign = 'center'
 
+      // context.globalCompositeOperation = 'overlay'
       context.beginPath()
       if(radiusValue > 0) {
         context.arc( this.xScale(d[0]), this.yScale(d[1]), this.rScale(radiusValue), 0, 2 * Math.PI, true )
@@ -119,6 +120,7 @@ class VizCanvas extends Component {
       }
 
       if( this.rScale(radiusValue) > 2 || node.active ) {
+        // context.globalCompositeOperation = 'source-over'
         context.fillText( node.name, this.xScale(d[0]), this.yScale(d[1]) - 1.5 * this.rScale(radiusValue) )
       }
 

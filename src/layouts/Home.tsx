@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import VizCanvas from "../components/VizCanvas";
-import Dropdown from "../components/Dropdown";
-import AutoSuggest from "../components/AutoSuggest";
 import SelectionKpis from "../components/SelectionKpis";
-import DimensionPicker from "../components/DimensionPicker";
-import "../css/Home.css";
+import Controls from '../components/Controls'
+import "../css/Home.scss";
 import { modelData, nodeData, allData } from "../models/mappings";
 import Legends from "../components/Legends";
 import tsnejs from '../js/tsnejs'
@@ -193,42 +191,16 @@ class Home extends Component {
         <Legends
           colorData={this.state.colorKpi}
           sizeData={this.state.sizeKpi}
+          onSelectColor={ (color: any) => this._selectColor(color) }
+          onSelectSize={ (size: any) => this._selectSize(size) }
         />
 
         <SelectionKpis node={this.state.selectedNode} />
 
-        <div className="controls-container">
-          <div className="control">
-            <Dropdown
-              data={kpiMapping}
-              placeholder="Select color"
-              onChange={(color: any) => this._selectColor(color)}
-            />
-          </div>
-
-          <div className="control">
-            <Dropdown
-              data={kpiMapping}
-              placeholder="Select size"
-              onChange={(size: any) => this._selectSize(size)}
-            />
-          </div>
-
-          <div className="control">
-            <AutoSuggest
-              selectedMunicipalityId={(selectedMunicipalityId: string) =>
-                this._selectedMunicipalityId(selectedMunicipalityId)
-              }
-            />
-          </div>
-
-          <div className="control">
-            <DimensionPicker
-              dimensions={ [] }
-              onChange={ (dims: string[]) => this._changeDimensions(dims) }
-            />
-          </div>
-        </div>
+        <Controls
+          onSelectMunicipalityId={ (id: string) => this._selectedMunicipalityId(id) }
+          onChangeDimensions={ (dims: string[]) => this._changeDimensions(dims) }
+        />
 
         <VizCanvas
           fullNodeData={ nodeData }
