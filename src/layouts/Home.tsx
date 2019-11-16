@@ -11,9 +11,25 @@ import tsnejs from '../js/tsnejs'
 
 import { kpiMapping } from "../models/mappings";
 
+interface state {
+  positionData: []
+  tsneComplete: boolean
+  nodeData: any
+  modelData: any
+  sizeKpi: string
+  colorKpi: string
+  selectedMunicipalityId?: string
+  dataUpdate: boolean
+  selectedNode?: any
+}
+
 class Home extends Component {
-  constructor() {
-    super();
+  TSNE?: any
+  animateTSNE: any = {}
+  state: state 
+
+  constructor(props?: any) {
+    super(props);
 
     // console.log("kpiMapping", JSON.stringify(kpiMapping, null, 4));
     // console.log("Object.keys(kpiMapping)[0]", Object.keys(kpiMapping)[0]);
@@ -22,14 +38,21 @@ class Home extends Component {
     //   JSON.stringify(kpiMapping[Object.keys(kpiMapping)[0]], null, 4)
     // );
 
+    const kpis: any = kpiMapping
+
+    const defaultKpi: string = Object.keys(kpis)[0]
+    const sizeKpi: string = kpis[ defaultKpi ]
+    const colorKpi: string = kpis[ defaultKpi ]
+
+
     this.state = {
       positionData: [],
       tsneComplete: false,
       nodeData,
       modelData,
-      sizeKpi: kpiMapping[Object.keys(kpiMapping)[0]], // update this as well?
-      colorKpi: kpiMapping[Object.keys(kpiMapping)[0]], // update this as well?
-      selectedMunicipalityId: null,
+      sizeKpi, // update this as well?
+      colorKpi, // update this as well?
+      selectedMunicipalityId: undefined,
       dataUpdate: false
     };
   }
@@ -37,10 +60,6 @@ class Home extends Component {
   componentDidMount() {
     this._createTSNE();
     // this.TSNE.init();
-  }
-
-  componentDidUpdate() {
-
   }
 
   _createTSNE() {
@@ -94,26 +113,30 @@ class Home extends Component {
     this.animateTSNE = () => {}
   }
 
-  _selectNode(node) {
+  _selectNode(node: any) {
     this.setState({ selectedNode: node });
   }
 
-  _selectColor({ selectedOption }) {
+  _selectColor({ selectedOption }: { selectedOption: any }) {
     //this.setState({ selectedColor: color })
-    console.log("color", selectedOption);
-    this.setState({ colorKpi: kpiMapping[selectedOption.value] });
+    console.log("color", selectedOption)
+    const kpi: any = kpiMapping
+    const colorKpi: string = kpi[selectedOption.value]
+    this.setState({ colorKpi })
   }
 
-  _selectSize({ selectedOption }) {
+  _selectSize({ selectedOption }: { selectedOption: any } ) {
     //this._selectSize({ selectedSize: size })
-    console.log("size", selectedOption);
-    this.setState({ sizeKpi: kpiMapping[selectedOption.value] });
+    console.log("size", selectedOption)
+    const kpi: any = kpiMapping
+    const sizeKpi: string = kpi[selectedOption.value]
+    this.setState({ sizeKpi })
   }
 
-  _selectedMunicipalityId(id) {
+  _selectedMunicipalityId(id: string) {
     let selectedNode = null;
 
-    nodeData.forEach(node => {
+    nodeData.forEach((node: any) => {
       let isNode = node.id == id;
 
       node.active = isNode;
@@ -127,7 +150,7 @@ class Home extends Component {
     this.setState({ selectedNode });
   }
 
-  _changeDimensions(dims) {
+  _changeDimensions(dims: string[]) {
 
     const updatedNodeData = nodeData.map((node,i) => {
       let kpis = node.kpis.filter(kpi => dims.includes(kpi.id))
@@ -140,7 +163,7 @@ class Home extends Component {
     })
 
     let updatedModelData = updatedNodeData.map(muni => {
-      const kpiArr = muni.kpis.map(kpi => {
+      const kpiArr = muni.kpis.map((kpi: any) => {
         const v = kpi.value === undefined ? -1 : kpi.value;
 
         return v;
@@ -179,7 +202,7 @@ class Home extends Component {
             <Dropdown
               data={kpiMapping}
               placeholder="Select color"
-              onChange={color => this._selectColor(color)}
+              onChange={(color: any) => this._selectColor(color)}
             />
           </div>
 
@@ -187,13 +210,13 @@ class Home extends Component {
             <Dropdown
               data={kpiMapping}
               placeholder="Select size"
-              onChange={size => this._selectSize(size)}
+              onChange={(size: any) => this._selectSize(size)}
             />
           </div>
 
           <div className="control">
             <AutoSuggest
-              selectedMunicipalityId={selectedMunicipalityId =>
+              selectedMunicipalityId={(selectedMunicipalityId: string) =>
                 this._selectedMunicipalityId(selectedMunicipalityId)
               }
             />
@@ -202,7 +225,7 @@ class Home extends Component {
           <div className="control">
             <DimensionPicker
               dimensions={ [] }
-              onChange={ (dims) => this._changeDimensions(dims) }
+              onChange={ (dims: string[]) => this._changeDimensions(dims) }
             />
           </div>
         </div>
@@ -213,7 +236,7 @@ class Home extends Component {
           nodeData={this.state.nodeData}
           radiusValue={this.state.sizeKpi}
           colorValue={this.state.colorKpi}
-          onClick={node => this._selectNode(node)}
+          onClick={(node: any) => this._selectNode(node)}
         />
       </div>
     );

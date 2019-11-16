@@ -3,9 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/jest": "^24.0.23",
+    "@types/node": "^12.12.8",
+    "@types/react": "^16.9.11",
+    "@types/react-dom": "^16.9.4",
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
-    "d3": "^5.9.2",
+    "d3": "^5.12.0",
     "d3-geo": "^1.11.3",
     "primeicons": "^1.0.0",
     "primereact": "^3.1.2",
@@ -20,7 +24,8 @@
     "react-transition-group": "^2.8.0",
     "topojson": "^3.0.2",
     "topojson-client": "^3.0.0",
-    "tsne-js": "^1.0.3"
+    "tsne-js": "^1.0.3",
+    "typescript": "^3.7.2"
   },
   "scripts": {
     "start": "react-scripts start",

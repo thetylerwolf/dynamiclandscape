@@ -1,0 +1,9 @@
+{
+    "path" : "~/personal/hackforsweden/src/data_set",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}
