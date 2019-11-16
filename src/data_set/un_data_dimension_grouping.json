@@ -1,0 +1,118 @@
+[
+	{
+		"Goal 1 - No poverty": [
+			"Citizens 0-19 years old in economic distress (%)",
+			"Long-term adult welfare recipients (%)"
+		]
+	},
+	{
+		"Goal 2 - Zero hunger": [
+			"Overweight residents (%)",
+			"Proportion of organic farmland (%)"
+		]
+	},
+	{
+		"Goal 3 - Good health and well-being": [
+			"Average life expectancy, women (years)",
+			"Average life expectancy, men (years)",
+			"Long-term sickness for people with mental illnesses, syndromes and behavioral disorders (%) ",
+			"Fallskador bland personer 65+, 3-årsm, antal/100 000 inv",
+			"Antibiotic sales per 1000 residents"
+		]
+	},
+	{
+		"Goal 4 - Quality education": [
+			"Students in year 9 qualified for apprenticeship programs (%)",
+			"Students in year 9 who feel safe in school (self-reported) (%)",
+			"Secondary school students who graduate within 4 years (%)",
+			"Immigrant students who complete at least two courses of advanced Swedish language study within two years of beginning (%)"
+		]
+	},
+	{
+		"Goal 5 - Gender equality": [
+			"Monthly salaried workers (%)",
+			"Available parental leave days used by men (%)",
+			"Women's median income as a percentage of men's median income (%)",
+			"Women's median income as a percentage of men's median income, municipal employees (%)"
+		]
+	},
+	{
+		"Goal 6 - Clean water and sanitation": [
+			"Proportion of protected water resources (%)",
+			"Waters with good ecological status (%)",
+			"Drinking water sources with good ecological status (%)",
+			"Ground water sources with good chemical status connected to multiple municipalities (%)"
+		]
+	},
+	{
+		"Goal 7 - Afforable and clean energy": [
+			"Electrical power outages, average cut-off time per customer (minutes)",
+			"District Heating from renewable sources within the municipality (%)",
+			"Total energy end usage per resident (MWh)"
+		]
+	},
+	{
+		"Goal 8 - Decent work and economic growth": [
+			"Gross Regional Product (GRP), kr/resident",
+			"Long-term unemployed 25-64 year-olds (%)",
+			"Citizens 17-24 years old not working or studying (%)"
+		]
+	},
+	{
+		"Goal 9 - Industy, innovation and infrastructure": [
+			"Residents with internet access of at least 100 Mbit/s (%)",
+			"Business Environment according to ÖJ (Research) - Total, Satisfied Customer index (NKI)",
+			"Residents living within 500 meters of public transit (%)"
+		]
+	},
+	{
+		"Goal 10 - Reduced inequalities": [
+			"Gini coefficient, index",
+			"Residents 16-84 years old who lack trust in others (self-reported) (%)",
+			"Immigrants started working or studying within 90 days of leaving an integration program (%)",
+			"People in assisted living programs (LSS) who feel they are allowed to make important decisions on their own (self-reported) (%)"
+		]
+	},
+	{
+		"Goal 11 - Sustainable cities and communities": [
+			"Non-working aged residents (%)",
+			"Overcrowded housing (more than 2 people per bedroom) (%)",
+			"NOx emissions (kg/resident)",
+			"PM2.5 particle emissions (kg/resident)"
+		]
+	},
+	{
+		"Goal 12 - Responsible consumption and production": [
+			"Collected garbage (kg/person)",
+			"Household waste collected for recycling, including biological handling (% of total)",
+			"Organic food in the municipality's jurisdiction (%)"
+		]
+	},
+	{
+		"Goal 13 - Cliame action": [
+			"CO2 equivalent emissions per capita (tons)",
+			"Environmentally friendly cars operated by the municipality (%)",
+			"Environmentally friendly cars, percentage of all cars (%)",
+			"Average driving distance per passenger vehicle (10km units)"
+		]
+	},
+	{
+		"Goal 14 - Life below water": []
+	},
+	{
+		"Goal 15 - Life on land": [
+			"Proportion of protected lands (%)"
+		]
+	},
+	{
+		"Goal 16 - Peace, justice and strong institutions": [
+			"Participation in most recent election, lowest district (%)",
+			"Residensts 16-84 that abstain from going out alone (%)",
+			"Reported crimes per 100 000 residents",
+			"Years result as a percentage of tax and state aid (%)"
+		]
+	},
+	{
+		"Goal 17 - Partnerships for the goals": []
+	}
+]
