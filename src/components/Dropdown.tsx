@@ -1,19 +1,27 @@
 import React, { Component } from "react";
-import { kpiMapping } from "../models/mappings";
-import '../css/Dropdown.css'
+import '../css/Dropdown.scss'
 import Select from "react-select";
 
+interface state {
+  selectedOption?: any
+}
 
+interface props {
+  onChange: (d: any) => void
+  data: any
+  placeholder: any
+}
 
-class Dropdown extends Component {
+class Dropdown extends Component<props> {
+  options: any[] = []
+  state: state
 
-  constructor(props) {
-    super();
-
-    this.options = [];
+  constructor(props: any) {
+    super(props);
 
     Object.entries(props.data).forEach(([key, value]) => {
-        this.options.push( {value: key, label: value.name} );
+      const v: any = value
+      this.options.push( {value: key, label: v.name} );
     });
 
     this.state = {
@@ -21,7 +29,7 @@ class Dropdown extends Component {
     }
   }
 
-  onChange(selectedOption){
+  onChange(selectedOption: any){
     this.setState({ selectedOption });
     this.props.onChange({selectedOption})
   }
@@ -36,6 +44,8 @@ class Dropdown extends Component {
           onChange={ (option) => this.onChange(option)}
           options={this.options}
           placeholder= {this.props.placeholder}
+          menuPlacement={'top'}
+          classNamePrefix={'legend-dropdown'}
         />
       </div>
     );

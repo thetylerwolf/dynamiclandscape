@@ -1,0 +1,155 @@
+.legends-container {
+  position:absolute;
+  bottom:0;
+  right:0px;
+  padding:1em;
+  background-color:rgba(249,249,249,0.8);
+  
+  &.pushed {
+    right: 250px;
+  }
+
+  .legend-title {
+    font-size:12px;
+  }
+
+  .legend {
+    width: 250px;
+    text-align: right;
+
+    &.legend-color {
+      margin-left: auto;
+    }
+
+    &.legend-size {
+      display: flex;
+      margin-left:auto;
+    }
+
+    .legend-scale {
+      position:relative;
+    }
+
+    .control {
+      margin: 0;
+    }
+
+  }
+
+  .legend-color {
+    .colors-blocks {
+      // position:relative;
+      display:flex;
+      /*top: 2.1em;*/
+      margin-top:0.5em;
+      width:100%;
+    }
+  
+    .colors-blocks .block {
+      height:10px;
+    }
+  
+    .colors-values {
+      position:relative;
+      display: flex;
+      justify-content: space-between;
+      width:100%;
+    }
+  
+    .colors-value {
+      top:1em;
+      font-size:12px;
+    }
+  
+    .colors-min {
+      left:0;
+    }
+  
+    .colors-max {
+      right:0;
+      text-align:right;
+    }
+  }
+
+  .legend-size {
+
+    .control {
+      flex: 1;
+      display:flex;
+      flex-direction: column;
+      justify-content:center;
+    }
+
+    .legend-scale {
+      width: 40px;
+      height: 40px;
+      padding: 8px 0;
+    }
+
+    .sizes-values {
+      position:absolute;
+      right: 0;
+      font-size:12px;
+      height:40px;
+      width:40px;
+    }
+  
+    .sizes-min {
+      position:absolute;
+      left:50%;
+      width:40px;
+      margin-left:-20px;
+      bottom:3px;
+      text-align:center;
+    }
+  
+    .sizes-max {
+      position:absolute;
+      text-align:center;
+      left:50%;
+      width:40px;
+      margin-left:-19px;
+      top:0;
+    }
+  
+    .sizes-circles {
+      position:absolute;
+      font-size:12px;
+      margin-top:2px;
+      right:0;
+      height:40px;
+      width:40px;
+    }
+  
+    .big-circle,
+    .small-circle,
+    .medium-circle {
+      position:absolute;
+      bottom:0;
+      left:0;
+      border:1px solid #333;
+      background-color:#fff;
+    }
+  
+    .big-circle {
+      left:0;
+      height:40px;
+      width:40px;
+      border-radius:40px;
+    }
+  
+    .medium-circle {
+      left:7px;
+      height:25px;
+      width:25px;
+      border-radius:25px;
+    }
+  
+    .small-circle {
+      left:17px;
+      height:5px;
+      width:5px;
+      border-radius:5px;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { kpiMapping } from '../models/mappings'
-import '../css/SelectionKpis.css'
+import '../css/SelectionKpis.scss'
 
 class SelectionKpis extends Component {
 

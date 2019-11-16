@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Autosuggest from "react-autosuggest";
-import "../css/autosuggest.css";
+import "../css/autosuggest.scss";
 import municipalityMapping from "../data_set/municipalityIdMapping";
 
 var municipalities = [];
@@ -23,7 +23,7 @@ const getSuggestions = value => {
 
 const getSuggestionValue = suggestion => suggestion.name;
 
-const renderSuggestion = suggestion => <div>{suggestion.name}</div>;
+const renderSuggestion = suggestion => <div>{ suggestion.name }</div>;
 
 
 class AutoSuggest extends React.Component {
@@ -70,7 +70,7 @@ class AutoSuggest extends React.Component {
 
     // Autosuggest will pass through all these props to the input.
     const inputProps = {
-      placeholder: "Municipality",
+      placeholder: "Find a Municipality",
       value,
       onChange: this.onChange
     };

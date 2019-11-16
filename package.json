@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/d3": "^5.7.2",
     "@types/jest": "^24.0.23",
     "@types/node": "^12.12.8",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.4",
+    "@types/react-select": "^3.0.8",
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
     "d3": "^5.12.0",
@@ -17,10 +19,9 @@
     "react-autosuggest": "^9.4.3",
     "react-bootstrap": "^1.0.0-beta.6",
     "react-dom": "^16.8.5",
-    "react-dropdown": "^1.6.4",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
-    "react-select": "^2.4.2",
+    "react-select": "^2.4.4",
     "react-transition-group": "^2.8.0",
     "topojson": "^3.0.2",
     "topojson-client": "^3.0.0",
@@ -44,7 +45,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "gh-pages": "^2.0.1"
+    "gh-pages": "^2.0.1",
+    "node-sass": "^4.13.0"
   },
   "homepage": "https://thetylerwolf.github.io/dynamiclandscape"
 }
