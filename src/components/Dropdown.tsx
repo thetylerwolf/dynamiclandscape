@@ -44,6 +44,8 @@ class Dropdown extends Component<props> {
           onChange={ (option) => this.onChange(option)}
           options={this.options}
           placeholder= {this.props.placeholder}
+          menuPlacement={'top'}
+          classNamePrefix={'legend-dropdown'}
         />
       </div>
     );

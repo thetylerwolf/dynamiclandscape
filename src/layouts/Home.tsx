@@ -193,6 +193,7 @@ class Home extends Component {
           sizeData={this.state.sizeKpi}
           onSelectColor={ (color: any) => this._selectColor(color) }
           onSelectSize={ (size: any) => this._selectSize(size) }
+          muniSelected={ Boolean(this.state.selectedNode) }
         />
 
         <SelectionKpis node={this.state.selectedNode} />

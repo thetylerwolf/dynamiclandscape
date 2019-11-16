@@ -1,3 +1,42 @@
 .selection-kpis-dropdown {
-	width: 100px
+	width: 100%
+}
+
+.legend-dropdown {
+
+	&__control {
+		background-color: transparent !important;
+		border: none !important;
+		cursor: pointer !important;
+
+		border: none !important;
+		box-shadow: none !important;
+	}
+
+	&__option {
+	  font-size: 12px !important;
+		padding: 0.5em 1em !important;
+	}
+
+	&__single-value {
+		font-size: 12px;
+	  padding: 0 !important;
+	//   overflow: visible;
+	//   text-overflow: unset !important;
+		// white-space: normal !important;
+	}
+
+	&__value-container {
+		// height:60px;
+		padding: 0 !important;
+	}
+	
+	&__indicator-separator {
+		display: none;
+	}
+
+	&__indicator {
+		padding: 0 !important;
+	}
+
 }
