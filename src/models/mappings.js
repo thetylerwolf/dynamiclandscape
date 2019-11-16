@@ -14,6 +14,8 @@ import elderlyCareIdMapping from "../data_set/mapping/elderlyCareIdMapping.json"
 
 import municipalityIds from "../data_set/municipalityIdMapping.json";
 
+import municipalityNodes from "../data_set/municipality_nodes.json";
+
 const municipalities = Object.keys(municipalityIds).sort();
 
 const allData = [
