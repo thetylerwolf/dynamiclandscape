@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import * as d3 from "d3"
+import { Inode, InodeDimension } from "../models/mappings";
 
 const width = window.innerWidth;
 const height = window.innerHeight;
@@ -12,7 +13,25 @@ const padding = {
 
 let maxRadius = 20
 
-class VizCanvas extends Component {
+interface props {
+  positionData: any[]
+  nodeData: Inode[]
+  colorValue: any
+  radiusValue: any
+  onClick: (d: any) => void
+}
+
+interface state {
+  context: any
+}
+
+interface refs {
+  [key: string]: any
+}
+
+class VizCanvas extends Component<props> {
+  state: state
+  refs: refs = {}
 
   xScale = d3.scaleLinear()
     .domain([-8,6])
@@ -31,8 +50,8 @@ class VizCanvas extends Component {
 
   transform = d3.zoomIdentity
 
-  constructor() {
-    super()
+  constructor(props: props) {
+    super(props)
 
     this.state = {
       context: undefined,
@@ -69,8 +88,8 @@ class VizCanvas extends Component {
 
   onTick() {
 
-    let context = this.state.context
-    if(!context) return
+    if(!this.state.context) return
+    let context: CanvasRenderingContext2D = this.state.context
 
     context.save()
 
@@ -80,13 +99,13 @@ class VizCanvas extends Component {
 
     this.props.positionData.forEach((d,i) => {
 
-      let node = this.props.nodeData[i]
+      const node = this.props.nodeData[i]
 
-      let colorValue = node.dimensions[this.props.colorValue.index],
-        radiusValue = node.dimensions[this.props.radiusValue.index]
+      const colorDim: InodeDimension = node.dimensions[this.props.colorValue.index],
+        radiusDim: InodeDimension = node.dimensions[this.props.radiusValue.index]
 
-      colorValue = (colorValue && colorValue.value !== undefined) ? colorValue.value : -1
-      radiusValue = (radiusValue && radiusValue.value !== undefined) ? radiusValue.value : -1
+      const colorValue = (colorDim && colorDim.value !== null) ? +colorDim.value : -1
+      const radiusValue = (radiusDim && radiusDim.value !== undefined) ? +radiusDim.value : -1
 
 
       context.font = '10px arial';
@@ -135,7 +154,7 @@ class VizCanvas extends Component {
       y = this.transform.invertY(d3.event.offsetY),
       context = this.state.context
 
-    let hitNode
+    let hitNode: any
 
     let hits = this.props.positionData.forEach((point,i) => {
       let dx = x - this.xScale( point[0] )

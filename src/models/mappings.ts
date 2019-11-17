@@ -75,6 +75,4 @@ const modelData: number[][] = nodeData.map(node => {
   return dimensionArr;
 });
 
-console.log(nodeData, modelData, dimensions)
-
 export { nodeData, modelData, dimensions };

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import VizCanvas from "../components/VizCanvas";
 import SelectionKpis from "../components/SelectionKpis";
 import Controls from '../components/Controls'
-import { modelData, nodeData, Inode } from "../models/mappings";
+import { modelData, nodeData, Inode, Idimension } from "../models/mappings";
 import Legends from "../components/Legends";
 import tsnejs from '../js/tsnejs'
 
@@ -13,8 +13,8 @@ interface state {
   tsneComplete: boolean
   nodeData: Inode[]
   modelData: any
-  sizeKpi: string
-  colorKpi: string
+  sizeDimension: Idimension
+  colorDimension: Idimension
   selectedMunicipalityId?: string
   dataUpdate: boolean
   selectedNode?: any
@@ -35,11 +35,11 @@ class Home extends Component {
     //   JSON.stringify(dimensions[Object.keys(dimensions)[0]], null, 4)
     // );
 
-    const kpis: any = dimensions
+    const kpis = dimensions
 
     const defaultKpi: string = Object.keys(kpis)[0]
-    const sizeKpi: string = kpis[ defaultKpi ]
-    const colorKpi: string = kpis[ defaultKpi ]
+    const sizeDimension: Idimension = kpis[ defaultKpi ]
+    const colorDimension: Idimension = kpis[ defaultKpi ]
 
 
     this.state = {
@@ -47,8 +47,8 @@ class Home extends Component {
       tsneComplete: false,
       nodeData,
       modelData,
-      sizeKpi, // update this as well?
-      colorKpi, // update this as well?
+      sizeDimension, // update this as well?
+      colorDimension, // update this as well?
       selectedMunicipalityId: undefined,
       dataUpdate: false
     };
@@ -115,19 +115,15 @@ class Home extends Component {
   }
 
   _selectColor({ selectedOption }: { selectedOption: any }) {
-    //this.setState({ selectedColor: color })
-    console.log("color", selectedOption)
     const kpi: any = dimensions
-    const colorKpi: string = kpi[selectedOption.value]
-    this.setState({ colorKpi })
+    const colorDimension: string = kpi[selectedOption.value]
+    this.setState({ colorDimension })
   }
 
   _selectSize({ selectedOption }: { selectedOption: any } ) {
-    //this._selectSize({ selectedSize: size })
-    console.log("size", selectedOption)
     const kpi: any = dimensions
-    const sizeKpi: string = kpi[selectedOption.value]
-    this.setState({ sizeKpi })
+    const sizeDimension: string = kpi[selectedOption.value]
+    this.setState({ sizeDimension })
   }
 
   _selectedMunicipalityId(id: string) {
@@ -188,8 +184,8 @@ class Home extends Component {
     return (
       <div className="home-wrap">
         <Legends
-          colorData={this.state.colorKpi}
-          sizeData={this.state.sizeKpi}
+          colorData={this.state.colorDimension}
+          sizeData={this.state.sizeDimension}
           onSelectColor={ (color: any) => this._selectColor(color) }
           onSelectSize={ (size: any) => this._selectSize(size) }
           muniSelected={ Boolean(this.state.selectedNode) }
@@ -203,11 +199,10 @@ class Home extends Component {
         />
 
         <VizCanvas
-          fullNodeData={ nodeData }
           positionData={this.state.positionData}
           nodeData={this.state.nodeData}
-          radiusValue={this.state.sizeKpi}
-          colorValue={this.state.colorKpi}
+          radiusValue={this.state.sizeDimension}
+          colorValue={this.state.colorDimension}
           onClick={(node: any) => this._selectNode(node)}
         />
       </div>
