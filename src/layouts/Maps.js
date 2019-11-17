@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import MapMultiples from "../components/MapMultiples";
 import headingMapping from "../data_set/mapping/headingMapping.json";
-import "../css/Maps.scss";
 
 class Maps extends Component {
   constructor() {

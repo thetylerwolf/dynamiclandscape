@@ -3,7 +3,7 @@ import { ReactComponent as Map } from "../data_set/municipalities.svg";
 import { scaleLinear } from "d3-scale";
 import { schemeRdBu } from "d3-scale-chromatic";
 
-import * as mappings from "../models/mappings.js";
+import * as mappings from "../models/mappings.ts";
 
 class App extends Component {
   constructor() {

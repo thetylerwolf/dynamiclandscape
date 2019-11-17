@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import * as d3 from 'd3'
-import '../css/Legends.scss'
 
 import Dropdown from "./Dropdown";
 
-import { kpiMapping } from "../models/mappings";
+import { dimensions } from "../models/mappings";
 
 interface props {
   onSelectColor: (d: any) => void
@@ -26,7 +25,7 @@ const Legend = ({ onSelectColor, onSelectSize, colorData, sizeData, muniSelected
 
         <div className="control">
           <Dropdown
-            data={kpiMapping}
+            data={dimensions}
             placeholder="Select size"
             onChange={(size: any) => onSelectSize(size)}
           />
@@ -53,7 +52,7 @@ const Legend = ({ onSelectColor, onSelectSize, colorData, sizeData, muniSelected
 
         <div className="control">
           <Dropdown
-            data={kpiMapping}
+            data={dimensions}
             placeholder="Select color"
             onChange={(color: any) => onSelectColor(color)}
           />

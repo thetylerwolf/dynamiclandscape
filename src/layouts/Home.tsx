@@ -2,12 +2,11 @@ import React, { Component } from "react";
 import VizCanvas from "../components/VizCanvas";
 import SelectionKpis from "../components/SelectionKpis";
 import Controls from '../components/Controls'
-import "../css/Home.scss";
-import { modelData, nodeData, allData } from "../models/mappings";
+import { modelData, nodeData } from "../models/mappings";
 import Legends from "../components/Legends";
 import tsnejs from '../js/tsnejs'
 
-import { kpiMapping } from "../models/mappings";
+import { dimensions } from "../models/mappings";
 
 interface state {
   positionData: []
@@ -29,14 +28,14 @@ class Home extends Component {
   constructor(props?: any) {
     super(props);
 
-    // console.log("kpiMapping", JSON.stringify(kpiMapping, null, 4));
-    // console.log("Object.keys(kpiMapping)[0]", Object.keys(kpiMapping)[0]);
+    // console.log("dimensions", JSON.stringify(dimensions, null, 4));
+    // console.log("Object.keys(dimensions)[0]", Object.keys(dimensions)[0]);
     // console.log(
-    //   "kpiMapping[Object.keys(kpiMapping)[0]]",
-    //   JSON.stringify(kpiMapping[Object.keys(kpiMapping)[0]], null, 4)
+    //   "dimensions[Object.keys(dimensions)[0]]",
+    //   JSON.stringify(dimensions[Object.keys(dimensions)[0]], null, 4)
     // );
 
-    const kpis: any = kpiMapping
+    const kpis: any = dimensions
 
     const defaultKpi: string = Object.keys(kpis)[0]
     const sizeKpi: string = kpis[ defaultKpi ]
@@ -118,7 +117,7 @@ class Home extends Component {
   _selectColor({ selectedOption }: { selectedOption: any }) {
     //this.setState({ selectedColor: color })
     console.log("color", selectedOption)
-    const kpi: any = kpiMapping
+    const kpi: any = dimensions
     const colorKpi: string = kpi[selectedOption.value]
     this.setState({ colorKpi })
   }
@@ -126,7 +125,7 @@ class Home extends Component {
   _selectSize({ selectedOption }: { selectedOption: any } ) {
     //this._selectSize({ selectedSize: size })
     console.log("size", selectedOption)
-    const kpi: any = kpiMapping
+    const kpi: any = dimensions
     const sizeKpi: string = kpi[selectedOption.value]
     this.setState({ sizeKpi })
   }
@@ -151,17 +150,17 @@ class Home extends Component {
   _changeDimensions(dims: string[]) {
 
     const updatedNodeData = nodeData.map((node,i) => {
-      let kpis = node.kpis.filter(kpi => dims.includes(kpi.id))
+      let dimensions = node.dimensions.filter(dimension => dims.includes(dimension.id))
 
       return {
         ...node,
-        kpis
+        dimensions
       }
 
     })
 
     let updatedModelData = updatedNodeData.map(muni => {
-      const kpiArr = muni.kpis.map((kpi: any) => {
+      const kpiArr = muni.dimensions.map((kpi: any) => {
         const v = kpi.value === undefined ? -1 : kpi.value;
 
         return v;
@@ -175,7 +174,7 @@ class Home extends Component {
       updatedModelData = updatedModelData.map(() => [0])
     }
 
-    // const visibleKpis = dims.map(dim => ({ key: dim, value: kpiMappings[dim].name }))
+    // const visibleKpis = dims.map(dim => ({ key: dim, value: dimensionss[dim].name }))
 
     this.setState({
       // nodeData: updatedNodeData,

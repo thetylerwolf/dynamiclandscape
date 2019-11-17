@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Autosuggest from "react-autosuggest";
-import "../css/autosuggest.scss";
 import municipalityMapping from "../data_set/municipalityIdMapping";
 
 var municipalities = [];

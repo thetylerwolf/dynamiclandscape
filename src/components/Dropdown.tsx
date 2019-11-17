@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import '../css/Dropdown.scss'
 import Select from "react-select";
 
 interface state {

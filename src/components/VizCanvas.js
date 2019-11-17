@@ -82,8 +82,8 @@ class VizCanvas extends Component {
 
       let node = this.props.nodeData[i]
 
-      let colorValue = node.kpis[this.props.colorValue.index],
-        radiusValue = node.kpis[this.props.radiusValue.index]
+      let colorValue = node.dimensions[this.props.colorValue.index],
+        radiusValue = node.dimensions[this.props.radiusValue.index]
 
       colorValue = (colorValue && colorValue.value !== undefined) ? colorValue.value : -1
       radiusValue = (radiusValue && radiusValue.value !== undefined) ? radiusValue.value : -1
@@ -142,7 +142,7 @@ class VizCanvas extends Component {
       let dy = y - this.yScale( point[1] )
       let node = this.props.nodeData[i]
 
-      let radius = node.kpis[this.props.radiusValue.index].value || 0
+      let radius = node.dimensions[this.props.radiusValue.index].value || 0
       radius = Math.max(0, radius)
       radius = this.rScale( radius )
       let hit = dx*dx + dy*dy < radius*radius
@@ -174,7 +174,7 @@ class VizCanvas extends Component {
       node.active = true
       node.selected = true
 
-      let colorValue = node.kpis[this.props.colorValue.index].value || 0
+      let colorValue = node.dimensions[this.props.colorValue.index].value || 0
 
       if(colorValue == -1) {
         hitNode.color = '#333'

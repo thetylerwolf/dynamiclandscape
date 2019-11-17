@@ -1,6 +1,5 @@
 import React, { Component } from "react"
-import { kpiMapping } from '../models/mappings'
-import '../css/SelectionKpis.scss'
+import { dimensions } from '../models/mappings'
 
 class SelectionKpis extends Component {
 
@@ -25,7 +24,7 @@ class SelectionKpis extends Component {
 
           { this.props.node && this.props.node.kpis.map((kpi,i) => {
               if(kpi) {
-                const kpiInfo = kpiMapping[ kpi.id ]
+                const kpiInfo = dimensions[ kpi.id ]
 
                 let min = kpiInfo.min ? kpiInfo.min.toFixed(0) : 'No min',
                   max = kpiInfo.max ? kpiInfo.max.toFixed(0) : 'No max',

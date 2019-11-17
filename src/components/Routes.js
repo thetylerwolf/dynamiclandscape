@@ -10,7 +10,7 @@ import {
   TransitionGroup,
 } from 'react-transition-group'
 import Home from '../layouts/Home'
-import Maps from '../layouts/Maps'
+// import Maps from '../layouts/Maps'
 
 
 export class Routes extends Component {
@@ -36,7 +36,7 @@ export class Routes extends Component {
                 <HashRouter location={ this.props.location }>
                   <Switch>
                     <Route path="/" exact component={ Home }/>
-                    <Route path="/maps" exact component={ Maps }/>
+                    {/* <Route path="/maps" exact component={ Maps }/> */}
                     <Route path="*" component={ Home }/>
                   </Switch>
                 </HashRouter>
