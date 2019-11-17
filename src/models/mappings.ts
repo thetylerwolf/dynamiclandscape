@@ -1,14 +1,15 @@
 import * as d3 from 'd3';
 
-import goalsData from "../data_set/goals/all_goals_latest_years.json";
+// import goalsData from "../data_set/goals/all_goals_latest_years.json";
 
-import goalIdMapping from "../data_set/mapping/goalIdMapping.json";
+// import goalIdMapping from "../data_set/mapping/goalIdMapping.json";
 
-import municipalityIds from "../data_set/municipalityIdMapping.json";
+// import municipalityIds from "../data_set/municipalityIdMapping.json";
 
 import nodes from "../data_set/un_data_nodes.json"
+import allDimensions from "../data_set/un_data_dimension_grouping.json"
 
-interface dimension {
+export interface Idimension {
   name: string
   max: number | undefined
   min: number | undefined
@@ -17,38 +18,44 @@ interface dimension {
   index: number
 }
 
-interface node {
-  dimensions: any[]
-  id: string
-  active: boolean
-  name: string
+export interface InodeDimension {
+  dimension: string
+  value: string
 }
 
-const dimensions: { [key: string]: dimension } = {}
+export interface Inode {
+  dimensions: InodeDimension[]
+  active?: boolean
+  name: string
+  color?: string
+}
 
-console.log('nodes', nodes)
-const municipalities = Object.entries(municipalityIds).sort();
+const nodeData: Inode[] = nodes
 
-const allData = [
-  ...goalsData.kpis
-];
+const flatDimensions: string[] = <string[]>( allDimensions.flatMap(d => {
+  const dims = Object.values(d)
+  return dims[0]
+}) )
 
-const kpiMapping: { [key: string]: any } = {
-  ...goalIdMapping
-};
+const dimensions: { [key: string]: Idimension } = {}
 
-allData.forEach((d, i) => {
-  const vals = d.municipalities.map(d => d.value);
-  const extent = d3.extent(vals);
-  const mean = d3.mean(vals);
-  const median = d3.median(vals);
+console.log('nodeData', nodeData)
+
+flatDimensions.forEach((dim, i) => {
+
+  const vals: number[] = <number[]>( nodeData.map((node: Inode) => {
+    const foundDim: InodeDimension | undefined = node.dimensions.find(d => d.dimension === dim)
+    return (foundDim && (foundDim.value !== null)) ? +foundDim.value : null
+  }).filter(v => v !== null) )
+  
+  const extent = d3.extent(vals)
+  const mean = d3.mean(vals)
+  const median = d3.median(vals)
 
   // Skip any duplicates (there are 5)
-  if (dimensions[d.id]) return;
+  if (dimensions[dim]) return;
 
-  const name: string = kpiMapping[d.id]
-
-  dimensions[d.id] = {
+  dimensions[dim] = {
     name,
     max: extent[1],
     min: extent[0],
@@ -58,23 +65,9 @@ allData.forEach((d, i) => {
   };
 });
 
-const nodeData: node[] = municipalities.map(([ muniId, muniName]: [string, string]) => {
-  return {
-    dimensions: allData.map(kpi => {
-      return {
-        ...(kpi.municipalities.find(m => m.id === muniId) || {}),
-        id: kpi.id
-      };
-    }),
-    id: muniId,
-    active: true,
-    name: muniName,
-  };
-});
-
 const modelData: number[][] = nodeData.map(node => {
   const dimensionArr = node.dimensions.map(dimension => {
-    const v = dimension.value === undefined ? -1 : dimension.value;
+    const v = dimension.value === null ? -1 : +dimension.value;
 
     return v;
   });
@@ -82,6 +75,6 @@ const modelData: number[][] = nodeData.map(node => {
   return dimensionArr;
 });
 
-console.log(nodeData, modelData, dimensions, municipalityIds)
+console.log(nodeData, modelData, dimensions)
 
-export { municipalityIds, nodeData, modelData, dimensions };
+export { nodeData, modelData, dimensions };

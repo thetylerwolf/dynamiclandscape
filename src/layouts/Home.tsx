@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import VizCanvas from "../components/VizCanvas";
 import SelectionKpis from "../components/SelectionKpis";
 import Controls from '../components/Controls'
-import { modelData, nodeData } from "../models/mappings";
+import { modelData, nodeData, Inode } from "../models/mappings";
 import Legends from "../components/Legends";
 import tsnejs from '../js/tsnejs'
 
@@ -11,7 +11,7 @@ import { dimensions } from "../models/mappings";
 interface state {
   positionData: []
   tsneComplete: boolean
-  nodeData: any
+  nodeData: Inode[]
   modelData: any
   sizeKpi: string
   colorKpi: string
@@ -150,7 +150,7 @@ class Home extends Component {
   _changeDimensions(dims: string[]) {
 
     const updatedNodeData = nodeData.map((node,i) => {
-      let dimensions = node.dimensions.filter(dimension => dims.includes(dimension.id))
+      let dimensions = node.dimensions.filter(dimension => dims.includes(dimension.dimension))
 
       return {
         ...node,

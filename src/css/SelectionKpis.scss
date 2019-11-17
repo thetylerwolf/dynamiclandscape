@@ -1,4 +1,4 @@
-.selection-kpis-container {
+.selection-dimensions-container {
   position:fixed;
   height:100%;
   right:0;
@@ -12,35 +12,35 @@
   /*pointer-events:none;*/
 }
 
-.selection-kpis-container .municipality-name {
+.selection-dimensions-container .municipality-name {
   font-weight:300;
   font-size:2em;
   margin: 1em 0;
 }
 
-.selection-kpis-container .kpi-title {
+.selection-dimensions-container .dimension-title {
   margin: 0.75em 0 1.5em;
 }
 
-.selection-kpis-container .kpi-value-container {
+.selection-dimensions-container .dimension-value-container {
   position:relative;
   height:30px;
 }
 
-.selection-kpis-container .kpi-value-container .kpi-value-bar {
+.selection-dimensions-container .dimension-value-container .dimension-value-bar {
   position:absolute;
   height:100%;
   height:10px;
   transition: width 0.5s, background-color 0.5s;
 }
 
-.selection-kpis-container .kpi-min {
+.selection-dimensions-container .dimension-min {
   position:absolute;
   top:10px;
   left:0;
 }
 
-.selection-kpis-container .kpi-median {
+.selection-dimensions-container .dimension-median {
   position:absolute;
   top:10px;
   margin-left:-25px;
@@ -48,12 +48,12 @@
   text-align:center;
 }
 
-.selection-kpis-container .kpi-value {
+.selection-dimensions-container .dimension-value {
   position:absolute;
   top:-15px;
 }
 
-.selection-kpis-container .kpi-max {
+.selection-dimensions-container .dimension-max {
   position:absolute;
   top:10px;
   right:0;
