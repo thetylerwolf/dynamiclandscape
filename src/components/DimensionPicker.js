@@ -1,59 +1,44 @@
 import React, { Component } from "react";
-import { merge } from 'd3-array';
-
+import { dimGroupings, groupingKey, selectedKpis } from "../util/dimensionGroupingUtil";
 import CheckBox from './CheckBox';
-
-import headingMapping from "../data_set/mapping/headingMapping.json";
 import _ from 'lodash'
 
 class DimensionPicker extends Component {
 
-  constructor(props) {
-    super(props);
+	constructor(props) {
+		super(props)
 
-    this.state = {
-      headings: headingMapping,
-    }
-  }
+		this.state = {
+			groupings: dimGroupings,
+		}
+	}
 
-  _changeGoalIds({checkValue}, changedGoal) {
+	_changeGoalIds({ checkValue }, changedGoal) {
+		changedGoal.selected = checkValue
+		this.props.onChange(selectedKpis(this.state.groupings))
+	}
 
-    changedGoal.selected = checkValue
+	render() {
 
-    let kpiIds = [];
+		return (
+			<div className="dimension-picker">
 
-    this.state.headings.forEach(h => {
-        if(h.selected !== false) {
-          kpiIds.push(h.ids)
-        }
-      })
+				{this.state.groupings.map((group, i) => {
+					let label = groupingKey(group)
+					return [
+						<CheckBox
+							key={i}
+							label={label}
+							id={group[label]}
+							className="checkbox"
+							onIdChange={element => this._changeGoalIds(element, group)}
+						/>
+					];
+				})}
 
-    kpiIds = merge(kpiIds);
-
-    this.props.onChange(kpiIds)
-
-  }
-
-  render() {
-
-    return (
-      <div className="dimension-picker">
-
-        {this.state.headings.map((heading,i) => {
-          return [
-            <CheckBox
-              key={ i }
-              label={heading.name}
-              id={heading.ids}
-              className="checkbox"
-              onIdChange={element => this._changeGoalIds(element, heading)}
-            />
-          ];
-        })}
-
-      </div>
-    );
-  }
+			</div>
+		);
+	}
 }
 
 export default DimensionPicker;
