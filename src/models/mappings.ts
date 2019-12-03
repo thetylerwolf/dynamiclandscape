@@ -10,32 +10,33 @@ import nodes from "../data_set/un_data_nodes.json"
 import allDimensions from "../data_set/un_data_dimension_grouping.json"
 
 export interface Idimension {
-  name: string
-  max: number | undefined
-  min: number | undefined
-  mean: number | undefined
-  median: number | undefined
-  index: number
+	name: string
+	max: number | undefined
+	min: number | undefined
+	mean: number | undefined
+	median: number | undefined
+	index: number
 }
 
 export interface InodeDimension {
-  dimension: string
-  value: string
+	dimension: string
+	value: number
 }
 
 export interface Inode {
-  dimensions: InodeDimension[]
-  active?: boolean
-  name: string
-  color?: string
+	dimensions: InodeDimension[]
+	active?: boolean
+	name: string
+	color?: string
+	selected?: boolean
 }
 
 const nodeData: Inode[] = nodes
 
-const flatDimensions: string[] = <string[]>( allDimensions.flatMap(d => {
-  const dims = Object.values(d)
-  return dims[0]
-}) )
+const flatDimensions: string[] = <string[]>(allDimensions.flatMap(d => {
+	const dims = Object.values(d)
+	return dims[0]
+}))
 
 const dimensions: { [key: string]: Idimension } = {}
 
@@ -43,36 +44,36 @@ console.log('nodeData', nodeData)
 
 flatDimensions.forEach((dim, i) => {
 
-  const vals: number[] = <number[]>( nodeData.map((node: Inode) => {
-    const foundDim: InodeDimension | undefined = node.dimensions.find(d => d.dimension === dim)
-    return (foundDim && (foundDim.value !== null)) ? +foundDim.value : null
-  }).filter(v => v !== null) )
-  
-  const extent = d3.extent(vals)
-  const mean = d3.mean(vals)
-  const median = d3.median(vals)
+	const vals: number[] = <number[]>(nodeData.map((node: Inode) => {
+		const foundDim: InodeDimension | undefined = node.dimensions.find(d => d.dimension === dim)
+		return (foundDim && (foundDim.value !== null)) ? +foundDim.value : null
+	}).filter(v => v !== null))
 
-  // Skip any duplicates (there are 5)
-  if (dimensions[dim]) return;
+	const extent = d3.extent(vals)
+	const mean = d3.mean(vals)
+	const median = d3.median(vals)
 
-  dimensions[dim] = {
-    name,
-    max: extent[1],
-    min: extent[0],
-    mean,
-    median,
-    index: i
-  };
+	// Skip any duplicates (there are 5)
+	if (dimensions[dim]) return;
+
+	dimensions[dim] = {
+		name,
+		max: extent[1],
+		min: extent[0],
+		mean,
+		median,
+		index: i
+	};
 });
 
 const modelData: number[][] = nodeData.map(node => {
-  const dimensionArr = node.dimensions.map(dimension => {
-    const v = dimension.value === null ? -1 : +dimension.value;
+	const dimensionArr = node.dimensions.map(dimension => {
+		const v = dimension.value === null ? -1 : +dimension.value;
 
-    return v;
-  });
+		return v;
+	});
 
-  return dimensionArr;
+	return dimensionArr;
 });
 
 export { nodeData, modelData, dimensions };
