@@ -8,7 +8,7 @@ interface props {
 const SelectionDimensions = ({ node }: props) => {
 
   if( !node ) return (<div />)
-  console.log(node)
+
   return (
     <div className="selection-dimensions-container">
 

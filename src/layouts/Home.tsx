@@ -23,7 +23,7 @@ interface state {
 class Home extends Component {
   TSNE?: any
   animateTSNE: any = {}
-  state: state 
+  state: state
 
   constructor(props?: any) {
     super(props);
@@ -146,7 +146,7 @@ class Home extends Component {
   _changeDimensions(dims: string[]) {
 
     const updatedNodeData = nodeData.map((node,i) => {
-      let dimensions = node.dimensions.filter(dimension => dims.includes(dimension.dimension))
+      let dimensions = node.dimensions.filter((dimension: any) => dims.includes(dimension.dimension))
 
       return {
         ...node,

@@ -28,9 +28,10 @@ export interface Inode {
   active?: boolean
   name: string
   color?: string
+  selected?: boolean
 }
 
-const nodeData: Inode[] = nodes
+const nodeData: any[] = nodes
 
 const flatDimensions: string[] = <string[]>( allDimensions.flatMap(d => {
   const dims = Object.values(d)
@@ -43,11 +44,11 @@ console.log('nodeData', nodeData)
 
 flatDimensions.forEach((dim, i) => {
 
-  const vals: number[] = <number[]>( nodeData.map((node: Inode) => {
-    const foundDim: InodeDimension | undefined = node.dimensions.find(d => d.dimension === dim)
+  const vals: number[] = <number[]>( nodeData.map((node: any) => {
+    const foundDim: InodeDimension | undefined = node.dimensions.find((d: InodeDimension) => d.dimension === dim)
     return (foundDim && (foundDim.value !== null)) ? +foundDim.value : null
   }).filter(v => v !== null) )
-  
+
   const extent = d3.extent(vals)
   const mean = d3.mean(vals)
   const median = d3.median(vals)
@@ -66,7 +67,7 @@ flatDimensions.forEach((dim, i) => {
 });
 
 const modelData: number[][] = nodeData.map(node => {
-  const dimensionArr = node.dimensions.map(dimension => {
+  const dimensionArr = node.dimensions.map((dimension: InodeDimension) => {
     const v = dimension.value === null ? -1 : +dimension.value;
 
     return v;

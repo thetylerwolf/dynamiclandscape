@@ -45,8 +45,9 @@ class VizCanvas extends Component<props> {
     .range([ 0, maxRadius ])
     .clamp(true)
 
-  colorScale = d3.scaleLinear()
-    .range([0,0.5])
+  colorScale = d3.scaleLinear<string,string>()
+    .range([ '#FFCD00', '#004B87' ])
+    .clamp(true)
 
   transform = d3.zoomIdentity
 
@@ -120,7 +121,7 @@ class VizCanvas extends Component<props> {
       }
 
       if(node.active) {
-        node.color = d3.interpolateViridis(this.colorScale( colorValue ))
+        node.color = this.colorScale( colorValue )
         context.globalAlpha = 1
         context.fillStyle = colorValue > -1 ? node.color : '#fff'
       } else {
@@ -162,7 +163,7 @@ class VizCanvas extends Component<props> {
       let node = this.props.nodeData[i]
 
       let radius = node.dimensions[this.props.radiusValue.index].value || 0
-      radius = Math.max(0, radius)
+      radius = Math.max(0, +radius)
       radius = this.rScale( radius )
       let hit = dx*dx + dy*dy < radius*radius
 
@@ -198,7 +199,7 @@ class VizCanvas extends Component<props> {
       if(colorValue == -1) {
         hitNode.color = '#333'
       } else {
-        hitNode.color = d3.interpolateViridis(this.colorScale( colorValue ))
+        hitNode.color = this.colorScale( +colorValue )
       }
 
     } else {
@@ -222,7 +223,7 @@ class VizCanvas extends Component<props> {
   }
 
   render() {
-    this.colorScale.domain([ this.props.colorValue.min, this.props.colorValue.median, this.props.colorValue.max ])
+    this.colorScale.domain([ this.props.colorValue.min, this.props.colorValue.max ])
     this.rScale.domain([ this.props.radiusValue.min, this.props.radiusValue.max ])
 
     this.onTick()
