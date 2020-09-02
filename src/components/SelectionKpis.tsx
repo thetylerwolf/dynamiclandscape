@@ -32,7 +32,7 @@ const SelectionDimensions = ({ node }: props) => {
               return (
                 <div key={ i }>
                   <div className="dimension-title">
-                    { dimensionInfo.name }
+                    { dimension.dimension }
                   </div>
                   <div className="dimension-value-container">
                     <div className="dimension-value-bar" style={{ backgroundColor: node.color, width: (100 * valueNumber/maxNumber) + '%' }}></div>
