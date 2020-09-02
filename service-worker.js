@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/dynamiclandscape/precache-manifest.6584c011cb9d9188ffc758807bdb9769.js"
+  "/dynamiclandscape/precache-manifest.bef6273890535abdfe1367542e499d90.js"
 );
 
 workbox.clientsClaim();
