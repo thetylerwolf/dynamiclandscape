@@ -126,11 +126,11 @@ class Home extends Component {
     this.setState({ sizeDimension })
   }
 
-  _selectedMunicipalityId(id: string) {
+  _selectedMunicipalityId(name: string) {
     let selectedNode = null;
 
     nodeData.forEach((node: any) => {
-      let isNode = node.id == id;
+      let isNode = node.name == name;
 
       node.active = isNode;
       node.selected = isNode;

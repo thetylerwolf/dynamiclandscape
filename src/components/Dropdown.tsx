@@ -9,6 +9,7 @@ interface props {
   onChange: (d: any) => void
   data: any
   placeholder: any
+  default: number
 }
 
 class Dropdown extends Component<props> {
@@ -18,14 +19,16 @@ class Dropdown extends Component<props> {
   constructor(props: any) {
     super(props);
 
-    Object.entries(props.data).forEach(([key, value]) => {
+    Object.entries(props.data).forEach(([key, value], i) => {
       const v: any = value
-      this.options.push( {value: key, label: v.name} );
+      this.options.push( {value: key, label: key} );
     });
 
     this.state = {
-      selectedOption: this.options[0],
+      selectedOption: this.options[this.props.default],
     }
+
+    this.props.onChange({ selectedOption: this.state.selectedOption })
   }
 
   onChange(selectedOption: any){

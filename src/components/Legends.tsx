@@ -20,11 +20,12 @@ const Legend = ({ onSelectColor, onSelectSize, colorData, sizeData, muniSelected
 
   return (
     <div className={"legends-container " + (muniSelected ? 'pushed' : '') }>
-    
+
     <div className="legend legend-size">
 
         <div className="control">
           <Dropdown
+            default={20}
             data={dimensions}
             placeholder="Select size"
             onChange={(size: any) => onSelectSize(size)}
@@ -52,28 +53,21 @@ const Legend = ({ onSelectColor, onSelectSize, colorData, sizeData, muniSelected
 
         <div className="control">
           <Dropdown
+            default={17}
             data={dimensions}
             placeholder="Select color"
             onChange={(color: any) => onSelectColor(color)}
           />
         </div>
-        
+
         <div className="legend-scale">
           <div className="colors-blocks">
-            {
-              d3.range(0,1.2,0.2).map(( d: number, i: number ) => {
-                return(
-                  <div className="block"
-                    key={ i }
-                    style={{
-                      backgroundColor: d3.interpolateViridis(d),
-                      width: (100/6) + '%'
-                    }}
-                  >
-                  </div>
-                )
-              })
-            }
+            <div className="block"
+              style={{
+                background: 'linear-gradient(90deg, rgba(255,192,0,1) 0%, rgba(9,30,121,1) 100%)',
+                width: 100 + '%'
+              }}
+            ></div>
           </div>
           <div className="colors-values">
             <div className="colors-min colors-value">{ color.min ? color.min.toFixed(0) : '' }</div>

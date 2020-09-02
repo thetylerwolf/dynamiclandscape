@@ -45,6 +45,7 @@ console.log('nodeData', nodeData)
 flatDimensions.forEach((dim, i) => {
 
   const vals: number[] = <number[]>( nodeData.map((node: any) => {
+    node.active = true
     const foundDim: InodeDimension | undefined = node.dimensions.find((d: InodeDimension) => d.dimension === dim)
     return (foundDim && (foundDim.value !== null)) ? +foundDim.value : null
   }).filter(v => v !== null) )

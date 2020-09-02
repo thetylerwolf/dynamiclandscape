@@ -46,7 +46,7 @@ class VizCanvas extends Component<props> {
 		.clamp(true)
 
   colorScale = d3.scaleLinear<string,string>()
-    .range([ '#FFCD00', '#004B87' ])
+    .range([ '#ffc000', '#091e79' ])
     .clamp(true)
 
 	transform = d3.zoomIdentity
@@ -129,8 +129,8 @@ class VizCanvas extends Component<props> {
         context.fillStyle = '#333'
       }
 
-			context.strokeStyle = '#333'
-			context.stroke()
+			// context.strokeStyle = '#333'
+			// context.stroke()
 
 			context.closePath()
 			context.fill()

@@ -1,6 +1,6 @@
 [
     {
-        "node": "Upplands-Väsby",
+        "name": "Upplands-Väsby",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -205,7 +205,7 @@
         ]
     },
     {
-        "node": "Vallentuna",
+        "name": "Vallentuna",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -410,7 +410,7 @@
         ]
     },
     {
-        "node": "Österåker",
+        "name": "Österåker",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -615,7 +615,7 @@
         ]
     },
     {
-        "node": "Värmdö",
+        "name": "Värmdö",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -820,7 +820,7 @@
         ]
     },
     {
-        "node": "Järfälla",
+        "name": "Järfälla",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -1025,7 +1025,7 @@
         ]
     },
     {
-        "node": "Ekerö",
+        "name": "Ekerö",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -1230,7 +1230,7 @@
         ]
     },
     {
-        "node": "Huddinge",
+        "name": "Huddinge",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -1435,7 +1435,7 @@
         ]
     },
     {
-        "node": "Botkyrka",
+        "name": "Botkyrka",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -1640,7 +1640,7 @@
         ]
     },
     {
-        "node": "Salem",
+        "name": "Salem",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -1845,7 +1845,7 @@
         ]
     },
     {
-        "node": "Haninge",
+        "name": "Haninge",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -2050,7 +2050,7 @@
         ]
     },
     {
-        "node": "Tyresö",
+        "name": "Tyresö",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -2255,7 +2255,7 @@
         ]
     },
     {
-        "node": "Upplands-Bro",
+        "name": "Upplands-Bro",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -2460,7 +2460,7 @@
         ]
     },
     {
-        "node": "Nykvarn",
+        "name": "Nykvarn",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -2665,7 +2665,7 @@
         ]
     },
     {
-        "node": "Täby",
+        "name": "Täby",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -2870,7 +2870,7 @@
         ]
     },
     {
-        "node": "Danderyd",
+        "name": "Danderyd",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -3075,7 +3075,7 @@
         ]
     },
     {
-        "node": "Sollentuna",
+        "name": "Sollentuna",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -3280,7 +3280,7 @@
         ]
     },
     {
-        "node": "Stockholm",
+        "name": "Stockholm",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -3485,7 +3485,7 @@
         ]
     },
     {
-        "node": "Södertälje",
+        "name": "Södertälje",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -3690,7 +3690,7 @@
         ]
     },
     {
-        "node": "Nacka",
+        "name": "Nacka",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -3895,7 +3895,7 @@
         ]
     },
     {
-        "node": "Sundbyberg",
+        "name": "Sundbyberg",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -4100,7 +4100,7 @@
         ]
     },
     {
-        "node": "Solna",
+        "name": "Solna",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -4305,7 +4305,7 @@
         ]
     },
     {
-        "node": "Lidingö",
+        "name": "Lidingö",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -4510,7 +4510,7 @@
         ]
     },
     {
-        "node": "Vaxholm",
+        "name": "Vaxholm",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -4715,7 +4715,7 @@
         ]
     },
     {
-        "node": "Norrtälje",
+        "name": "Norrtälje",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -4920,7 +4920,7 @@
         ]
     },
     {
-        "node": "Sigtuna",
+        "name": "Sigtuna",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -5125,7 +5125,7 @@
         ]
     },
     {
-        "node": "Nynäshamn",
+        "name": "Nynäshamn",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -5330,7 +5330,7 @@
         ]
     },
     {
-        "node": "Håbo",
+        "name": "Håbo",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -5535,7 +5535,7 @@
         ]
     },
     {
-        "node": "Älvkarleby",
+        "name": "Älvkarleby",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -5740,7 +5740,7 @@
         ]
     },
     {
-        "node": "Knivsta",
+        "name": "Knivsta",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -5945,7 +5945,7 @@
         ]
     },
     {
-        "node": "Heby",
+        "name": "Heby",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -6150,7 +6150,7 @@
         ]
     },
     {
-        "node": "Tierp",
+        "name": "Tierp",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -6355,7 +6355,7 @@
         ]
     },
     {
-        "node": "Uppsala",
+        "name": "Uppsala",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -6560,7 +6560,7 @@
         ]
     },
     {
-        "node": "Enköping",
+        "name": "Enköping",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -6765,7 +6765,7 @@
         ]
     },
     {
-        "node": "Östhammar",
+        "name": "Östhammar",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -6970,7 +6970,7 @@
         ]
     },
     {
-        "node": "Vingåker",
+        "name": "Vingåker",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -7175,7 +7175,7 @@
         ]
     },
     {
-        "node": "Gnesta",
+        "name": "Gnesta",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -7380,7 +7380,7 @@
         ]
     },
     {
-        "node": "Nyköping",
+        "name": "Nyköping",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -7585,7 +7585,7 @@
         ]
     },
     {
-        "node": "Oxelösund",
+        "name": "Oxelösund",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -7790,7 +7790,7 @@
         ]
     },
     {
-        "node": "Flen",
+        "name": "Flen",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -7995,7 +7995,7 @@
         ]
     },
     {
-        "node": "Katrineholm",
+        "name": "Katrineholm",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -8200,7 +8200,7 @@
         ]
     },
     {
-        "node": "Eskilstuna",
+        "name": "Eskilstuna",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -8405,7 +8405,7 @@
         ]
     },
     {
-        "node": "Strängnäs",
+        "name": "Strängnäs",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -8610,7 +8610,7 @@
         ]
     },
     {
-        "node": "Trosa",
+        "name": "Trosa",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -8815,7 +8815,7 @@
         ]
     },
     {
-        "node": "Ödeshög",
+        "name": "Ödeshög",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -9020,7 +9020,7 @@
         ]
     },
     {
-        "node": "Ydre",
+        "name": "Ydre",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -9225,7 +9225,7 @@
         ]
     },
     {
-        "node": "Kinda",
+        "name": "Kinda",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -9430,7 +9430,7 @@
         ]
     },
     {
-        "node": "Boxholm",
+        "name": "Boxholm",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -9635,7 +9635,7 @@
         ]
     },
     {
-        "node": "Åtvidaberg",
+        "name": "Åtvidaberg",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -9840,7 +9840,7 @@
         ]
     },
     {
-        "node": "Finspång",
+        "name": "Finspång",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -10045,7 +10045,7 @@
         ]
     },
     {
-        "node": "Valdemarsvik",
+        "name": "Valdemarsvik",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -10250,7 +10250,7 @@
         ]
     },
     {
-        "node": "Linköping",
+        "name": "Linköping",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -10455,7 +10455,7 @@
         ]
     },
     {
-        "node": "Norrköping",
+        "name": "Norrköping",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -10660,7 +10660,7 @@
         ]
     },
     {
-        "node": "Söderköping",
+        "name": "Söderköping",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -10865,7 +10865,7 @@
         ]
     },
     {
-        "node": "Motala",
+        "name": "Motala",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -11070,7 +11070,7 @@
         ]
     },
     {
-        "node": "Vadstena",
+        "name": "Vadstena",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -11275,7 +11275,7 @@
         ]
     },
     {
-        "node": "Mjölby",
+        "name": "Mjölby",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -11480,7 +11480,7 @@
         ]
     },
     {
-        "node": "Aneby",
+        "name": "Aneby",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -11685,7 +11685,7 @@
         ]
     },
     {
-        "node": "Gnosjö",
+        "name": "Gnosjö",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -11890,7 +11890,7 @@
         ]
     },
     {
-        "node": "Mullsjö",
+        "name": "Mullsjö",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -12095,7 +12095,7 @@
         ]
     },
     {
-        "node": "Habo",
+        "name": "Habo",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -12300,7 +12300,7 @@
         ]
     },
     {
-        "node": "Gislaved",
+        "name": "Gislaved",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -12505,7 +12505,7 @@
         ]
     },
     {
-        "node": "Vaggeryd",
+        "name": "Vaggeryd",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -12710,7 +12710,7 @@
         ]
     },
     {
-        "node": "Jönköping",
+        "name": "Jönköping",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -12915,7 +12915,7 @@
         ]
     },
     {
-        "node": "Nässjö",
+        "name": "Nässjö",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -13120,7 +13120,7 @@
         ]
     },
     {
-        "node": "Värnamo",
+        "name": "Värnamo",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -13325,7 +13325,7 @@
         ]
     },
     {
-        "node": "Sävsjö",
+        "name": "Sävsjö",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -13530,7 +13530,7 @@
         ]
     },
     {
-        "node": "Vetlanda",
+        "name": "Vetlanda",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -13735,7 +13735,7 @@
         ]
     },
     {
-        "node": "Eksjö",
+        "name": "Eksjö",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -13940,7 +13940,7 @@
         ]
     },
     {
-        "node": "Tranås",
+        "name": "Tranås",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -14145,7 +14145,7 @@
         ]
     },
     {
-        "node": "Uppvidinge",
+        "name": "Uppvidinge",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -14350,7 +14350,7 @@
         ]
     },
     {
-        "node": "Lessebo",
+        "name": "Lessebo",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -14555,7 +14555,7 @@
         ]
     },
     {
-        "node": "Tingsryd",
+        "name": "Tingsryd",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -14760,7 +14760,7 @@
         ]
     },
     {
-        "node": "Alvesta",
+        "name": "Alvesta",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -14965,7 +14965,7 @@
         ]
     },
     {
-        "node": "Älmhult",
+        "name": "Älmhult",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -15170,7 +15170,7 @@
         ]
     },
     {
-        "node": "Markaryd",
+        "name": "Markaryd",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -15375,7 +15375,7 @@
         ]
     },
     {
-        "node": "Växjö",
+        "name": "Växjö",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -15580,7 +15580,7 @@
         ]
     },
     {
-        "node": "Ljungby",
+        "name": "Ljungby",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -15785,7 +15785,7 @@
         ]
     },
     {
-        "node": "Högsby",
+        "name": "Högsby",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -15990,7 +15990,7 @@
         ]
     },
     {
-        "node": "Torsås",
+        "name": "Torsås",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -16195,7 +16195,7 @@
         ]
     },
     {
-        "node": "Mörbylånga",
+        "name": "Mörbylånga",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -16400,7 +16400,7 @@
         ]
     },
     {
-        "node": "Hultsfred",
+        "name": "Hultsfred",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -16605,7 +16605,7 @@
         ]
     },
     {
-        "node": "Mönsterås",
+        "name": "Mönsterås",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -16810,7 +16810,7 @@
         ]
     },
     {
-        "node": "Emmaboda",
+        "name": "Emmaboda",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -17015,7 +17015,7 @@
         ]
     },
     {
-        "node": "Kalmar",
+        "name": "Kalmar",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -17220,7 +17220,7 @@
         ]
     },
     {
-        "node": "Nybro",
+        "name": "Nybro",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -17425,7 +17425,7 @@
         ]
     },
     {
-        "node": "Oskarshamn",
+        "name": "Oskarshamn",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -17630,7 +17630,7 @@
         ]
     },
     {
-        "node": "Västervik",
+        "name": "Västervik",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -17835,7 +17835,7 @@
         ]
     },
     {
-        "node": "Vimmerby",
+        "name": "Vimmerby",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -18040,7 +18040,7 @@
         ]
     },
     {
-        "node": "Borgholm",
+        "name": "Borgholm",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -18245,7 +18245,7 @@
         ]
     },
     {
-        "node": "Gotland",
+        "name": "Gotland",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -18450,7 +18450,7 @@
         ]
     },
     {
-        "node": "Olofström",
+        "name": "Olofström",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -18655,7 +18655,7 @@
         ]
     },
     {
-        "node": "Karlskrona",
+        "name": "Karlskrona",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -18860,7 +18860,7 @@
         ]
     },
     {
-        "node": "Ronneby",
+        "name": "Ronneby",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -19065,7 +19065,7 @@
         ]
     },
     {
-        "node": "Karlshamn",
+        "name": "Karlshamn",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -19270,7 +19270,7 @@
         ]
     },
     {
-        "node": "Sölvesborg",
+        "name": "Sölvesborg",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -19475,7 +19475,7 @@
         ]
     },
     {
-        "node": "Svalöv",
+        "name": "Svalöv",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -19680,7 +19680,7 @@
         ]
     },
     {
-        "node": "Staffanstorp",
+        "name": "Staffanstorp",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -19885,7 +19885,7 @@
         ]
     },
     {
-        "node": "Burlöv",
+        "name": "Burlöv",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -20090,7 +20090,7 @@
         ]
     },
     {
-        "node": "Vellinge",
+        "name": "Vellinge",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -20295,7 +20295,7 @@
         ]
     },
     {
-        "node": "Östra Göinge",
+        "name": "Östra Göinge",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -20500,7 +20500,7 @@
         ]
     },
     {
-        "node": "Örkelljunga",
+        "name": "Örkelljunga",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -20705,7 +20705,7 @@
         ]
     },
     {
-        "node": "Bjuv",
+        "name": "Bjuv",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -20910,7 +20910,7 @@
         ]
     },
     {
-        "node": "Kävlinge",
+        "name": "Kävlinge",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -21115,7 +21115,7 @@
         ]
     },
     {
-        "node": "Lomma",
+        "name": "Lomma",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -21320,7 +21320,7 @@
         ]
     },
     {
-        "node": "Svedala",
+        "name": "Svedala",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -21525,7 +21525,7 @@
         ]
     },
     {
-        "node": "Skurup",
+        "name": "Skurup",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -21730,7 +21730,7 @@
         ]
     },
     {
-        "node": "Sjöbo",
+        "name": "Sjöbo",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -21935,7 +21935,7 @@
         ]
     },
     {
-        "node": "Hörby",
+        "name": "Hörby",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -22140,7 +22140,7 @@
         ]
     },
     {
-        "node": "Höör",
+        "name": "Höör",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -22345,7 +22345,7 @@
         ]
     },
     {
-        "node": "Tomelilla",
+        "name": "Tomelilla",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -22550,7 +22550,7 @@
         ]
     },
     {
-        "node": "Bromölla",
+        "name": "Bromölla",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -22755,7 +22755,7 @@
         ]
     },
     {
-        "node": "Osby",
+        "name": "Osby",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -22960,7 +22960,7 @@
         ]
     },
     {
-        "node": "Perstorp",
+        "name": "Perstorp",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -23165,7 +23165,7 @@
         ]
     },
     {
-        "node": "Klippan",
+        "name": "Klippan",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -23370,7 +23370,7 @@
         ]
     },
     {
-        "node": "Åstorp",
+        "name": "Åstorp",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -23575,7 +23575,7 @@
         ]
     },
     {
-        "node": "Båstad",
+        "name": "Båstad",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -23780,7 +23780,7 @@
         ]
     },
     {
-        "node": "Malmö",
+        "name": "Malmö",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -23985,7 +23985,7 @@
         ]
     },
     {
-        "node": "Lund",
+        "name": "Lund",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -24190,7 +24190,7 @@
         ]
     },
     {
-        "node": "Landskrona",
+        "name": "Landskrona",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -24395,7 +24395,7 @@
         ]
     },
     {
-        "node": "Helsingborg",
+        "name": "Helsingborg",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -24600,7 +24600,7 @@
         ]
     },
     {
-        "node": "Höganäs",
+        "name": "Höganäs",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -24805,7 +24805,7 @@
         ]
     },
     {
-        "node": "Eslöv",
+        "name": "Eslöv",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -25010,7 +25010,7 @@
         ]
     },
     {
-        "node": "Ystad",
+        "name": "Ystad",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -25215,7 +25215,7 @@
         ]
     },
     {
-        "node": "Trelleborg",
+        "name": "Trelleborg",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -25420,7 +25420,7 @@
         ]
     },
     {
-        "node": "Kristianstad",
+        "name": "Kristianstad",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -25625,7 +25625,7 @@
         ]
     },
     {
-        "node": "Simrishamn",
+        "name": "Simrishamn",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -25830,7 +25830,7 @@
         ]
     },
     {
-        "node": "Ängelholm",
+        "name": "Ängelholm",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -26035,7 +26035,7 @@
         ]
     },
     {
-        "node": "Hässleholm",
+        "name": "Hässleholm",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -26240,7 +26240,7 @@
         ]
     },
     {
-        "node": "Hylte",
+        "name": "Hylte",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -26445,7 +26445,7 @@
         ]
     },
     {
-        "node": "Halmstad",
+        "name": "Halmstad",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -26650,7 +26650,7 @@
         ]
     },
     {
-        "node": "Laholm",
+        "name": "Laholm",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -26855,7 +26855,7 @@
         ]
     },
     {
-        "node": "Falkenberg",
+        "name": "Falkenberg",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -27060,7 +27060,7 @@
         ]
     },
     {
-        "node": "Varberg",
+        "name": "Varberg",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -27265,7 +27265,7 @@
         ]
     },
     {
-        "node": "Kungsbacka",
+        "name": "Kungsbacka",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -27470,7 +27470,7 @@
         ]
     },
     {
-        "node": "Härryda",
+        "name": "Härryda",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -27675,7 +27675,7 @@
         ]
     },
     {
-        "node": "Partille",
+        "name": "Partille",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -27880,7 +27880,7 @@
         ]
     },
     {
-        "node": "Öckerö",
+        "name": "Öckerö",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -28085,7 +28085,7 @@
         ]
     },
     {
-        "node": "Stenungsund",
+        "name": "Stenungsund",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -28290,7 +28290,7 @@
         ]
     },
     {
-        "node": "Tjörn",
+        "name": "Tjörn",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -28495,7 +28495,7 @@
         ]
     },
     {
-        "node": "Orust",
+        "name": "Orust",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -28700,7 +28700,7 @@
         ]
     },
     {
-        "node": "Sotenäs",
+        "name": "Sotenäs",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -28905,7 +28905,7 @@
         ]
     },
     {
-        "node": "Munkedal",
+        "name": "Munkedal",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -29110,7 +29110,7 @@
         ]
     },
     {
-        "node": "Tanum",
+        "name": "Tanum",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -29315,7 +29315,7 @@
         ]
     },
     {
-        "node": "Dals-Ed",
+        "name": "Dals-Ed",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -29520,7 +29520,7 @@
         ]
     },
     {
-        "node": "Färgelanda",
+        "name": "Färgelanda",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -29725,7 +29725,7 @@
         ]
     },
     {
-        "node": "Ale",
+        "name": "Ale",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -29930,7 +29930,7 @@
         ]
     },
     {
-        "node": "Lerum",
+        "name": "Lerum",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -30135,7 +30135,7 @@
         ]
     },
     {
-        "node": "Vårgårda",
+        "name": "Vårgårda",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -30340,7 +30340,7 @@
         ]
     },
     {
-        "node": "Bollebygd",
+        "name": "Bollebygd",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -30545,7 +30545,7 @@
         ]
     },
     {
-        "node": "Grästorp",
+        "name": "Grästorp",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -30750,7 +30750,7 @@
         ]
     },
     {
-        "node": "Essunga",
+        "name": "Essunga",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -30955,7 +30955,7 @@
         ]
     },
     {
-        "node": "Karlsborg",
+        "name": "Karlsborg",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -31160,7 +31160,7 @@
         ]
     },
     {
-        "node": "Gullspång",
+        "name": "Gullspång",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -31365,7 +31365,7 @@
         ]
     },
     {
-        "node": "Tranemo",
+        "name": "Tranemo",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -31570,7 +31570,7 @@
         ]
     },
     {
-        "node": "Bengtsfors",
+        "name": "Bengtsfors",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -31775,7 +31775,7 @@
         ]
     },
     {
-        "node": "Mellerud",
+        "name": "Mellerud",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -31980,7 +31980,7 @@
         ]
     },
     {
-        "node": "Lilla Edet",
+        "name": "Lilla Edet",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -32185,7 +32185,7 @@
         ]
     },
     {
-        "node": "Mark",
+        "name": "Mark",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -32390,7 +32390,7 @@
         ]
     },
     {
-        "node": "Svenljunga",
+        "name": "Svenljunga",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -32595,7 +32595,7 @@
         ]
     },
     {
-        "node": "Herrljunga",
+        "name": "Herrljunga",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -32800,7 +32800,7 @@
         ]
     },
     {
-        "node": "Vara",
+        "name": "Vara",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -33005,7 +33005,7 @@
         ]
     },
     {
-        "node": "Götene",
+        "name": "Götene",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -33210,7 +33210,7 @@
         ]
     },
     {
-        "node": "Tibro",
+        "name": "Tibro",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -33415,7 +33415,7 @@
         ]
     },
     {
-        "node": "Töreboda",
+        "name": "Töreboda",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -33620,7 +33620,7 @@
         ]
     },
     {
-        "node": "Göteborg",
+        "name": "Göteborg",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -33825,7 +33825,7 @@
         ]
     },
     {
-        "node": "Mölndal",
+        "name": "Mölndal",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -34030,7 +34030,7 @@
         ]
     },
     {
-        "node": "Kungälv",
+        "name": "Kungälv",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -34235,7 +34235,7 @@
         ]
     },
     {
-        "node": "Lysekil",
+        "name": "Lysekil",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -34440,7 +34440,7 @@
         ]
     },
     {
-        "node": "Uddevalla",
+        "name": "Uddevalla",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -34645,7 +34645,7 @@
         ]
     },
     {
-        "node": "Strömstad",
+        "name": "Strömstad",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -34850,7 +34850,7 @@
         ]
     },
     {
-        "node": "Vänersborg",
+        "name": "Vänersborg",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -35055,7 +35055,7 @@
         ]
     },
     {
-        "node": "Trollhättan",
+        "name": "Trollhättan",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -35260,7 +35260,7 @@
         ]
     },
     {
-        "node": "Alingsås",
+        "name": "Alingsås",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -35465,7 +35465,7 @@
         ]
     },
     {
-        "node": "Borås",
+        "name": "Borås",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -35670,7 +35670,7 @@
         ]
     },
     {
-        "node": "Ulricehamn",
+        "name": "Ulricehamn",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -35875,7 +35875,7 @@
         ]
     },
     {
-        "node": "Åmål",
+        "name": "Åmål",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -36080,7 +36080,7 @@
         ]
     },
     {
-        "node": "Mariestad",
+        "name": "Mariestad",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -36285,7 +36285,7 @@
         ]
     },
     {
-        "node": "Lidköping",
+        "name": "Lidköping",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -36490,7 +36490,7 @@
         ]
     },
     {
-        "node": "Skara",
+        "name": "Skara",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -36695,7 +36695,7 @@
         ]
     },
     {
-        "node": "Skövde",
+        "name": "Skövde",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -36900,7 +36900,7 @@
         ]
     },
     {
-        "node": "Hjo",
+        "name": "Hjo",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -37105,7 +37105,7 @@
         ]
     },
     {
-        "node": "Tidaholm",
+        "name": "Tidaholm",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -37310,7 +37310,7 @@
         ]
     },
     {
-        "node": "Falköping",
+        "name": "Falköping",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -37515,7 +37515,7 @@
         ]
     },
     {
-        "node": "Kil",
+        "name": "Kil",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -37720,7 +37720,7 @@
         ]
     },
     {
-        "node": "Eda",
+        "name": "Eda",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -37925,7 +37925,7 @@
         ]
     },
     {
-        "node": "Torsby",
+        "name": "Torsby",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -38130,7 +38130,7 @@
         ]
     },
     {
-        "node": "Storfors",
+        "name": "Storfors",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -38335,7 +38335,7 @@
         ]
     },
     {
-        "node": "Hammarö",
+        "name": "Hammarö",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -38540,7 +38540,7 @@
         ]
     },
     {
-        "node": "Munkfors",
+        "name": "Munkfors",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -38745,7 +38745,7 @@
         ]
     },
     {
-        "node": "Forshaga",
+        "name": "Forshaga",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -38950,7 +38950,7 @@
         ]
     },
     {
-        "node": "Grums",
+        "name": "Grums",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -39155,7 +39155,7 @@
         ]
     },
     {
-        "node": "Årjäng",
+        "name": "Årjäng",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -39360,7 +39360,7 @@
         ]
     },
     {
-        "node": "Sunne",
+        "name": "Sunne",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -39565,7 +39565,7 @@
         ]
     },
     {
-        "node": "Karlstad",
+        "name": "Karlstad",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -39770,7 +39770,7 @@
         ]
     },
     {
-        "node": "Kristinehamn",
+        "name": "Kristinehamn",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -39975,7 +39975,7 @@
         ]
     },
     {
-        "node": "Filipstad",
+        "name": "Filipstad",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -40180,7 +40180,7 @@
         ]
     },
     {
-        "node": "Hagfors",
+        "name": "Hagfors",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -40385,7 +40385,7 @@
         ]
     },
     {
-        "node": "Arvika",
+        "name": "Arvika",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -40590,7 +40590,7 @@
         ]
     },
     {
-        "node": "Säffle",
+        "name": "Säffle",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -40795,7 +40795,7 @@
         ]
     },
     {
-        "node": "Lekeberg",
+        "name": "Lekeberg",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -41000,7 +41000,7 @@
         ]
     },
     {
-        "node": "Laxå",
+        "name": "Laxå",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -41205,7 +41205,7 @@
         ]
     },
     {
-        "node": "Hallsberg",
+        "name": "Hallsberg",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -41410,7 +41410,7 @@
         ]
     },
     {
-        "node": "Degerfors",
+        "name": "Degerfors",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -41615,7 +41615,7 @@
         ]
     },
     {
-        "node": "Hällefors",
+        "name": "Hällefors",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -41820,7 +41820,7 @@
         ]
     },
     {
-        "node": "Ljusnarsberg",
+        "name": "Ljusnarsberg",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -42025,7 +42025,7 @@
         ]
     },
     {
-        "node": "Örebro",
+        "name": "Örebro",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -42230,7 +42230,7 @@
         ]
     },
     {
-        "node": "Kumla",
+        "name": "Kumla",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -42435,7 +42435,7 @@
         ]
     },
     {
-        "node": "Askersund",
+        "name": "Askersund",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -42640,7 +42640,7 @@
         ]
     },
     {
-        "node": "Karlskoga",
+        "name": "Karlskoga",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -42845,7 +42845,7 @@
         ]
     },
     {
-        "node": "Nora",
+        "name": "Nora",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -43050,7 +43050,7 @@
         ]
     },
     {
-        "node": "Lindesberg",
+        "name": "Lindesberg",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -43255,7 +43255,7 @@
         ]
     },
     {
-        "node": "Skinnskatteberg",
+        "name": "Skinnskatteberg",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -43460,7 +43460,7 @@
         ]
     },
     {
-        "node": "Surahammar",
+        "name": "Surahammar",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -43665,7 +43665,7 @@
         ]
     },
     {
-        "node": "Kungsör",
+        "name": "Kungsör",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -43870,7 +43870,7 @@
         ]
     },
     {
-        "node": "Hallstahammar",
+        "name": "Hallstahammar",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -44075,7 +44075,7 @@
         ]
     },
     {
-        "node": "Norberg",
+        "name": "Norberg",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -44280,7 +44280,7 @@
         ]
     },
     {
-        "node": "Västerås",
+        "name": "Västerås",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -44485,7 +44485,7 @@
         ]
     },
     {
-        "node": "Sala",
+        "name": "Sala",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -44690,7 +44690,7 @@
         ]
     },
     {
-        "node": "Fagersta",
+        "name": "Fagersta",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -44895,7 +44895,7 @@
         ]
     },
     {
-        "node": "Köping",
+        "name": "Köping",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -45100,7 +45100,7 @@
         ]
     },
     {
-        "node": "Arboga",
+        "name": "Arboga",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -45305,7 +45305,7 @@
         ]
     },
     {
-        "node": "Vansbro",
+        "name": "Vansbro",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -45510,7 +45510,7 @@
         ]
     },
     {
-        "node": "Malung",
+        "name": "Malung",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -45715,7 +45715,7 @@
         ]
     },
     {
-        "node": "Gagnef",
+        "name": "Gagnef",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -45920,7 +45920,7 @@
         ]
     },
     {
-        "node": "Leksand",
+        "name": "Leksand",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -46125,7 +46125,7 @@
         ]
     },
     {
-        "node": "Rättvik",
+        "name": "Rättvik",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -46330,7 +46330,7 @@
         ]
     },
     {
-        "node": "Orsa",
+        "name": "Orsa",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -46535,7 +46535,7 @@
         ]
     },
     {
-        "node": "Älvdalen",
+        "name": "Älvdalen",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -46740,7 +46740,7 @@
         ]
     },
     {
-        "node": "Smedjebacken",
+        "name": "Smedjebacken",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -46945,7 +46945,7 @@
         ]
     },
     {
-        "node": "Mora",
+        "name": "Mora",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -47150,7 +47150,7 @@
         ]
     },
     {
-        "node": "Falun",
+        "name": "Falun",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -47355,7 +47355,7 @@
         ]
     },
     {
-        "node": "Borlänge",
+        "name": "Borlänge",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -47560,7 +47560,7 @@
         ]
     },
     {
-        "node": "Säter",
+        "name": "Säter",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -47765,7 +47765,7 @@
         ]
     },
     {
-        "node": "Hedemora",
+        "name": "Hedemora",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -47970,7 +47970,7 @@
         ]
     },
     {
-        "node": "Avesta",
+        "name": "Avesta",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -48175,7 +48175,7 @@
         ]
     },
     {
-        "node": "Ludvika",
+        "name": "Ludvika",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -48380,7 +48380,7 @@
         ]
     },
     {
-        "node": "Ockelbo",
+        "name": "Ockelbo",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -48585,7 +48585,7 @@
         ]
     },
     {
-        "node": "Hofors",
+        "name": "Hofors",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -48790,7 +48790,7 @@
         ]
     },
     {
-        "node": "Ovanåker",
+        "name": "Ovanåker",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -48995,7 +48995,7 @@
         ]
     },
     {
-        "node": "Nordanstig",
+        "name": "Nordanstig",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -49200,7 +49200,7 @@
         ]
     },
     {
-        "node": "Ljusdal",
+        "name": "Ljusdal",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -49405,7 +49405,7 @@
         ]
     },
     {
-        "node": "Gävle",
+        "name": "Gävle",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -49610,7 +49610,7 @@
         ]
     },
     {
-        "node": "Sandviken",
+        "name": "Sandviken",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -49815,7 +49815,7 @@
         ]
     },
     {
-        "node": "Söderhamn",
+        "name": "Söderhamn",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -50020,7 +50020,7 @@
         ]
     },
     {
-        "node": "Bollnäs",
+        "name": "Bollnäs",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -50225,7 +50225,7 @@
         ]
     },
     {
-        "node": "Hudiksvall",
+        "name": "Hudiksvall",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -50430,7 +50430,7 @@
         ]
     },
     {
-        "node": "Ånge",
+        "name": "Ånge",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -50635,7 +50635,7 @@
         ]
     },
     {
-        "node": "Timrå",
+        "name": "Timrå",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -50840,7 +50840,7 @@
         ]
     },
     {
-        "node": "Härnösand",
+        "name": "Härnösand",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -51045,7 +51045,7 @@
         ]
     },
     {
-        "node": "Sundsvall",
+        "name": "Sundsvall",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -51250,7 +51250,7 @@
         ]
     },
     {
-        "node": "Kramfors",
+        "name": "Kramfors",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -51455,7 +51455,7 @@
         ]
     },
     {
-        "node": "Sollefteå",
+        "name": "Sollefteå",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -51660,7 +51660,7 @@
         ]
     },
     {
-        "node": "Örnsköldsvik",
+        "name": "Örnsköldsvik",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -51865,7 +51865,7 @@
         ]
     },
     {
-        "node": "Ragunda",
+        "name": "Ragunda",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -52070,7 +52070,7 @@
         ]
     },
     {
-        "node": "Bräcke",
+        "name": "Bräcke",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -52275,7 +52275,7 @@
         ]
     },
     {
-        "node": "Krokom",
+        "name": "Krokom",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -52480,7 +52480,7 @@
         ]
     },
     {
-        "node": "Strömsund",
+        "name": "Strömsund",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -52685,7 +52685,7 @@
         ]
     },
     {
-        "node": "Åre",
+        "name": "Åre",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -52890,7 +52890,7 @@
         ]
     },
     {
-        "node": "Berg",
+        "name": "Berg",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -53095,7 +53095,7 @@
         ]
     },
     {
-        "node": "Härjedalen",
+        "name": "Härjedalen",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -53300,7 +53300,7 @@
         ]
     },
     {
-        "node": "Östersund",
+        "name": "Östersund",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -53505,7 +53505,7 @@
         ]
     },
     {
-        "node": "Nordmaling",
+        "name": "Nordmaling",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -53710,7 +53710,7 @@
         ]
     },
     {
-        "node": "Bjurholm",
+        "name": "Bjurholm",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -53915,7 +53915,7 @@
         ]
     },
     {
-        "node": "Vindeln",
+        "name": "Vindeln",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -54120,7 +54120,7 @@
         ]
     },
     {
-        "node": "Robertsfors",
+        "name": "Robertsfors",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -54325,7 +54325,7 @@
         ]
     },
     {
-        "node": "Norsjö",
+        "name": "Norsjö",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -54530,7 +54530,7 @@
         ]
     },
     {
-        "node": "Malå",
+        "name": "Malå",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -54735,7 +54735,7 @@
         ]
     },
     {
-        "node": "Storuman",
+        "name": "Storuman",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -54940,7 +54940,7 @@
         ]
     },
     {
-        "node": "Sorsele",
+        "name": "Sorsele",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -55145,7 +55145,7 @@
         ]
     },
     {
-        "node": "Dorotea",
+        "name": "Dorotea",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -55350,7 +55350,7 @@
         ]
     },
     {
-        "node": "Vännäs",
+        "name": "Vännäs",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -55555,7 +55555,7 @@
         ]
     },
     {
-        "node": "Vilhelmina",
+        "name": "Vilhelmina",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -55760,7 +55760,7 @@
         ]
     },
     {
-        "node": "Åsele",
+        "name": "Åsele",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -55965,7 +55965,7 @@
         ]
     },
     {
-        "node": "Umeå",
+        "name": "Umeå",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -56170,7 +56170,7 @@
         ]
     },
     {
-        "node": "Lycksele",
+        "name": "Lycksele",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -56375,7 +56375,7 @@
         ]
     },
     {
-        "node": "Skellefteå",
+        "name": "Skellefteå",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -56580,7 +56580,7 @@
         ]
     },
     {
-        "node": "Arvidsjaur",
+        "name": "Arvidsjaur",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -56785,7 +56785,7 @@
         ]
     },
     {
-        "node": "Arjeplog",
+        "name": "Arjeplog",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -56990,7 +56990,7 @@
         ]
     },
     {
-        "node": "Jokkmokk",
+        "name": "Jokkmokk",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -57195,7 +57195,7 @@
         ]
     },
     {
-        "node": "Överkalix",
+        "name": "Överkalix",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -57400,7 +57400,7 @@
         ]
     },
     {
-        "node": "Kalix",
+        "name": "Kalix",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -57605,7 +57605,7 @@
         ]
     },
     {
-        "node": "Övertorneå",
+        "name": "Övertorneå",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -57810,7 +57810,7 @@
         ]
     },
     {
-        "node": "Pajala",
+        "name": "Pajala",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -58015,7 +58015,7 @@
         ]
     },
     {
-        "node": "Gällivare",
+        "name": "Gällivare",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -58220,7 +58220,7 @@
         ]
     },
     {
-        "node": "Älvsbyn",
+        "name": "Älvsbyn",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -58425,7 +58425,7 @@
         ]
     },
     {
-        "node": "Luleå",
+        "name": "Luleå",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -58630,7 +58630,7 @@
         ]
     },
     {
-        "node": "Piteå",
+        "name": "Piteå",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -58835,7 +58835,7 @@
         ]
     },
     {
-        "node": "Boden",
+        "name": "Boden",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -59040,7 +59040,7 @@
         ]
     },
     {
-        "node": "Haparanda",
+        "name": "Haparanda",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",
@@ -59245,7 +59245,7 @@
         ]
     },
     {
-        "node": "Kiruna",
+        "name": "Kiruna",
         "dimensions": [
             {
                 "dimension": "Monthly salaried workers (%)",

@@ -34,11 +34,11 @@ class AutoSuggest extends React.Component {
       suggestions: []
     };
   }
-  
+
   lookUpCommunityId = communityName => {
     Object.entries(municipalityMapping).forEach(([key, value]) => {
       if (value === communityName) {
-        this.props.selectedMunicipalityId(key)
+        this.props.selectedMunicipalityId(value)
       }
     });
   };
