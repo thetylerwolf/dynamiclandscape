@@ -1,29 +1,29 @@
 import React, { Component } from "react";
 import VizCanvas from "../components/VizCanvas";
 import SelectionKpis from "../components/SelectionKpis";
-import Controls from '../components/Controls'
+import Controls from "../components/Controls";
 import { modelData, nodeData, Inode, Idimension } from "../models/mappings";
 import Legends from "../components/Legends";
-import tsnejs from '../js/tsnejs'
+import tsnejs from "../js/tsnejs";
 
 import { dimensions } from "../models/mappings";
 
 interface state {
-  positionData: []
-  tsneComplete: boolean
-  nodeData: Inode[]
-  modelData: any
-  sizeDimension: Idimension
-  colorDimension: Idimension
-  selectedMunicipalityId?: string
-  dataUpdate: boolean
-  selectedNode?: any
+  positionData: [];
+  tsneComplete: boolean;
+  nodeData: Inode[];
+  modelData: any;
+  sizeDimension: Idimension;
+  colorDimension: Idimension;
+  selectedMunicipalityId?: string;
+  dataUpdate: boolean;
+  selectedNode?: any;
 }
 
 class Home extends Component {
-  TSNE?: any
-  animateTSNE: any = {}
-  state: state
+  TSNE?: any;
+  animateTSNE: any = {};
+  state: state;
 
   constructor(props?: any) {
     super(props);
@@ -35,12 +35,11 @@ class Home extends Component {
     //   JSON.stringify(dimensions[Object.keys(dimensions)[0]], null, 4)
     // );
 
-    const kpis = dimensions
+    const kpis = dimensions;
 
-    const defaultKpi: string = Object.keys(kpis)[0]
-    const sizeDimension: Idimension = kpis[ defaultKpi ]
-    const colorDimension: Idimension = kpis[ defaultKpi ]
-
+    const defaultKpi: string = Object.keys(kpis)[0];
+    const sizeDimension: Idimension = kpis[defaultKpi];
+    const colorDimension: Idimension = kpis[defaultKpi];
 
     this.state = {
       positionData: [],
@@ -50,7 +49,7 @@ class Home extends Component {
       sizeDimension, // update this as well?
       colorDimension, // update this as well?
       selectedMunicipalityId: undefined,
-      dataUpdate: false
+      dataUpdate: false,
     };
   }
 
@@ -60,34 +59,33 @@ class Home extends Component {
   }
 
   _createTSNE() {
-
     let opt = {
       epsilon: 10,
       perplexity: 90,
-      dim: 2
-    }
+      dim: 2,
+    };
 
-    if(!this.TSNE) {
+    if (!this.TSNE) {
       this.TSNE = new tsnejs.tSNE(opt);
     }
 
-    this.TSNE.initDataRaw( this.state.modelData );
+    this.TSNE.initDataRaw(this.state.modelData);
 
-    this._runTSNE()
+    this._runTSNE();
   }
 
   _runTSNE() {
-    let steps = 0
+    let steps = 0;
 
     this.animateTSNE = () => {
-      if(this.state.dataUpdate) {
-        this._createTSNE()
-        this.setState({ dataUpdate: false })
-        return steps = 0
+      if (this.state.dataUpdate) {
+        this._createTSNE();
+        this.setState({ dataUpdate: false });
+        return (steps = 0);
       }
 
-      if(steps > 2000) {
-        return
+      if (steps > 2000) {
+        return;
       }
 
       this.TSNE.step();
@@ -95,19 +93,19 @@ class Home extends Component {
       const positionData = this.TSNE.getSolution();
 
       this.setState({
-        positionData
-      })
+        positionData,
+      });
 
-      steps++
+      steps++;
 
-      requestAnimationFrame(this.animateTSNE)
-    }
+      requestAnimationFrame(this.animateTSNE);
+    };
 
-    requestAnimationFrame(this.animateTSNE)
+    requestAnimationFrame(this.animateTSNE);
   }
 
   _stopTSNE() {
-    this.animateTSNE = () => {}
+    this.animateTSNE = () => {};
   }
 
   _selectNode(node: any) {
@@ -115,15 +113,15 @@ class Home extends Component {
   }
 
   _selectColor({ selectedOption }: { selectedOption: any }) {
-    const kpi: any = dimensions
-    const colorDimension: string = kpi[selectedOption.value]
-    this.setState({ colorDimension })
+    const kpi: any = dimensions;
+    const colorDimension: string = kpi[selectedOption.value];
+    this.setState({ colorDimension });
   }
 
-  _selectSize({ selectedOption }: { selectedOption: any } ) {
-    const kpi: any = dimensions
-    const sizeDimension: string = kpi[selectedOption.value]
-    this.setState({ sizeDimension })
+  _selectSize({ selectedOption }: { selectedOption: any }) {
+    const kpi: any = dimensions;
+    const sizeDimension: string = kpi[selectedOption.value];
+    this.setState({ sizeDimension });
   }
 
   _selectedMunicipalityId(name: string) {
@@ -144,18 +142,18 @@ class Home extends Component {
   }
 
   _changeDimensions(dims: string[]) {
-
-    const updatedNodeData = nodeData.map((node,i) => {
-      let dimensions = node.dimensions.filter((dimension: any) => dims.includes(dimension.dimension))
+    const updatedNodeData = nodeData.map((node, i) => {
+      let dimensions = node.dimensions.filter((dimension: any) =>
+        dims.includes(dimension.dimension)
+      );
 
       return {
         ...node,
-        dimensions
-      }
+        dimensions,
+      };
+    });
 
-    })
-
-    let updatedModelData = updatedNodeData.map(muni => {
+    let updatedModelData = updatedNodeData.map((muni) => {
       const kpiArr = muni.dimensions.map((kpi: any) => {
         const v = kpi.value === undefined ? -1 : kpi.value;
 
@@ -166,8 +164,8 @@ class Home extends Component {
     });
 
     // If no data, return all zeroes for everything
-    if(!updatedModelData[0].length) {
-      updatedModelData = updatedModelData.map(() => [0])
+    if (!updatedModelData[0].length) {
+      updatedModelData = updatedModelData.map(() => [0]);
     }
 
     // const visibleKpis = dims.map(dim => ({ key: dim, value: dimensionss[dim].name }))
@@ -177,7 +175,6 @@ class Home extends Component {
       modelData: updatedModelData,
       dataUpdate: true,
     });
-
   }
 
   render() {
@@ -186,16 +183,18 @@ class Home extends Component {
         <Legends
           colorData={this.state.colorDimension}
           sizeData={this.state.sizeDimension}
-          onSelectColor={ (color: any) => this._selectColor(color) }
-          onSelectSize={ (size: any) => this._selectSize(size) }
-          muniSelected={ Boolean(this.state.selectedNode) }
+          onSelectColor={(color: any) => this._selectColor(color)}
+          onSelectSize={(size: any) => this._selectSize(size)}
+          muniSelected={Boolean(this.state.selectedNode)}
         />
 
         <SelectionKpis node={this.state.selectedNode} />
 
         <Controls
-          onSelectMunicipalityId={ (id: string) => this._selectedMunicipalityId(id) }
-          onChangeDimensions={ (dims: string[]) => this._changeDimensions(dims) }
+          onSelectMunicipalityId={(id: string) =>
+            this._selectedMunicipalityId(id)
+          }
+          onChangeDimensions={(dims: string[]) => this._changeDimensions(dims)}
         />
 
         <VizCanvas

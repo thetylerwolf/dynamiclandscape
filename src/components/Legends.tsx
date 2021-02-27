@@ -1,27 +1,31 @@
 import React, { Component } from "react";
-import * as d3 from 'd3'
+import * as d3 from "d3";
 
 import Dropdown from "./Dropdown";
 
 import { dimensions } from "../models/mappings";
 
 interface props {
-  onSelectColor: (d: any) => void
-  onSelectSize: (d: any) => void
-  colorData: any
-  sizeData: any
-  muniSelected: boolean
+  onSelectColor: (d: any) => void;
+  onSelectSize: (d: any) => void;
+  colorData: any;
+  sizeData: any;
+  muniSelected: boolean;
 }
 
-const Legend = ({ onSelectColor, onSelectSize, colorData, sizeData, muniSelected }: props) => {
-
+const Legend = ({
+  onSelectColor,
+  onSelectSize,
+  colorData,
+  sizeData,
+  muniSelected,
+}: props) => {
   let color = colorData,
-    size = sizeData
+    size = sizeData;
 
   return (
-    <div className={"legends-container " + (muniSelected ? 'pushed' : '') }>
-
-    <div className="legend legend-size">
+    <div className={"legends-container " + (muniSelected ? "pushed" : "")}>
+      {/* <div className="legend legend-size">
 
         <div className="control">
           <Dropdown
@@ -47,10 +51,9 @@ const Legend = ({ onSelectColor, onSelectSize, colorData, sizeData, muniSelected
 
         </div>
 
-      </div>
+      </div> */}
 
       <div className="legend legend-color">
-
         <div className="control">
           <Dropdown
             default={17}
@@ -62,23 +65,27 @@ const Legend = ({ onSelectColor, onSelectSize, colorData, sizeData, muniSelected
 
         <div className="legend-scale">
           <div className="colors-blocks">
-            <div className="block"
+            <div
+              className="block"
               style={{
-                background: 'linear-gradient(90deg, rgba(255,192,0,1) 0%, rgba(9,30,121,1) 100%)',
-                width: 100 + '%'
+                background:
+                  "linear-gradient(90deg, rgba(255,192,0,1) 0%, rgba(9,30,121,1) 100%)",
+                width: 100 + "%",
               }}
             ></div>
           </div>
           <div className="colors-values">
-            <div className="colors-min colors-value">{ color.min ? color.min.toFixed(0) : '' }</div>
-            <div className="colors-max colors-value">{ color.max ? color.max.toFixed(0) : '' }</div>
+            <div className="colors-min colors-value">
+              {color.min ? color.min.toFixed(0) : ""}
+            </div>
+            <div className="colors-max colors-value">
+              {color.max ? color.max.toFixed(0) : ""}
+            </div>
           </div>
         </div>
-
       </div>
-
     </div>
   );
-}
+};
 
 export default Legend;
