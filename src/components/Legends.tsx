@@ -68,8 +68,9 @@ const Legend = ({
             <div
               className="block"
               style={{
-                background:
-                  "linear-gradient(90deg, rgba(255,192,0,1) 0%, rgba(9,30,121,1) 100%)",
+                // background:
+                //   "linear-gradient(90deg, rgba(255,192,0,1) 0%, rgba(9,30,121,1) 100%)",
+                background: "linear-gradient(90deg, #fecd00 0%, #006aa8 100%)",
                 width: 100 + "%",
               }}
             ></div>

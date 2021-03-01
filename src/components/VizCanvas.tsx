@@ -11,7 +11,7 @@ const padding = {
   left: 20,
 };
 
-let maxRadius = 20;
+let maxRadius = 8;
 
 interface props {
   positionData: any[];
@@ -43,13 +43,13 @@ class VizCanvas extends Component<props> {
     .domain([-8, 6])
     .range([padding.top, height - padding.top - padding.bottom]);
 
-  // rScale = d3.scaleSqrt().range([0, maxRadius]).clamp(true);
-  rScale = (d: any) => 8;
+  rScale = d3.scaleSqrt().range([maxRadius, maxRadius]).clamp(true);
+  // rScale = (d: any) => 8;
 
   colorScale = d3
     .scaleLinear<string, string>()
-    .range(["#ffc000", "#091e79"])
-    // .range(["#fecd00", "#006aa8"])
+    // .range(["#ffc000", "#091e79"])
+    .range(["#fecd00", "#006aa8"])
     .clamp(true);
 
   transform = d3.zoomIdentity;
@@ -110,8 +110,9 @@ class VizCanvas extends Component<props> {
       const colorDim: InodeDimension = node.dimensions.find(
           (d) => d.dimension === this.props.colorValue.name
         ) as InodeDimension,
-        radiusDim: InodeDimension =
-          node.dimensions[this.props.radiusValue.index];
+        radiusDim: InodeDimension = node.dimensions.find(
+          (d) => d.dimension === this.props.colorValue.name
+        ) as InodeDimension;
 
       const colorValue =
         colorDim && colorDim.value !== null ? +colorDim.value : -1;
@@ -138,7 +139,7 @@ class VizCanvas extends Component<props> {
           // @ts-ignore
           this.xScale(d[0]),
           this.yScale(d[1]),
-          0.1,
+          2,
           0,
           2 * Math.PI,
           true
@@ -155,8 +156,10 @@ class VizCanvas extends Component<props> {
         context.fillStyle = "#333";
       }
 
-      // context.strokeStyle = '#333'
-      // context.stroke()
+      if (!radiusValue) {
+        context.strokeStyle = "#333";
+        context.stroke();
+      }
 
       context.closePath();
       context.fill();
@@ -183,12 +186,11 @@ class VizCanvas extends Component<props> {
 
   handleClick() {
     let x = this.transform.invertX(d3.event.offsetX),
-      y = this.transform.invertY(d3.event.offsetY),
-      context = this.state.context;
+      y = this.transform.invertY(d3.event.offsetY);
 
     let hitNode: any;
 
-    let hits = this.props.positionData.forEach((point, i) => {
+    this.props.positionData.forEach((point, i) => {
       // @ts-ignore
       let dx = x - this.xScale(point[0]);
       // @ts-ignore
